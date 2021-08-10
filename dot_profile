@@ -1,0 +1,8 @@
+export EDITOR=/usr/bin/nano
+$BROWSER /usr/bin/google-chrome-stable
+
+#sourcing it in /etc/profile works 
+#but only after logout and then 
+#login and not after reboot
+#sourcing xmodmap here doesn't work
+#xmodmap ~/.Xmodmap
