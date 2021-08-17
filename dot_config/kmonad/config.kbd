@@ -14,18 +14,49 @@
   allow-cmd false
 )
 
-(defalias
-  esCt (tap-hold-next-release 150 esc lctl)
-  spCt (tap-hold-next-release 150 space rctl)
+
+;; Home row modifications
+(defalias 
   dMe  (tap-hold-next-release 150 d lmet)
-  kMe  (tap-hold-next-release 150 k lmet)
-  fCt  (tap-hold-next-release 150 f rctl)
+  kMe  (tap-hold-next-release 150 k rmet)
+  fCt  (tap-hold-next-release 150 f lctl)
   jCt  (tap-hold-next-release 150 j rctl)
   sSf  (tap-hold-next-release 150 s lsft)
-  lSf  (tap-hold-next-release 150 l lsft)
-  nav (layer-toggle navigation)
+  lSf  (tap-hold-next-release 150 l rsft)
+)
+
+
+;; Make rctl into a button which switches to extend layer
+;; The Extend Layer provides an additional set of mappings for your keys 
+;; by defining a new "Extend" modifier key.
+;; Holding down this key activates "Extend" mode and provides navigation
+;; and editing functions using keys in the main body of the keyboard.
+(defalias
+  ext (layer-toggle extend)
   pWord C-left ;; navigate to previous word using ctrl left
   nWord C-right ;; navigate to next word using ctrl right
+)
+
+
+;; Layer switching modifications
+;; First line defines a button or we can think of it as an action
+;; which toggles a switcher layer in which all other layers switching
+;; alias are used
+;; Second line is for converting a button to esc on tap and switcher
+;; on hold. Currently esc is used for this button
+;; remaining lines are for swiching to other layers, note layer-swich
+;; not layer-toggle is being used
+(defalias
+  swt (layer-toggle switcher)
+  eSwt  (tap-hold-next-release 150 esc @swt)
+  qwerty (layer-switch qwerty)
+  blank (layer-switch blank)
+)
+
+
+(defalias
+  esCt (tap-hold-next-release 150 esc lctl) ;;change capslock to esc and ctl
+  spCt (tap-hold-next-release 150 space rctl) ;; space as ctrl
 )
 
 
@@ -38,22 +69,49 @@
   lctl lmet lalt           spc            ralt rmet cmp  rctl            left down rght  kp0  kp.
 )
 
-
+;; this layer is default layer in which system starts
 (deflayer qwerty
-  _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
+  @eSwt    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
   @esCt     _    @sSf    @dMe    @fCt    _    _    @jCt    @kMe  @lSf    _    _    _                          _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
-  @nav    _    _              @spCt              _    _    _    _               _    _    _     _    _   
+  @ext    _    _              @spCt              _    _    _    _               _    _    _     _    _   
 )
 
-(deflayer navigation
+
+;; this layer is a toggle layer which is used with ctrl button as an extend layer
+(deflayer extend
   _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
   _    _    _    _    _    _    _    _    home    end    _    _    _    _     _    _    _     _    _    _    _
   _    _    _    _    _    _    left    down    up    right    _    _    _                          _    _    _
   _    _    _    _    _    bspc    @pWord    @nWord    _    _    _    _                    _          _    _    _    _
+  _    _    _              _              _    _    _    _               _    _    _     _    _   
+)
+
+
+;; this layer is used to switch to other layers
+;; make sure to add @eSwt to all layers so you can switch back
+(deflayer switcher
+  _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
+  _    @qwerty    @blank    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _                          _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
+  _    _    _              _              _    _    _    _               _    _    _     _    _   
+)
+
+
+;; this layer is blank which can be used as template to create other layers
+;; this layer doesn't have any modification other than to switch layer
+;; use this layer if you don't want to use any modification
+(deflayer blank
+  @eSwt    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _                          _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
   _    _    _              _              _    _    _    _               _    _    _     _    _   
 )
 
