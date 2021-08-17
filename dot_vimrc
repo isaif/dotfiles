@@ -424,6 +424,10 @@ call matchadd('ColorColumn', '\%81v', 100)
 """ Scripts """"""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""
 
+" Configure VIM to run chezmoi apply whenever you save a dotfile
+autocmd BufWritePost ~/.local/share/chezmoi/* silent ! chezmoi apply --source-path %
+
+
 " delete hidden buffers
 function! DeleteHiddenBuffers()
   let tpbl=[]
