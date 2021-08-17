@@ -176,6 +176,11 @@ zinit load andrewferrier/fzf-z
 ### User custom setting ########################
 ################################################
 
+# chezmoi function to change the directory instead of spawning a new shell
+chezmoi-cd() {
+    cd $(chezmoi source-path)
+}
+
 export VISUAL="vim"
 export EDITOR="$VISUAL"
 
@@ -218,6 +223,11 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 ################################################
 ######### aliases ##############################
 ################################################
+
+# chezmoi dotfiles manager
+alias che="chezmoi"
+alias "checd"="chezmoi-cd"
+
 alias svim='vim -u ~/.SpaceVim/vimrc'
 
 alias chrome="google-chrome-stable"
