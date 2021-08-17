@@ -425,7 +425,7 @@ call matchadd('ColorColumn', '\%81v', 100)
 """"""""""""""""""""""""""""""""""""
 
 " Configure VIM to run chezmoi apply whenever you save a dotfile
-autocmd BufWritePost ~/.local/share/chezmoi/* silent ! chezmoi apply --source-path %
+autocmd BufWritePost ~/.local/share/chezmoi/* execute "!chezmoi apply --source-path %" | redraw!
 
 
 " delete hidden buffers
