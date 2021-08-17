@@ -1,3 +1,8 @@
+;;############################################################################
+;;######################### Defaut config ####################################
+;;############################################################################
+
+
 (defcfg
   input  (device-file "/dev/input/by-id/usb-CHESEN_USB_Keyboard-event-kbd")
   output (uinput-sink "My KMonad output"
@@ -15,7 +20,14 @@
 )
 
 
+;;############################################################################
+;;######################### Aliases ##########################################
+;;############################################################################
+
+
+;;----------------------------------------------------------------------------
 ;; Home row modifications
+;;----------------------------------------------------------------------------
 (defalias 
   dMe  (tap-hold-next-release 150 d lmet)
   kMe  (tap-hold-next-release 150 k rmet)
@@ -26,11 +38,13 @@
 )
 
 
+;;----------------------------------------------------------------------------
 ;; Make rctl into a button which switches to extend layer
 ;; The Extend Layer provides an additional set of mappings for your keys 
 ;; by defining a new "Extend" modifier key.
 ;; Holding down this key activates "Extend" mode and provides navigation
 ;; and editing functions using keys in the main body of the keyboard.
+;;----------------------------------------------------------------------------
 (defalias
   ext (layer-toggle extend)
   pWord C-left ;; navigate to previous word using ctrl left
@@ -38,6 +52,7 @@
 )
 
 
+;;----------------------------------------------------------------------------
 ;; Layer switching modifications
 ;; First line defines a button or we can think of it as an action
 ;; which toggles a switcher layer in which all other layers switching
@@ -46,6 +61,7 @@
 ;; on hold. Currently esc is used for this button
 ;; remaining lines are for swiching to other layers, note layer-swich
 ;; not layer-toggle is being used
+;;----------------------------------------------------------------------------
 (defalias
   swt (layer-toggle switcher)
   eSwt  (tap-hold-next-release 150 esc @swt)
@@ -54,12 +70,23 @@
 )
 
 
+;;----------------------------------------------------------------------------
+;; Some miscellaneous aliases
+;;----------------------------------------------------------------------------
 (defalias
   esCt (tap-hold-next-release 150 esc lctl) ;;change capslock to esc and ctl
   spCt (tap-hold-next-release 150 space rctl) ;; space as ctrl
 )
 
 
+;;############################################################################
+;;######################### Layers ###########################################
+;;############################################################################
+
+
+;;----------------------------------------------------------------------------
+;; Don't change this as this is required by default
+;;----------------------------------------------------------------------------
 (defsrc
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12        ssrq slck pause
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc  ins  home pgup  nlck kp/  kp*  kp-
@@ -69,7 +96,10 @@
   lctl lmet lalt           spc            ralt rmet cmp  rctl            left down rght  kp0  kp.
 )
 
+
+;;----------------------------------------------------------------------------
 ;; this layer is default layer in which system starts
+;;----------------------------------------------------------------------------
 (deflayer qwerty
   @eSwt    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
@@ -80,7 +110,9 @@
 )
 
 
+;;----------------------------------------------------------------------------
 ;; this layer is a toggle layer which is used with ctrl button as an extend layer
+;;----------------------------------------------------------------------------
 (deflayer extend
   _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
@@ -91,8 +123,10 @@
 )
 
 
+;;----------------------------------------------------------------------------
 ;; this layer is used to switch to other layers
 ;; make sure to add @eSwt to all layers so you can switch back
+;;----------------------------------------------------------------------------
 (deflayer switcher
   _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
   _    @qwerty    @blank    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
@@ -103,9 +137,11 @@
 )
 
 
+;;----------------------------------------------------------------------------
 ;; this layer is blank which can be used as template to create other layers
 ;; this layer doesn't have any modification other than to switch layer
 ;; use this layer if you don't want to use any modification
+;;----------------------------------------------------------------------------
 (deflayer blank
   @eSwt    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
