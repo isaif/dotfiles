@@ -15,14 +15,14 @@
 )
 
 (defalias
-  esCt (tap-hold-next-release 200 esc lctl)
-  spCt (tap-next-release space rctl)
-  dMe  (tap-next-release d lmet)
-  kMe  (tap-next-release k lmet)
-  fCt  (tap-next f rctl)
-  jCt  (tap-next j rctl)
-  sSf  (tap-next-release s lsft)
-  lSf  (tap-next-release l lsft)
+  esCt (tap-hold-next-release 150 esc lctl)
+  spCt (tap-hold-next-release 150 space rctl)
+  dMe  (tap-hold-next-release 150 d lmet)
+  kMe  (tap-hold-next-release 150 k lmet)
+  fCt  (tap-hold-next-release 150 f rctl)
+  jCt  (tap-hold-next-release 150 j rctl)
+  sSf  (tap-hold-next-release 150 s lsft)
+  lSf  (tap-hold-next-release 150 l lsft)
   nav (layer-toggle navigation)
   pWord C-left ;; navigate to previous word using ctrl left
   nWord C-right ;; navigate to next word using ctrl right
