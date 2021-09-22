@@ -344,25 +344,27 @@ mode "$mode_system" {
 #####################
 # i3status settings #
 #####################
-bar 	{
-	#height 15
-#	mode hide
-#        status_command i3status
-        status_command SCRIPT_DIR=~/.config/i3blocks/blocks i3blocks
-#	status_command SCRIPT_DIR=/usr/lib/i3blocks i3blocks
-#
-	position top
-#		colors	{		#Border #Backgr	#Text	#Indicator
-#		separator		#ff69b4
-#		statusline		#fdfefe
-#		background		#85929e
-#		focused_background	#000000
-#		focused_workspace	#ff69b4	#000000	#fdfefe
-#		active_workspace	#000000	#000000	#fdfefe
-#		inactive_workspace	#000000	#000000	#fdfefe
-#		urgent_workspace	#c0392b	#000000 #fdfefe
-#			}
-	}
+# commented it out as will be using polybar
+
+#bar 	{
+#	#height 15
+##	mode hide
+##        status_command i3status
+#        status_command SCRIPT_DIR=~/.config/i3blocks/blocks i3blocks
+##	status_command SCRIPT_DIR=/usr/lib/i3blocks i3blocks
+##
+#	position top
+##		colors	{		#Border #Backgr	#Text	#Indicator
+##		separator		#ff69b4
+##		statusline		#fdfefe
+##		background		#85929e
+##		focused_background	#000000
+##		focused_workspace	#ff69b4	#000000	#fdfefe
+##		active_workspace	#000000	#000000	#fdfefe
+##		inactive_workspace	#000000	#000000	#fdfefe
+##		urgent_workspace	#c0392b	#000000 #fdfefe
+##			}
+#	}
 
 #################
 # Border Colors #
@@ -565,3 +567,4 @@ exec_always --no-startup-id ~/bin/startup_scripts
 
 exec --no-startup-id /usr/lib/kdeconnectd
 
+exec_always --no-startup-id ~/.config/polybar/launch.sh
