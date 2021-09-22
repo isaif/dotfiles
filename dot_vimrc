@@ -114,7 +114,7 @@ noremap <Leader>a :wa<CR>
 
 """ Fugitive binding """""""""""""""
 "nnoremap <leader>ga :Git add %:p<CR><CR>
-nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gs :Git<CR>
 "nnoremap <leader>gc :Gcommit -v -q<CR>
 "nnoremap <leader>gt :Gcommit -v -q %:p<CR>
 nnoremap <leader>gd :Gdiff<CR>
@@ -424,7 +424,8 @@ call matchadd('ColorColumn', '\%81v', 100)
 """ Scripts """"""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""
 
-" Configure VIM to run chezmoi apply whenever you save a dotfile
+" Configure VIM to run chezmoi apply whenever you save a dotfile while inside
+" the source directory
 autocmd BufWritePost ~/.local/share/chezmoi/* execute "!chezmoi apply --source-path %" | redraw!
 
 
