@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+
+WIKI_PATH="/home/saif/vimwiki"
+
+cd "$WIKI_PATH"
+
+CHANGES_EXISTS="$(git status --porcelain | wc -l)"
+
+if [ "$CHANGES_EXISTS" -eq 0 ]; then
+	exit 0
+fi
+
+git pull
+git add .
+git commit -q -m "Last Sync: $(date +"%Y-%m-%d %H:%M:%S")"
+git push -q

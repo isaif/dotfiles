@@ -1,0 +1,8 @@
+# Script to show the date when a package was installed first time 
+
+for i in $(pacman -Qq)
+do
+  grep "\[ALPM\] installed $i" /var/log/pacman.log
+done | \
+  sort -u | \
+  sed -e 's/\[ALPM\] installed //' -e 's/(.*$//'
