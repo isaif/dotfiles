@@ -79,7 +79,7 @@ bindkey jj vi-cmd-mode
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting z virtualenv nvm)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting z virtualenv nvm docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
