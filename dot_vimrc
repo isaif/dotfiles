@@ -434,6 +434,11 @@ call matchadd('ColorColumn', '\%81v', 100)
 " Configure VIM to run chezmoi apply whenever you save a dotfile while inside
 " the source directory
 autocmd BufWritePost ~/.local/share/chezmoi/* execute "!chezmoi apply --source-path %" | redraw!
+" All dotfiles are being edit at source directory of chezmoi
+" therefore above code works expect vimrc file which is edited in target
+" directory i.e. ~/.vimrc
+" Since I am using a script to open vimrc it needs to be readded by chezmoi
+autocmd BufWritePost ~/.vimrc execute "!chezmoi re-add --source-path %" | redraw!
 
 
 " delete hidden buffers
@@ -473,3 +478,4 @@ function! Openvimrc()
     endif
   endif
 endfunction
+
