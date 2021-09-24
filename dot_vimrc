@@ -3,6 +3,10 @@
 """"""""""""""""""""""""""""""""""""
 set relativenumber
 
+"This will cause wrap to only wrap at the characters in the breakat
+"setting, which defaults to space, tab, and small set of punctuation characters.
+set linebreak
+
 " Search files using fuzzy
 set path+=**
 set wildmenu
@@ -310,6 +314,9 @@ set sessionoptions+=tabpages,globals
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_global_ext = 0
+
+" to search vimwiki
+nnoremap <Leader>wf :VWS 
 
 
 """"""""""""""""""""""""""""""""""""
