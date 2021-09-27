@@ -320,21 +320,6 @@ nnoremap <Leader>wf :VWS
 
 
 """"""""""""""""""""""""""""""""""""
-"""Theme configuration""""""""""""""
-""""""""""""""""""""""""""""""""""""
-
-let g:gruvbox_contrast_dark="hard"
-"set default colorscheme
-colorscheme gruvbox
-
-set background=dark
-
-"highlight current line
-set cursorline
-
-set t_Co=256
-
-""""""""""""""""""""""""""""""""""""
 """"""""VimGolf's .vimrc""""""""""""
 """"""""""""""""""""""""""""""""""""
 set nocompatible        " use vim defaults
@@ -425,6 +410,25 @@ autocmd FileType html,css EmmetInstall
 highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%81v', 100)
 
+
+""""""""""""""""""""""""""""""""""""
+"""Theme configuration""""""""""""""
+""""""""""""""""""""""""""""""""""""
+
+let g:gruvbox_contrast_dark="hard"
+"set default colorscheme
+colorscheme gruvbox
+
+set background=dark
+
+"highlight current line
+set cursorline
+
+set t_Co=256
+
+" spelling error highlight settings
+hi clear SpellBad
+hi SpellBad cterm=underline,bold ctermfg=red
 
 
 """"""""""""""""""""""""""""""""""""
