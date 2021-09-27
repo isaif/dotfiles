@@ -1,4 +1,4 @@
 "movement in wrapped lines
 noremap j gj
 noremap k gk
-set spell
+setlocal spell
