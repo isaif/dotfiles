@@ -56,7 +56,7 @@ module-margin-right = 1
 
 
 font-0 =  DejaVuSansMono Nerd Font:size=9
-font-1 = MaterialIcons-Regular.tff
+font-1 = DejaVu Sans Mono wifi ramp:size=10
 
 modules-left = i3
 modules-center = date 
@@ -227,29 +227,19 @@ interval = 1.0
 accumulate-stats = true
 unknown-as-up = true
 
-label-connected = 直 %essid%  %downspeed:9%
-label-disconnected = 睊
+label-connected = %essid%  %downspeed:9%
+label-disconnected = 
 
 format-connected = <ramp-signal> <label-connected>
 format-disconnected = <label-disconnected>
 
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-5 = 
 
-;label-connected = "%{A1:~/.config/rofi/applets/menu/network.sh &:}直%{A} %essid%  %downspeed:9%"
-;label-disconnected = "%{A1:networkmanager_dmenu &:}睊%{A}"
-
-ramp-signal-0 = 😱
-ramp-signal-1 = 😠
-ramp-signal-2 = 😒
-ramp-signal-3 = 😊
-ramp-signal-4 = 😃
-ramp-signal-5 = 😈
-
-;ramp-signal-0 = 😱
-;ramp-signal-1 = 😠
-;ramp-signal-2 = 😒
-;ramp-signal-3 = 😊
-;ramp-signal-4 = 😃
-;ramp-signal-5 = 😈
 
 ;################################################################
 ; Other Modules
