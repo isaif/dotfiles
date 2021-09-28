@@ -437,8 +437,10 @@ hi SpellBad cterm=underline,bold ctermfg=red
 
 "The following command will let us press CTRL-N or CTRL-P in
 "insert-mode to complete the word we’re typing!
-
 set complete+=kspell
+
+" toggle spell on
+nnoremap ,ts :set spell!<CR>
 
 
 """"""""""""""""""""""""""""""""""""
