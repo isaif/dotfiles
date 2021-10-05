@@ -286,17 +286,43 @@ $bs $mod+Shift+Delete		exec i3lock -n -i ~/Pictures/lockscreen.png
 ###### Theme 
 ###############################################################################
 
-# Border colors         border  backgr. text    indicator child_border
+# set primary gruvbox colorscheme colors
+set $bg #282828
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d68
+set $gray #a89984
+set $darkgray #1d2021
 
+# green gruvbox
+# class                 border|backgr|text|indicator|child_border
+client.focused          $green $green $darkgray $purple $darkgray
+client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+client.urgent           $red $red $white $red $red
+
+# blue gruvbox
+# class                 border|backgr|text|indicator|child_border
+# client.focused          $blue $blue $darkgray $purple $darkgray
+# client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+# client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+# client.urgent           $red $red $white $red $red
+
+
+# old theme
+# class                 border|backgr|text|indicator|child_border
 # show border all around the focused container
-#client.focused          #d9d9d9 #cecece #000000 #d9d9d9 #d9d9d9
-client.focused          #859900 #859900 #fdf6e3 #859900  #000000
-#client.focused          #tomato #000000 #000000 #ff69b4   #000000
-client.focused_inactive #000000 #5f676a #ffffff #ff69b4   #000000
-client.unfocused        #000000 #222222 #888888 #ff69b4   #000000
-client.urgent           #ffffff #900000 #ffffff #ff69b4   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-client.background       #000000
+##client.focused          #d9d9d9 #cecece #000000 #d9d9d9 #d9d9d9
+#client.focused          #859900 #859900 #fdf6e3 #859900  #000000
+##client.focused          #tomato #000000 #000000 #ff69b4   #000000
+#client.focused_inactive #000000 #5f676a #ffffff #ff69b4   #000000
+#client.unfocused        #000000 #222222 #888888 #ff69b4   #000000
+#client.urgent           #ffffff #900000 #ffffff #ff69b4   #900000
+#client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+#client.background       #000000
 
 
 ###############################################################################
