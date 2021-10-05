@@ -530,29 +530,3 @@ $bs $mod+space exec "rofi -combi-modi window,drun -show combi -modi combi -lines
 #exec --no-startup-id xautolock -detectsleep -time 1 -locker 'i3lock -n -i /home/Pictures/lockscreen.png'
 
 
-###############################################################################
-###### i3status settings
-###############################################################################
-# commented it out as will be using polybar
-
-#bar 	{
-#	#height 15
-##	mode hide
-##        status_command i3status
-#        status_command SCRIPT_DIR=~/.config/i3blocks/blocks i3blocks
-##	status_command SCRIPT_DIR=/usr/lib/i3blocks i3blocks
-##
-#	position top
-##		colors	{		#Border #Backgr	#Text	#Indicator
-##		separator		#ff69b4
-##		statusline		#fdfefe
-##		background		#85929e
-##		focused_background	#000000
-##		focused_workspace	#ff69b4	#000000	#fdfefe
-##		active_workspace	#000000	#000000	#fdfefe
-##		inactive_workspace	#000000	#000000	#fdfefe
-##		urgent_workspace	#c0392b	#000000 #fdfefe
-##			}
-#	}
-
-
