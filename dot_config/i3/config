@@ -43,6 +43,7 @@ bindsym $mod+mod1+Left 		workspace prev
 #bindsym $mod+mod1+h 		workspace prev
 
 bindsym $mod+Tab 		workspace back_and_forth
+bindsym $mod+u	 		workspace back_and_forth
 workspace_auto_back_and_forth yes
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
