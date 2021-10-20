@@ -228,6 +228,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 ######### aliases ##############################
 ################################################
 
+alias v='nvim'
 # chezmoi dotfiles manager
 alias che="chezmoi"
 alias "checd"="chezmoi-cd"
