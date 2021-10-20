@@ -241,15 +241,16 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : exists("g:loaded_snips") ? "\<
 "let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
 "let b:ale_fixers = {'typescript': ['prettier']}
 "let g:ale_completion_tsserver_autoimport = 1
-"let g:ale_completion_enabled = 1
+let g:ale_completion_enabled = 1
 " To use autocomplete in javascript add tsserver
 " in ale_linters like shown below
 "   'javascript': ['eslint', 'tsserver'],
 "set omnifunc=ale#completion#OmniFunc
 
+" use 'javascript': ['eslint','tsserver'] if lsp is required
 let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'typescript': ['tsserver', 'tslint'],
+\   'javascript': ['eslint', 'tsserver'],
+\   'typescript': ['eslint', 'tsserver'],
 \   'vue': ['eslint']
 \}
 
