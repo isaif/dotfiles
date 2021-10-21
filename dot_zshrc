@@ -81,7 +81,7 @@ bindkey jj vi-cmd-mode
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting z virtualenv nvm docker docker-compose)
+plugins=(git asdf zsh-autosuggestions zsh-syntax-highlighting z virtualenv nvm docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -194,13 +194,6 @@ eval "$(pyenv init -)"
 # Haskel settings
 [ -f "/home/saif/.ghcup/env" ] && source "/home/saif/.ghcup/env" # ghcup-env
 
-# ASDF settings
-. $HOME/.asdf/asdf.sh
-# . $HOME/.asdf/completions/asdf.bash
-# append completions to fpath
-fpath=(${ASDF_DIR}/completions $fpath)
-# initialise completions with ZSH's compinit
-autoload -Uz compinit && compinit
 
 source /usr/bin/virtualenvwrapper.sh
 source $(dirname $(gem which colorls))/tab_complete.sh
