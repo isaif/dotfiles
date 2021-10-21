@@ -106,7 +106,7 @@ nnoremap <Leader>e :Files<CR>
 nnoremap <Leader>ff :BLines<CR>
 nnoremap <Leader>fh :Helptags<CR>
 nnoremap <Leader>fo :History<CR>
-nnoremap <Leader>fp :Ag<CR>
+nnoremap <Leader>fp :Rg<CR>
 
 """ Window management """"""""""""""
 nnoremap <Leader>v <C-w>
