@@ -169,10 +169,6 @@ zinit light-mode for \
 
 # plugins added by user
 
-# This plugin is no longer required as fzf provides does the same thing
-# using Alt-C
-zinit load andrewferrier/fzf-z
-
 
 ################################################
 ### User custom setting ########################
