@@ -17,10 +17,6 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir dir_writable vcs vi_mode)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 
-
-bindkey jj vi-cmd-mode
-
-
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -113,26 +109,24 @@ source $ZSH/oh-my-zsh.sh
 
 
 ################################################
-#Prompt directory length customization
+# Powerlevel settings
 ################################################
 
+# Prompt directory length customization
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 
-################################################
-#Git branch name length customization
-###############################################
+# Git branch name length customization
 POWERLEVEL9K_VCS_SHORTEN_STRATEGY="truncate_from_right"
 POWERLEVEL9K_VCS_SHORTEN_MIN_LENGTH=6
 
-################################################
 #Zsh VI mode 
-################################################
 POWERLEVEL9K_VI_INSERT_MODE_STRING=''
 POWERLEVEL9K_VI_COMMAND_MODE_STRING='NORMAL'
 
+
 ################################################
-###### PLugins settings ########################
+# Fzf settings
 ################################################
 # Fzf settings
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -174,11 +168,15 @@ zinit light-mode for \
 ### User custom setting ########################
 ################################################
 
+# Vim mode for command line
+bindkey jj vi-cmd-mode
+
 # chezmoi function to change the directory instead of spawning a new shell
 chezmoi-cd() {
     cd $(chezmoi source-path)
 }
 
+# setting default editor
 export VISUAL="vim"
 export EDITOR="$VISUAL"
 
@@ -224,26 +222,30 @@ alias v='nvim'
 alias che="chezmoi"
 alias "checd"="chezmoi-cd"
 
-alias svim='vim -u ~/.SpaceVim/vimrc'
+# Not using spacevim
+# alias svim='vim -u ~/.SpaceVim/vimrc'
 
 alias chrome="google-chrome-stable"
 alias open="xdg-open"
 
 # Tmux aliases
-alias t="tmux"
-alias ta="t a -t"
-alias tls="t ls"
-alias tn="t new -t"
+# TODO ohmyzsh already provides tmux aliases
+# Use the plugin in ohmyzsh
+# alias t="tmux"
+# alias ta="t a -t"
+# alias tls="t ls"
+# alias tn="t new -t"
 
 alias c="clear"
 #alias x="exit"
+
+# I think this is to open previous session of vim
+# Useful for using vim with tmux
 alias vims="vim -S"
 
-# Using colors to display icons
-alias l='colorls --group-directories-first --almost-all'
-alias ll='colorls --group-directories-first --almost-all --long'
-
-alias config='/usr/bin/git --git-dir=/home/saif/.cfg/ --work-tree=/home/saif'
+# this was dotfile management technique using bare git repository
+# no longer requires as chezmoi is being used
+# alias config='/usr/bin/git --git-dir=/home/saif/.cfg/ --work-tree=/home/saif'
 
 # Command line alias to start the browser-sync server
 # This is installed using npm globally
