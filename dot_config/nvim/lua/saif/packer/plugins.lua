@@ -53,7 +53,9 @@ return packer.startup (
   -- editorconfig file contains rules such as spaces or tabs to be used
   -- this file should be in root directory of project
   -- this plugins ensures that vim respect those rules
-  use 'editorconfig/editorconfig-vim'
+  -- TODO is is now necessary?
+  -- prettier have spaces and tabs 
+  -- use 'editorconfig/editorconfig-vim'
 
   -- use 'https://github.com/kana/vim-submode'
   use 'mattn/emmet-vim'
