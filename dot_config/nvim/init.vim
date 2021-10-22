@@ -86,7 +86,7 @@ nnoremap ,vr :source $MYVIMRC<CR>
 nnoremap ,rf :%s/\<<C-r><C-w>\>//g<Left><Left>
 nnoremap ,rl :s/\<<C-r><C-w>\>//g<Left><Left>
 
-" Select all
+" Copy all
 nnoremap ,c ggVGy
 
 " Uppercase a word
@@ -100,7 +100,7 @@ nnoremap ,u vaWUE
 "map jj to esc
 inoremap jj <Esc>
 
-" Map space to leader and not changing it  the leader is still \
+" Map space to leader and not changing it, the leader is still \
 map <SPACE> <Leader>
 
 " Clear highlights on hitting ESC twice
