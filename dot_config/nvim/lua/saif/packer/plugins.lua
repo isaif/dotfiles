@@ -3,7 +3,7 @@ local present, packer = pcall(require, 'saif.packer.packer_init')
 if not present then return false end
 
 return packer.startup (
-    function(use)
+function(use)
 
   -- Packer can manage itself
   -- without this option packer will keep asking if you want
@@ -70,8 +70,8 @@ return packer.startup (
   -- use 'embear/vim-localvimrc'
 
   use {
-      'glacambre/firenvim',
-      run = function() vim.fn['firenvim#install'](0) end 
+    'glacambre/firenvim',
+    run = function() vim.fn['firenvim#install'](0) end 
   }
 
   -- use 'neovim/nvim-lspconfig'
@@ -87,6 +87,11 @@ return packer.startup (
   -- use 'jose-elias-alvarez/nvim-lsp-ts-utils'
   use 'williamboman/nvim-lsp-installer'
 
-  end
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
+end
 )
 
