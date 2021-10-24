@@ -271,21 +271,6 @@ if exists('g:started_by_firenvim')
 endif
 
 
-""""""""""""""""""""""""""""""""""""
-"""Theme configuration""""""""""""""
-""""""""""""""""""""""""""""""""""""
-
-"let g:gruvbox_contrast_dark="hard"
-""set default colorscheme
-colorscheme gruvbox
-
-set background=dark
-
-"highlight current line
-set cursorline
-
-set t_Co=256
-
 
 """"""""""""""""""""""""""""""""""""
 """ Spell config """""""""""""""""""
@@ -356,6 +341,9 @@ function! Openvimrc()
   endif
 endfunction
 
+
+" lualine hide tabline if one tab is open
+"au OptionSet showtabline :set showtabline=1
 ]])
 
 local vimp = require('vimp')

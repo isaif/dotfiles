@@ -33,6 +33,9 @@ function(use)
   use 'arcticicestudio/nord-vim'
   --use 'sonph/onehalf'
   use 'morhetz/gruvbox'
+  use 'ful1e5/onedark.nvim'
+
+  -- use "projekt0n/github-nvim-theme"
 
   -- Seamlessly navigate between tmux and vim
   use 'christoomey/vim-tmux-navigator'
