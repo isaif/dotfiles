@@ -92,6 +92,8 @@ function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+
   -- Easy adding of mappings
   use('svermeulen/vimpeccable')
 end
