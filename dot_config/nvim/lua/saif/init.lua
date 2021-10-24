@@ -1,3 +1,4 @@
 require('saif/packer')
 require('saif/lsp')
-require('saif/plugins')
+require('saif/configs')
+require('saif/themes')
