@@ -94,6 +94,16 @@ function(use)
 
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
+
+  -- Doesn't have much themes yet
+  -- I will have to setup everthing which I don't have time for
+  -- use 'famiu/feline.nvim'
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+  }
+
   -- Easy adding of mappings
   use('svermeulen/vimpeccable')
 end

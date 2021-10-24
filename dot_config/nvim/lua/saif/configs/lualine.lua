@@ -1,0 +1,32 @@
+
+-- require('lualine').setup{
+--   -- options = {theme = 'gruvbox'}
+--   options = {theme = 'onedark'},
+--   -- options = {theme = 'github'},
+--   -- options = {theme = 'gruvbox-flat'}
+--   -- options = {theme = 'gruvbox_light'}
+--   -- options = {theme = 'gruvbox-material'}
+--   -- options = {theme = 'material'}
+--   -- options = {theme = 'horizon'}
+--   -- options = {theme = 'iceberg_dark'}
+--   -- options = {theme = 'codedark'}
+--   -- tabline = {
+--   --   lualine_a = {'filename'},
+--   --  -- lualine_a = {'tabs', 'filename'},
+--   --   -- lualine_a = {'filename'},
+--   --   lualine_b = {'tabs'},
+--   --   -- lualine_c = {'filename'},
+--   --   lualine_c = {},
+--   --   lualine_x = {},
+--   --   lualine_y = {},
+--   --   lualine_z = {'tabs'}
+--   -- }
+-- }
+
+-- -- local custom_gruvbox = require'lualine.themes.gruvbox'
+-- -- -- Change the background of lualine_c section for normal mode
+-- -- -- custom_gruvbox.normal.c.bg = '#191919' -- rgb colors are supported
+-- -- require'lualine'.setup{
+-- --   options = { theme  = custom_gruvbox },
+-- --   ...
+-- -- }
