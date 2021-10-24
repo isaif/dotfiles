@@ -54,14 +54,14 @@ function(use)
   -- this file should be in root directory of project
   -- this plugins ensures that vim respect those rules
   -- TODO is is now necessary?
-  -- prettier have spaces and tabs 
+  -- prettier have spaces and tabs
   -- use 'editorconfig/editorconfig-vim'
 
   -- use 'https://github.com/kana/vim-submode'
   use 'mattn/emmet-vim'
   use 'Townk/vim-autoclose'
 
-  -- To manage tags 
+  -- To manage tags
   -- use 'ludovicchabant/vim-gutentags'
 
   use 'vimwiki/vimwiki'
@@ -71,7 +71,7 @@ function(use)
 
   use {
     'glacambre/firenvim',
-    run = function() vim.fn['firenvim#install'](0) end 
+    run = function() vim.fn['firenvim#install'](0) end
   }
 
   -- use 'neovim/nvim-lspconfig'
@@ -92,6 +92,8 @@ function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
+  -- Easy adding of mappings
+  use('svermeulen/vimpeccable')
 end
 )
 
