@@ -1,3 +1,5 @@
+vim.cmd([[
+
 " NEOVIM CONFIG
 
 """"""""""""""""""""""""""""""""""""
@@ -352,4 +354,6 @@ function! Openvimrc()
     endif
   endif
 endfunction
+
+]])
 
