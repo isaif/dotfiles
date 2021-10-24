@@ -82,7 +82,7 @@ EOF
 
 " Open vimrc
 nnoremap <F3> :call Openvimrc()<CR>
-nnoremap ,vr :source $MYVIMRC<CR>
+"nnoremap ,vr :source $MYVIMRC<CR>
 
 " Replace word under cursor in file and line
 nnoremap ,rf :%s/\<<C-r><C-w>\>//g<Left><Left>
@@ -262,6 +262,7 @@ let g:firenvim_config = {
     \ }
 \ }
 
+" TODO add whatever status line being used
 " If the instance is firenvim disable airline and
 " make status line simple
 if exists('g:started_by_firenvim')
@@ -337,13 +338,13 @@ command! Dbuf :call DeleteHiddenBuffers()
 " function to toggle vimrc file in a tab
 function! Openvimrc()
   " check if current tab has vimrc
-  let l:buf_win_number = bufwinnr("init.vim")
+  let l:buf_win_number = bufwinnr("init.lua")
   " if window exists then close it
   if buf_win_number > 0
     exe buf_win_number . "wincmd c" 
   else
     " Check if vimrc is opened in another tab
-    let l:vim_buffer_number = bufnr("init.vim")
+    let l:vim_buffer_number = bufnr("init.lua")
     let l:win_id_list = win_findbuf(vim_buffer_number)
     " if true then switch to it else open it in new tab
     if len(win_id_list) != 0
