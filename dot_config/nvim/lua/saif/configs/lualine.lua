@@ -1,32 +1,55 @@
+require('lualine').setup{
+  options = {
+    icons_enabled = true,
+    -- theme = 'auto',
+    -- component_separators = { left = '', right = ''},
+    section_separators = '',
+    -- section_separators = { left = '', right = ''},
+    -- disabled_filetypes = {},
+    always_divide_middle = true,
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {
+      'branch',
+      'diff',
+      {'diagnostics', sources={'nvim_lsp', 'coc'}}
+    },
+    lualine_c = {
+      {
+        'filename',
+        -- displays file status (readonly status, modified status)
+        file_status = true,
+        -- 0 = just filename, 1 = relative path, 2 = absolute path
+        path = 1,
+        shorting_target = 20
+      },
+    },
+    -- lualine_c = {'filename'},
+    lualine_x = {
+      -- 'encoding',
+      -- 'fileformat',
+      {'filetype', icons_enabled = false },
+    },
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    -- lualine_c = {'filename'},
+    lualine_c = {
+      {
+        'filename',
+        path = 1,
+        shorting_target = 40
+      }
+    },
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  extensions = {}
+}
 
--- require('lualine').setup{
---   -- options = {theme = 'gruvbox'}
---   options = {theme = 'onedark'},
---   -- options = {theme = 'github'},
---   -- options = {theme = 'gruvbox-flat'}
---   -- options = {theme = 'gruvbox_light'}
---   -- options = {theme = 'gruvbox-material'}
---   -- options = {theme = 'material'}
---   -- options = {theme = 'horizon'}
---   -- options = {theme = 'iceberg_dark'}
---   -- options = {theme = 'codedark'}
---   -- tabline = {
---   --   lualine_a = {'filename'},
---   --  -- lualine_a = {'tabs', 'filename'},
---   --   -- lualine_a = {'filename'},
---   --   lualine_b = {'tabs'},
---   --   -- lualine_c = {'filename'},
---   --   lualine_c = {},
---   --   lualine_x = {},
---   --   lualine_y = {},
---   --   lualine_z = {'tabs'}
---   -- }
--- }
-
--- -- local custom_gruvbox = require'lualine.themes.gruvbox'
--- -- -- Change the background of lualine_c section for normal mode
--- -- -- custom_gruvbox.normal.c.bg = '#191919' -- rgb colors are supported
--- -- require'lualine'.setup{
--- --   options = { theme  = custom_gruvbox },
--- --   ...
--- -- }
