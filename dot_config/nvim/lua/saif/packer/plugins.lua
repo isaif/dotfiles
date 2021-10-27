@@ -62,6 +62,9 @@ function(use)
 
   -- use 'https://github.com/kana/vim-submode'
   use 'mattn/emmet-vim'
+
+  -- TODO this plugin is archived now
+  -- find an alternative
   use 'Townk/vim-autoclose'
 
   -- To manage tags
@@ -89,6 +92,12 @@ function(use)
   -- use 'ray-x/lsp_signature.nvim'
   -- use 'jose-elias-alvarez/nvim-lsp-ts-utils'
   use 'williamboman/nvim-lsp-installer'
+
+  --TODO setup treesitter
+  use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
 
   use {
     'nvim-telescope/telescope.nvim',
