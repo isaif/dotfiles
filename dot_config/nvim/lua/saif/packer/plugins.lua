@@ -34,12 +34,14 @@ function(use)
   --use 'sonph/onehalf'
   use 'morhetz/gruvbox'
   use 'ful1e5/onedark.nvim'
+  use 'marko-cerovac/material.nvim'
 
   -- use "projekt0n/github-nvim-theme"
 
   -- Seamlessly navigate between tmux and vim
   use 'christoomey/vim-tmux-navigator'
 
+  -- TODO: neovim provide this feature inbuilt
   use 'machakann/vim-highlightedyank'
 
   -- Support for running linters on the contents of text buffers and return
