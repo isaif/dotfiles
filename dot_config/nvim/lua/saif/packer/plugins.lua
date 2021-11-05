@@ -88,6 +88,7 @@ function(use)
 
   -- Autocomplete & Linters
   use 'neovim/nvim-lspconfig'
+  use 'jose-elias-alvarez/null-ls.nvim'
   -- use 'nvim-lua/lsp-status.nvim'
   -- use 'tjdevries/lsp_extensions.nvim'
   use 'glepnir/lspsaga.nvim'
