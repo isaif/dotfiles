@@ -31,6 +31,7 @@ function(use)
   --use 'doums/darcula'
   --use 'https://github.com/flrnd/plastic.vim.git'
   use 'arcticicestudio/nord-vim'
+  use 'rmehri01/onenord.nvim'
   --use 'sonph/onehalf'
   use 'morhetz/gruvbox'
   use 'ful1e5/onedark.nvim'
