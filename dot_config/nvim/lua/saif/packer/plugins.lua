@@ -61,6 +61,7 @@ function(use)
   use 'tpope/vim-fugitive'
 
   use 'vimwiki/vimwiki'
+
   -- Local vimrc file is required for linting in ale
   -- When we need to use docker
   -- use 'embear/vim-localvimrc'
@@ -99,9 +100,14 @@ function(use)
   -- Utilities
   --##################################################################
 
+  -- Auto session manager
+  use'rmagatti/auto-session'
+  -- Session restorer using above plugin
+  -- use'rmagatti/session-lens'
+
   -- Vim session manager
   -- also used by tmux resurrect to restore vim session
-  use 'tpope/vim-obsession'
+  -- use 'tpope/vim-obsession'
 
   -- rename tabs plugin
   use 'gcmt/taboo.vim'
