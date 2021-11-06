@@ -1,5 +1,5 @@
 local nnoremap = require('vimp').nnoremap
-local vnoremap = require('vimp').vnoremap
+-- local vnoremap = require('vimp').vnoremap
 
 nnoremap('J', 'mzJ`z')
 
@@ -40,4 +40,27 @@ nnoremap(',s', ':lua require("harpoon.ui").nav_file(2)<CR>')
 nnoremap(',d', ':lua require("harpoon.ui").nav_file(3)<CR>')
 -- nnoremap(',f', ':lua require("harpoon.ui").nav_file(4)')
 
+
+--##################################################################--
+-- Fugigitive
+--##################################################################--
+nnoremap('<leader>gg', ':tab G<CR>')
+nnoremap('<leader>gs', ':Git<CR>')
+nnoremap('<leader>gd', ':Gdiffsplit<CR>')
+-- nnoremap('<leader>gb', ':Git blame<CR>')
+--nnoremap <leader>ga :Git add %:p<CR><CR>
+-- nnoremap <leader>gs :Git<CR>
+--nnoremap <leader>gc :Gcommit -v -q<CR>
+--nnoremap <leader>gt :Gcommit -v -q %:p<CR>
+-- nnoremap <leader>gd :Gdiff<CR>
+--nnoremap <leader>ge :Gedit<CR>
+--nnoremap <leader>gr :Gread<CR>
+--nnoremap <leader>gw :Gwrite<CR><CR>
+--nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
+--nnoremap <leader>gp :Ggrep<leader>
+--nnoremap <leader>gm :Gmove<leader>
+--nnoremap <leader>gb :Git branch<leader>
+--nnoremap <leader>go :Git checkout<leader>
+--nnoremap <leader>gps :Dispatch! git push<CR>
+--nnoremap <leader>gpl :Dispatch! git pull<CR>
 
