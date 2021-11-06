@@ -10,46 +10,72 @@ function(use)
   -- to remove packer folder from the .local/nvim/ plugin folder
   use 'wbthomason/packer.nvim'
 
-  -- airline plugin
-  -- use 'vim-airline/vim-airline'
-  -- airline themes plugin
-  -- use 'vim-airline/vim-airline-themes'
-  -- fzf
-  -- use '~/.fzf'
-  -- use 'junegunn/fzf.vim'
+
+  --##################################################################
+  -- LSP and friends
+  --##################################################################
+
+  use 'neovim/nvim-lspconfig'
+  use 'jose-elias-alvarez/null-ls.nvim'
+  use 'williamboman/nvim-lsp-installer'
+
+  use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
+
+  -- use 'nvim-lua/lsp-status.nvim'
+  -- use 'tjdevries/lsp_extensions.nvim'
+  -- use 'glepnir/lspsaga.nvim'
+  -- use 'onsails/lspkind-nvim'
+  -- use 'ray-x/lsp_signature.nvim'
+  -- use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+
+
+  --##################################################################
+  -- Navigation
+  --##################################################################
+
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+
+  -- Seamlessly navigate between tmux and vim
+  -- TODO: remove this plugin after adding the mappin
+  -- c-j, c-k, c-h, c-l
+  use 'christoomey/vim-tmux-navigator'
+
+  -- To manage tags
+  -- use 'ludovicchabant/vim-gutentags'
+
+
+  --##################################################################
+  -- Extension plugins
+  --##################################################################
+
   -- Git features
   use 'tpope/vim-fugitive'
 
-  -- Vim session manager
-  -- also used by tmux resurrect to restore vim session
-  use 'tpope/vim-obsession'
+  use 'vimwiki/vimwiki'
+  -- Local vimrc file is required for linting in ale
+  -- When we need to use docker
+  -- use 'embear/vim-localvimrc'
 
-  -- rename tabs plugin
-  use 'gcmt/taboo.vim'
-
-  --""""""""""themes""""""""""""""""""
-  --use 'doums/darcula'
-  --use 'https://github.com/flrnd/plastic.vim.git'
-  use 'arcticicestudio/nord-vim'
-  use 'rmehri01/onenord.nvim'
-  --use 'sonph/onehalf'
-  use 'morhetz/gruvbox'
-  use 'ful1e5/onedark.nvim'
-  use 'marko-cerovac/material.nvim'
-
-  -- use "projekt0n/github-nvim-theme"
-
-  -- Seamlessly navigate between tmux and vim
-  use 'christoomey/vim-tmux-navigator'
+  use {
+    'glacambre/firenvim',
+    run = function() vim.fn['firenvim#install'](0) end
+  }
 
   -- TODO: neovim provide this feature inbuilt
-  use 'machakann/vim-highlightedyank'
+  -- use 'machakann/vim-highlightedyank'
 
-  -- Support for running linters on the contents of text buffers and return
-  -- errors as text is changed in Vim. This allows for displaying warnings and
-  -- errors in files being edited in Vim before files have been saved back to a
-  -- filesystem.
-  -- use 'dense-analysis/ale'
+
+  --##################################################################
+  -- Coding help
+  --##################################################################
 
   -- gcc to comment out a line (takes a count), gc to comment out the target of
   -- a motion (for example, gcap to comment out a paragraph), gc in visual mode
@@ -70,58 +96,43 @@ function(use)
   -- find an alternative
   use 'Townk/vim-autoclose'
 
-  -- To manage tags
-  -- use 'ludovicchabant/vim-gutentags'
 
-  use 'vimwiki/vimwiki'
-  -- Local vimrc file is required for linting in ale
-  -- When we need to use docker
-  -- use 'embear/vim-localvimrc'
+  --##################################################################
+  -- Utilities
+  --##################################################################
 
-  use {
-    'glacambre/firenvim',
-    run = function() vim.fn['firenvim#install'](0) end
-  }
+  -- Vim session manager
+  -- also used by tmux resurrect to restore vim session
+  use 'tpope/vim-obsession'
 
-  -- use 'neovim/nvim-lspconfig'
-  -- use 'williamboman/nvim-lsp-installer'
+  -- rename tabs plugin
+  use 'gcmt/taboo.vim'
 
-  -- Autocomplete & Linters
-  use 'neovim/nvim-lspconfig'
-  use 'jose-elias-alvarez/null-ls.nvim'
-  -- use 'nvim-lua/lsp-status.nvim'
-  -- use 'tjdevries/lsp_extensions.nvim'
-  use 'glepnir/lspsaga.nvim'
-  -- use 'onsails/lspkind-nvim'
-  -- use 'ray-x/lsp_signature.nvim'
-  -- use 'jose-elias-alvarez/nvim-lsp-ts-utils'
-  use 'williamboman/nvim-lsp-installer'
-
-  --TODO setup treesitter
-  use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-    }
-
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
-
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  -- Easy adding of mappings
+  use('svermeulen/vimpeccable')
 
 
-  -- Doesn't have much themes yet
-  -- I will have to setup everthing which I don't have time for
-  -- use 'famiu/feline.nvim'
+  --##################################################################
+  -- Themes and friends
+  --##################################################################
+
+  use 'arcticicestudio/nord-vim'
+  use 'rmehri01/onenord.nvim'
+  --use 'sonph/onehalf'
+  use 'morhetz/gruvbox'
+  use 'ful1e5/onedark.nvim'
+  use 'marko-cerovac/material.nvim'
 
   use {
     'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
 
-  -- Easy adding of mappings
-  use('svermeulen/vimpeccable')
+  -- Doesn't have much themes yet
+  -- I will have to setup everthing which I don't have time for
+  -- use 'famiu/feline.nvim'
+
+
 end
 )
 
