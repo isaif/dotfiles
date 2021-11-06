@@ -123,8 +123,10 @@ function(use)
   -- use 'ful1e5/onedark.nvim'
   -- use 'marko-cerovac/material.nvim'
   -- use 'eddyekofo94/gruvbox-flat.nvim'
-  use "projekt0n/github-nvim-theme"
+  -- use "projekt0n/github-nvim-theme"
   use 'EdenEast/nightfox.nvim'
+  -- use "Pocco81/Catppuccino.nvim"
+  use 'folke/tokyonight.nvim'
 
   use {
     'nvim-lualine/lualine.nvim',
