@@ -48,6 +48,7 @@ function(use)
   -- c-j, c-k, c-h, c-l
   use 'christoomey/vim-tmux-navigator'
 
+  use 'ThePrimeagen/harpoon'
   -- To manage tags
   -- use 'ludovicchabant/vim-gutentags'
 
