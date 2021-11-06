@@ -116,14 +116,15 @@ function(use)
   -- Themes and friends
   --##################################################################
 
-  use 'arcticicestudio/nord-vim'
+  -- use 'arcticicestudio/nord-vim'
   use 'rmehri01/onenord.nvim'
   --use 'sonph/onehalf'
   use 'morhetz/gruvbox'
-  use 'ful1e5/onedark.nvim'
-  use 'marko-cerovac/material.nvim'
-  use 'eddyekofo94/gruvbox-flat.nvim'
+  -- use 'ful1e5/onedark.nvim'
+  -- use 'marko-cerovac/material.nvim'
+  -- use 'eddyekofo94/gruvbox-flat.nvim'
   use "projekt0n/github-nvim-theme"
+  use 'EdenEast/nightfox.nvim'
 
   use {
     'nvim-lualine/lualine.nvim',

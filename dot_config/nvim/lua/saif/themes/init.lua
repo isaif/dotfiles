@@ -1,4 +1,5 @@
-require('saif/themes/github-theme')
+require('saif/themes/nightfox')
+-- require('saif/themes/github-theme')
 -- require('saif/themes/gruvbox-flat')
 -- require('saif/themes/onedark')
 -- require('saif/themes/material-nvim')
