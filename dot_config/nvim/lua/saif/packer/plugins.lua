@@ -69,9 +69,6 @@ function(use)
     run = function() vim.fn['firenvim#install'](0) end
   }
 
-  -- TODO: neovim provide this feature inbuilt
-  -- use 'machakann/vim-highlightedyank'
-
 
   --##################################################################
   -- Coding help
