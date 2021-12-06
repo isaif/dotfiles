@@ -3,8 +3,17 @@ local lsp_installer = require("nvim-lsp-installer")
 local util = require 'lspconfig/util'
 local root_pattern = util.root_pattern
 
+local vimp = require('vimp')
+local bufmap = vimp.add_buffer_maps
+local function nnoremap(...) vimp.nnoremap({'silent'}, ...) end
+
 local function common_on_attach(client, bufnr)
+
   -- ... set up buffer keymaps, etc.
+  bufmap(bufnr, function()
+    -- nnoremap({'silent'}, 'gd', ':Telescope lsp_definitions<cr>')
+    nnoremap('gd', ':Telescope lsp_definitions<cr>')
+  end)
 end
 
 lsp_installer.on_server_ready(function(server)
