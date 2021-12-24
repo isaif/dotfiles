@@ -1,7 +1,8 @@
 local nls = require "null-ls"
 
-nls.config {
+require("null-ls").setup({
   diagnostics_format = "[#{s}] #{c}: #{m}",
+
   sources = {
     -- nls.builtins.code_actions.gitsigns,
     nls.builtins.formatting.prettierd,
@@ -29,15 +30,11 @@ nls.config {
     --   },
     -- },
   },
-}
 
-require("lspconfig")["null-ls"].setup {
--- you can reuse a shared lspconfig on_attach callback here
-
--- format on save
+    -- you can reuse a shared lspconfig on_attach callback here
     on_attach = function(client)
         if client.resolved_capabilities.document_formatting then
             vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
         end
     end,
-}
+})
