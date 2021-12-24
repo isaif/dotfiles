@@ -102,6 +102,8 @@ function(use)
   -- find an alternative
   use 'Townk/vim-autoclose'
 
+  use 'haringsrob/nvim_context_vt'
+
 
   --##################################################################
   -- Utilities
@@ -122,6 +124,11 @@ function(use)
   -- Easy adding of mappings
   use('svermeulen/vimpeccable')
 
+  use {
+    -- Optional but recommended
+    -- 'nvim-treesitter/nvim-treesitter',
+    'lewis6991/spellsitter.nvim',
+  }
 
   --##################################################################
   -- Themes and friends
