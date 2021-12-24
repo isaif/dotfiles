@@ -261,8 +261,8 @@ endif
 """"""""""""""""""""""""""""""""""""
 
 " spelling error highlight settings
-hi clear SpellBad
-hi SpellBad cterm=underline,bold ctermfg=red
+" hi clear SpellBad
+" hi SpellBad cterm=underline,bold ctermfg=red
 
 "The following command will let us press CTRL-N or CTRL-P in
 "insert-mode to complete the word we’re typing!
