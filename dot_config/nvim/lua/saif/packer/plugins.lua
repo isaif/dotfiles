@@ -100,7 +100,8 @@ function(use)
 
   -- TODO this plugin is archived now
   -- find an alternative
-  use 'Townk/vim-autoclose'
+  -- use 'Townk/vim-autoclose'
+  use "steelsojka/pears.nvim"
 
   use 'haringsrob/nvim_context_vt'
 
