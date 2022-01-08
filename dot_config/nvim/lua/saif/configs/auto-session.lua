@@ -5,7 +5,7 @@ local opts = {
   auto_session_enabled = true,
   auto_save_enabled = nil,
   auto_restore_enabled = nil,
-  auto_session_suppress_dirs = {'~/', '~/my-projects', 'experiments'}
+  auto_session_suppress_dirs = {'~/', '~/my-projects', '~/experiments'}
 }
 
 require('auto-session').setup(opts)
