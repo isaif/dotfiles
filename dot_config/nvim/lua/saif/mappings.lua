@@ -1,4 +1,6 @@
 local nnoremap = require('vimp').nnoremap
+local xnoremap = require('vimp').xnoremap
+local onoremap = require('vimp').onoremap
 -- local vnoremap = require('vimp').vnoremap
 
 nnoremap('J', 'mzJ`z')
@@ -44,6 +46,7 @@ nnoremap(',d', ':lua require("harpoon.ui").nav_file(3)<CR>')
 --##################################################################--
 -- Fugigitive
 --##################################################################--
+
 nnoremap('<leader>gg', ':tab G<CR>')
 nnoremap('<leader>gs', ':Git<CR>')
 nnoremap('<leader>gd', ':Gdiffsplit<CR>')
@@ -63,4 +66,21 @@ nnoremap('<leader>gd', ':Gdiffsplit<CR>')
 --nnoremap <leader>go :Git checkout<leader>
 --nnoremap <leader>gps :Dispatch! git push<CR>
 --nnoremap <leader>gpl :Dispatch! git pull<CR>
+
+
+--##################################################################--
+-- Text objects
+--##################################################################--
+
+--  inner/around line text objects
+--  visual mode
+xnoremap({'silent'}, 'il', '<ESC>^vg_')
+xnoremap({'silent'}, 'al', '<ESC>0v$')
+--  operator pending mode
+onoremap({'silent'}, 'il', ':<C-u>normal! ^vg_<CR>')
+onoremap({'silent'}, 'al', ':<C-u>normal! 0v$<CR>')
+
+-- Complete buffer
+-- xnoremap({'silent'}, 'A', '<ESC>myggVG`y')
+onoremap({'silent'}, 'A', ':<C-u>normal! ggVG<CR>')
 
