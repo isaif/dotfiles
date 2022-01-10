@@ -1,9 +1,13 @@
 -- vim.go.t_Co = '256'
 
+-- use dark/hard here to make it work
+vim.g.gruvbox_flat_style = "dark"
+-- vim.g.gruvbox_flat_style = "hard"
+
 -- hightight current line
 vim.o.cursorline = true
 
-vim.o.background = 'dark'
+-- vim.o.background = 'dark'
 -- vim.o.termguicolors = true
 vim.o.showmode = false
 
