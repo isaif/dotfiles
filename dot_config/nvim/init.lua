@@ -106,7 +106,10 @@ inoremap jj <Esc>
 map <SPACE> <Leader>
 
 " Clear highlights on hitting ESC twice
-nnoremap <silent> <esc><esc> :nohlsearch<CR>
+" nnoremap <silent> <esc><esc> :nohlsearch<CR>
+
+" disable highlight on esc
+nnoremap <silent> <esc> :nohlsearch<CR><Esc>
 
 noremap <F2> :Lex<CR>
 
