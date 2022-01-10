@@ -89,7 +89,7 @@ nnoremap ,rf :%s/\<<C-r><C-w>\>//g<Left><Left>
 nnoremap ,rl :s/\<<C-r><C-w>\>//g<Left><Left>
 
 " Copy all
-nnoremap ,c ggVGy
+" nnoremap ,c ggVGy
 
 " Uppercase a word
 nnoremap ,u vaWUE
