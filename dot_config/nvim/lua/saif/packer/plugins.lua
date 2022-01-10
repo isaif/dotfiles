@@ -98,10 +98,10 @@ function(use)
   -- use 'https://github.com/kana/vim-submode'
   use 'mattn/emmet-vim'
 
-  -- TODO this plugin is archived now
-  -- find an alternative
-  -- use 'Townk/vim-autoclose'
-  use "steelsojka/pears.nvim"
+  -- auto closing brackets
+  use 'windwp/nvim-autopairs'
+  -- auto close html tags using treesitter
+  use 'windwp/nvim-ts-autotag'
 
   use 'haringsrob/nvim_context_vt'
 
@@ -137,7 +137,7 @@ function(use)
 
   -- use 'arcticicestudio/nord-vim'
   -- use 'rmehri01/onenord.nvim'
-  --use 'sonph/onehalf'
+  -- use 'sonph/onehalf'
   -- use 'morhetz/gruvbox'
   -- use 'ful1e5/onedark.nvim'
   -- use 'marko-cerovac/material.nvim'
