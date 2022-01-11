@@ -81,7 +81,7 @@ EOF
 """"""""""""""""""""""""""""""""""""
 
 " Open vimrc
-nnoremap <F3> :call Openvimrc()<CR>
+"nnoremap <F3> :call Openvimrc()<CR>
 "nnoremap ,vr :source $MYVIMRC<CR>
 
 " Replace word under cursor in file and line

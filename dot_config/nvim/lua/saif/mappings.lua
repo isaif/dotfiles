@@ -25,6 +25,9 @@ nnoremap('<leader>fr', ':Telescope registers<cr>')
 nnoremap('<leader>fs', ':Telescope resume<cr>')
 nnoremap('<leader>fi', ':Telescope current_buffer_fuzzy_find<cr>')
 
+nnoremap('<F3>', [[:lua require("telescope.builtin").live_grep({search_dirs={"~/.config/nvim/"}})<cr>]])
+nnoremap('<F4>', [[:lua require("telescope.builtin").live_grep({search_dirs={"~/vimwiki/"}})<cr>]])
+
 -- git related settings
 nnoremap('<leader>gc', ':Telescope git_commits<cr>')
 nnoremap('<leader>gb', ':Telescope git_bcommits<cr>')
