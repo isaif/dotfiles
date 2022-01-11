@@ -103,6 +103,9 @@ function(use)
   -- auto close html tags using treesitter
   use 'windwp/nvim-ts-autotag'
 
+  -- surround plugin
+  use 'machakann/vim-sandwich'
+
   use 'haringsrob/nvim_context_vt'
 
 
