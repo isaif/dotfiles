@@ -3,16 +3,36 @@ local lsp_installer = require("nvim-lsp-installer")
 local util = require 'lspconfig/util'
 local root_pattern = util.root_pattern
 
+-- function for mappings
 local vimp = require('vimp')
-local bufmap = vimp.add_buffer_maps
 local function nnoremap(...) vimp.nnoremap({'silent'}, ...) end
+local bufmap = vimp.add_buffer_maps
+
 
 local function common_on_attach(client, bufnr)
 
-  -- ... set up buffer keymaps, etc.
+  --[[ set up buffer keymaps, etc.
+  I think setting mappings here will only make this mappings available
+  if lsp is enabled else the mappings will work as it is intended
+  in vanilla vim
+  for example 'gd' will use telescope if lsp is enabled else default
+  'gd' mapping will be used ]]
   bufmap(bufnr, function()
     -- nnoremap({'silent'}, 'gd', ':Telescope lsp_definitions<cr>')
+    nnoremap(',ld', ':Telescope lsp_document_symbols<CR>')
+    nnoremap('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
     nnoremap('gd', ':Telescope lsp_definitions<cr>')
+    nnoremap('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
+    nnoremap('gr', ':Telescope lsp_refrences<CR>')
+    nnoremap(',lt', ':Telescope lsp_type_definitions<CR>')
+    nnoremap(',lr', '<cmd>lua vim.lsp.buf.rename()<CR>')
+    nnoremap(',li', ':Telescope lsp_implementations<CR>')
+    nnoremap(',ls', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+    -- nnoremap(',lc', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+    nnoremap(',lc', ':Telescope lsp_code_actions<CR>')
+    nnoremap(',lm', '<cmd>lua vim.diagnostic.open_float()<CR>')
+    nnoremap('[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
+    nnoremap(']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
   end)
 end
 
