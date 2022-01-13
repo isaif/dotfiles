@@ -87,7 +87,7 @@
 ;;----------------------------------------------------------------------------
 (defalias
   esCt (tap-hold-next-release 150 esc lctl) ;;change capslock to esc and ctl
-  spCt (tap-hold-next-release 150 space rctl) ;; space as ctrl
+  ;;spCt (tap-hold-next-release 150 space rctl) ;; space as ctrl
 )
 
 
@@ -118,7 +118,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
   @esCt     _    @sSf    @dMe    @fCt    _    _    @jCt    @kMe  @lSf    _    _    _                          _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
-  @ext    _    _              @spCt              _    _    _    _               _    _    _     _    _   
+  @ext    _    _              _              _    _    _    _               _    _    _     _    _   
 )
 
 
