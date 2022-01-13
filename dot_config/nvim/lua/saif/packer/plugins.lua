@@ -42,6 +42,7 @@ function(use)
   }
 
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use { "nvim-telescope/telescope-file-browser.nvim" }
 
   -- Seamlessly navigate between tmux and vim
   -- TODO: remove this plugin after adding the mappin
