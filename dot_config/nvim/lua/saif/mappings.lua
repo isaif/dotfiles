@@ -87,3 +87,17 @@ onoremap({'silent'}, 'al', ':<C-u>normal! 0v$<CR>')
 -- xnoremap({'silent'}, 'A', '<ESC>myggVG`y')
 onoremap({'silent'}, 'A', ':<C-u>normal! ggVG<CR>')
 
+
+--##################################################################--
+-- Lightspeed
+--##################################################################--
+
+vim.cmd([[
+  " remove linewise search
+  noremap f f
+  noremap F F
+  noremap ; ;
+  noremap , ,
+  " change search mapping from s to ss
+  nmap ss <Plug>Lightspeed_s
+]])

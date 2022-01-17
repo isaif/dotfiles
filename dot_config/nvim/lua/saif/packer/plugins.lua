@@ -52,6 +52,7 @@ function(use)
   use 'ThePrimeagen/harpoon'
   -- To manage tags
   -- use 'ludovicchabant/vim-gutentags'
+  use 'ggandor/lightspeed.nvim'
 
 
   --##################################################################
