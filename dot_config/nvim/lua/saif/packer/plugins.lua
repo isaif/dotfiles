@@ -88,6 +88,9 @@ function(use)
           require('Comment').setup()
       end
   }
+--  use 'numToStr/Comment.nvim'
+  -- Treesitter support for Comment.nvim
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
 
   -- editorconfig file contains rules such as spaces or tabs to be used
   -- this file should be in root directory of project
