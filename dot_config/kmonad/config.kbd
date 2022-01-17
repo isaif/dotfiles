@@ -35,6 +35,8 @@
   jCt  (tap-hold-next-release 150 j rctl)
   sSf  (tap-hold-next-release 150 s lsft)
   lSf  (tap-hold-next-release 150 l rsft)
+  vAlt  (tap-hold-next-release 150 v lalt)
+  nAlt  (tap-hold-next-release 150 n ralt)
 )
 
 
@@ -117,7 +119,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
   @esCt     _    @sSf    @dMe    @fCt    _    _    @jCt    @kMe  @lSf    _    _    _                          _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
+  _    _    _    _    @vAlt    _    @nAlt    _    _    _    _    _                    _          _    _    _    _
   @ext    _    _              _              _    _    _    _               _    _    _     _    _   
 )
 
