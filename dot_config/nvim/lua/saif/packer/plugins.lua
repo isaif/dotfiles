@@ -24,6 +24,13 @@ function(use)
         run = ':TSUpdate'
     }
 
+  -- -- coq completion plugin
+  -- use {'ms-jpq/coq_nvim', branch= 'coq'}
+  -- -- 9000+ Snippets
+  -- use {'ms-jpq/coq.artifacts', branch= 'artifacts'}
+
+
+
   -- use 'nvim-lua/lsp-status.nvim'
   -- use 'tjdevries/lsp_extensions.nvim'
   -- use 'glepnir/lspsaga.nvim'

@@ -328,6 +328,8 @@ function! Openvimrc()
   endif
 endfunction
 
+" autostart coq
+" let g:coq_settings = { 'auto_start': 'shut-up' }
 
 " lualine hide tabline if one tab is open
 "au OptionSet showtabline :set showtabline=1
@@ -341,3 +343,4 @@ vimp.nnoremap(',vr',function()
   dofile(vim.env.MYVIMRC)
   print("Reloaded vimrc!")
 end)
+
