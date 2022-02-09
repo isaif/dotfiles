@@ -20,15 +20,29 @@ function(use)
   use 'williamboman/nvim-lsp-installer'
 
   use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-    }
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
 
   -- -- coq completion plugin
   -- use {'ms-jpq/coq_nvim', branch= 'coq'}
   -- -- 9000+ Snippets
   -- use {'ms-jpq/coq.artifacts', branch= 'artifacts'}
 
+
+  -- cmp-nvim completion plugin
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/nvim-cmp'
+
+  -- For luasnip users.
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
+
+  -- lspkind to show symbols in completion menu
+  use 'onsails/lspkind-nvim'
 
 
   -- use 'nvim-lua/lsp-status.nvim'
@@ -91,12 +105,12 @@ function(use)
   -- use 'tpope/vim-commentary'
 
   use {
-      'numToStr/Comment.nvim',
-      config = function()
-          require('Comment').setup()
-      end
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
   }
---  use 'numToStr/Comment.nvim'
+  --  use 'numToStr/Comment.nvim'
   -- Treesitter support for Comment.nvim
   use 'JoosepAlviste/nvim-ts-context-commentstring'
 
@@ -174,4 +188,5 @@ function(use)
 
 end
 )
+
 

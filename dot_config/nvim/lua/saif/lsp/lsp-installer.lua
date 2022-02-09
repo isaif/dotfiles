@@ -8,6 +8,7 @@ local vimp = require('vimp')
 local function nnoremap(...) vimp.nnoremap({'silent'}, ...) end
 local bufmap = vimp.add_buffer_maps
 
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local function common_on_attach(client, bufnr)
 
@@ -39,7 +40,7 @@ end
 lsp_installer.on_server_ready(function(server)
   local opts = {
     on_attach = common_on_attach,
-    -- capabilities = capabilities
+    capabilities = capabilities
   }
   -- (optional) Customize the options passed to the server
   -- if server.name == "tsserver" then
