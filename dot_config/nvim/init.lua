@@ -50,11 +50,11 @@ filetype plugin on
 " When enter is pressed while cursor is between the {}
 " Move closing curly brackets to new line
 " and start a new line between them
-inoremap <expr> <cr>
-   \   getline(".") =~ '\S\s*{$'                 ? "<bs><cr>{<cr>}<esc>O"
-   \ : getline('.') =~ '^\s*{$'                  ? "<cr>}<esc>O"
-   \ : getline(".")[col(".")-2:col(".")-1]=="{}" ? "<cr><esc>O"
-   \ :                                             "<cr>"
+" inoremap <expr> <cr>
+"    \   getline(".") =~ '\S\s*{$'                 ? "<bs><cr>{<cr>}<esc>O"
+"    \ : getline('.') =~ '^\s*{$'                  ? "<cr>}<esc>O"
+"    \ : getline(".")[col(".")-2:col(".")-1]=="{}" ? "<cr><esc>O"
+"    \ :                                             "<cr>"
 
 " Highlight the 81st character / column in every row
 highlight ColorColumn ctermbg=magenta
