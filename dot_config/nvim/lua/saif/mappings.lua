@@ -31,8 +31,8 @@ nnoremap('<F3>', [[:lua require("telescope.builtin").live_grep({search_dirs={"~/
 nnoremap('<F4>', [[:lua require("telescope.builtin").live_grep({search_dirs={"~/vimwiki/"}})<cr>]])
 
 -- git related settings
-nnoremap('<leader>gc', ':Telescope git_commits<cr>')
-nnoremap('<leader>gb', ':Telescope git_bcommits<cr>')
+nnoremap('<leader>gcb', ':Telescope git_commits<cr>')
+nnoremap('<leader>gcc', ':Telescope git_bcommits<cr>')
 
 
 --##################################################################--
@@ -55,7 +55,7 @@ nnoremap(',d', ':lua require("harpoon.ui").nav_file(3)<CR>')
 nnoremap('<leader>gg', ':tab G<CR>')
 nnoremap('<leader>gs', ':Git<CR>')
 nnoremap('<leader>gd', ':Gdiffsplit<CR>')
--- nnoremap('<leader>gb', ':Git blame<CR>')
+nnoremap('<leader>gb', ':Git blame<CR>')
 --nnoremap <leader>ga :Git add %:p<CR><CR>
 -- nnoremap <leader>gs :Git<CR>
 --nnoremap <leader>gc :Gcommit -v -q<CR>
