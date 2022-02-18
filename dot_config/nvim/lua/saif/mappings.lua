@@ -111,3 +111,14 @@ vim.cmd([[
   nmap S <Plug>Lightspeed_omni_s
 ]])
 
+
+--##################################################################--
+-- Navigation
+--##################################################################--
+
+-- tab navigation
+nnoremap('g1', '1gt')
+nnoremap('g2', '2gt')
+nnoremap('g3', '3gt')
+nnoremap('g4', '4gt')
+
