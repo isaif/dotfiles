@@ -38,8 +38,12 @@ function(use)
   use 'hrsh7th/nvim-cmp'
 
   -- For luasnip users.
-  use 'L3MON4D3/LuaSnip'
+  use {
+    'L3MON4D3/LuaSnip',
+    after='nvim-cmp'
+  }
   use 'saadparwaiz1/cmp_luasnip'
+  use 'rafamadriz/friendly-snippets'
 
   -- lspkind to show symbols in completion menu
   use 'onsails/lspkind-nvim'
