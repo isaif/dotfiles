@@ -7,6 +7,7 @@ require("null-ls").setup({
     -- nls.builtins.code_actions.gitsigns,
     nls.builtins.formatting.prettierd,
     nls.builtins.diagnostics.eslint_d
+		nls.builtins.formatting.stylua,
     -- nls.builtins.formatting.stylua.with {
     --   extra_args = { "--config-path", vim.fn.expand "~/.config/stylua/stylua.toml" },
     -- },
