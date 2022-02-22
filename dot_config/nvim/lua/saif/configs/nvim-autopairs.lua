@@ -7,8 +7,8 @@ require('nvim-autopairs').setup({
   -- ignored_next_char = "[%w%.]"
 
   fast_wrap = {
-    -- <C-y> is also used by emmet plugin, i.e. <C-y>,
-    map = '<C-y-y>',
+    -- <C-y> is also used by emmet plugin, i.e. <C-y> and a comma
+    -- map = '<C-y-y>',
     -- chars = { '{', '[', '(', '"', "'" },
     -- pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], '%s+', ''),
     -- offset = 0, -- Offset from pattern match

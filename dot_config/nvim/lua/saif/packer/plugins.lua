@@ -129,7 +129,13 @@ function(use)
   use 'mattn/emmet-vim'
 
   -- auto closing brackets
-  use 'windwp/nvim-autopairs'
+  use {
+    'windwp/nvim-autopairs',
+    after = 'nvim-cmp',
+    config = function()
+      require('saif.configs.nvim-autopairs')
+    end,
+  }
   -- auto close html tags using treesitter
   use 'windwp/nvim-ts-autotag'
 
