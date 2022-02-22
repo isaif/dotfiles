@@ -39,8 +39,6 @@ cmp.setup({
         nvim_lua = "[api]",
         path = "[path]",
         luasnip = "[snip]",
-        -- gh_issues = "[issues]",
-        -- tn = "[TabNine]",
       },
     },
   },
@@ -64,3 +62,4 @@ cmp.setup.cmdline(':', {
 
 -- TODO: add nvim-cmp hisghlight groups.
 -- this will show autocomplete menu items in different colors
+
