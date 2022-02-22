@@ -50,6 +50,6 @@ require('lualine').setup{
     lualine_z = {}
   },
   tabline = {},
-  extensions = {}
+  extensions = {'fugitive'}
 }
 
