@@ -185,6 +185,8 @@ function(use)
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
 
+  use 'arkav/lualine-lsp-progress'
+
   -- Doesn't have much themes yet
   -- I will have to setup everthing which I don't have time for
   -- use 'famiu/feline.nvim'

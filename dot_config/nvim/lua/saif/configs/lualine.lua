@@ -24,6 +24,7 @@ require('lualine').setup{
         path = 1,
         shorting_target = 20
       },
+      'lsp_progress'
     },
     -- lualine_c = {'filename'},
     lualine_x = {
@@ -34,6 +35,7 @@ require('lualine').setup{
     lualine_y = {'progress'},
     lualine_z = {'location'}
   },
+  -- When buffer is inactive
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
