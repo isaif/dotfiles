@@ -40,10 +40,14 @@ function(use)
   -- For luasnip users.
   use {
     'L3MON4D3/LuaSnip',
-    after='nvim-cmp'
+    event = 'CursorHold',
+    after='nvim-cmp',
+    config = function()
+      require('saif.configs.luasnip')
+    end,
+    requires = { 'rafamadriz/friendly-snippets' },
   }
   use 'saadparwaiz1/cmp_luasnip'
-  use 'rafamadriz/friendly-snippets'
 
   -- lspkind to show symbols in completion menu
   use 'onsails/lspkind-nvim'
