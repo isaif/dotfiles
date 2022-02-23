@@ -1,7 +1,7 @@
 -- vim.go.t_Co = '256'
 
 -- use dark/hard here to make it work
-vim.g.gruvbox_flat_style = "dark"
+vim.g.gruvbox_flat_style = 'dark'
 -- vim.g.gruvbox_flat_style = "hard"
 
 -- hightight current line
@@ -17,13 +17,12 @@ vim.cmd('colorscheme gruvbox-flat')
 -- vim.g.gruvbox_flat_style = "dark"
 -- vim.g.gruvbox_flat_style = "hard"
 
-local success, lualine = pcall(require,'lualine')
+local success, lualine = pcall(require, 'lualine')
 
 if success then
-  lualine.setup{
-    options = {theme = 'gruvbox-flat'},
-  }
+  lualine.setup({
+    options = { theme = 'gruvbox-flat' },
+  })
 else
   error('lualine is not installed')
 end
-

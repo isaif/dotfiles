@@ -337,10 +337,9 @@ endfunction
 
 local vimp = require('vimp')
 
-vimp.nnoremap(',vr',function()
+vimp.nnoremap(',vr', function()
   vimp.unmap_all()
-  require("plenary.reload").reload_module("saif")
+  require('plenary.reload').reload_module('saif')
   dofile(vim.env.MYVIMRC)
-  print("Reloaded vimrc!")
+  print('Reloaded vimrc!')
 end)
-

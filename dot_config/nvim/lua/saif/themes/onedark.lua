@@ -9,13 +9,12 @@ vim.o.showmode = false
 
 vim.cmd('colorscheme onedark')
 
-local success, lualine = pcall(require,'lualine')
+local success, lualine = pcall(require, 'lualine')
 
 if success then
-  lualine.setup{
-    options = {theme = 'onedark'},
-  }
+  lualine.setup({
+    options = { theme = 'onedark' },
+  })
 else
   error('lualine is not installed')
 end
-

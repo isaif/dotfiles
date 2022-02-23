@@ -1,4 +1,4 @@
-require('lualine').setup{
+require('lualine').setup({
   options = {
     icons_enabled = true,
     -- theme = 'auto',
@@ -9,11 +9,11 @@ require('lualine').setup{
     always_divide_middle = true,
   },
   sections = {
-    lualine_a = {'mode'},
+    lualine_a = { 'mode' },
     lualine_b = {
       'branch',
       'diff',
-      {'diagnostics', sources={'nvim_diagnostic'}}
+      { 'diagnostics', sources = { 'nvim_diagnostic' } },
     },
     lualine_c = {
       {
@@ -22,18 +22,18 @@ require('lualine').setup{
         file_status = true,
         -- 0 = just filename, 1 = relative path, 2 = absolute path
         path = 1,
-        shorting_target = 20
+        shorting_target = 20,
       },
-      'lsp_progress'
+      'lsp_progress',
     },
     -- lualine_c = {'filename'},
     lualine_x = {
       -- 'encoding',
       -- 'fileformat',
-      {'filetype', icons_enabled = false },
+      { 'filetype', icons_enabled = false },
     },
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
+    lualine_y = { 'progress' },
+    lualine_z = { 'location' },
   },
   -- When buffer is inactive
   inactive_sections = {
@@ -44,14 +44,13 @@ require('lualine').setup{
       {
         'filename',
         path = 1,
-        shorting_target = 40
-      }
+        shorting_target = 40,
+      },
     },
-    lualine_x = {'location'},
+    lualine_x = { 'location' },
     lualine_y = {},
-    lualine_z = {}
+    lualine_z = {},
   },
   tabline = {},
-  extensions = {'fugitive'}
-}
-
+  extensions = { 'fugitive' },
+})

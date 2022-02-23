@@ -1,17 +1,20 @@
-local lsp_installer = require("nvim-lsp-installer")
+local lsp_installer = require('nvim-lsp-installer')
 
-local util = require 'lspconfig/util'
+local util = require('lspconfig/util')
 local root_pattern = util.root_pattern
 
 -- function for mappings
 local vimp = require('vimp')
-local function nnoremap(...) vimp.nnoremap({'silent'}, ...) end
+local function nnoremap(...)
+  vimp.nnoremap({ 'silent' }, ...)
+end
 local bufmap = vimp.add_buffer_maps
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').update_capabilities(
+  vim.lsp.protocol.make_client_capabilities()
+)
 
 local function common_on_attach(client, bufnr)
-
   --[[ set up buffer keymaps, etc.
   I think setting mappings here will only make this mappings available
   if lsp is enabled else the mappings will work as it is intended
@@ -40,14 +43,14 @@ end
 lsp_installer.on_server_ready(function(server)
   local opts = {
     on_attach = common_on_attach,
-    capabilities = capabilities
+    capabilities = capabilities,
   }
   -- (optional) Customize the options passed to the server
   -- if server.name == "tsserver" then
   --     opts.root_dir = function() ... end
   -- end
 
-  if server.name == "tsserver" then
+  if server.name == 'tsserver' then
     -- opts.cmd = { "typescript-language-server", "--stdio"}
     -- opts.filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" }
     -- opts.init_options = {
@@ -61,24 +64,23 @@ lsp_installer.on_server_ready(function(server)
     end
   end
 
-
-  if server.name == "sumneko_lua" then
+  if server.name == 'sumneko_lua' then
     -- lspconfig's sumneko_lua by default provides .git or bufdir
     -- and the same settings are being used by nvim-lsp-installer
     -- https://github.com/williamboman/nvim-lsp-installer/blob/main/lua/nvim-lsp-installer/servers/sumneko_lua/init.lua
     -- in chezmoi folder it was using the chezmoi's .git as root
     -- now added .editorconfig in nvim directory to make it root
     -- if none of the options for root_dir match then lsp won't attach
-    opts.root_dir =  root_pattern(".git", ".editorconfig")
+    opts.root_dir = root_pattern('.git', '.editorconfig')
     opts.settings = {
       Lua = {
         diagnostics = {
           -- Get the language server to recognize the `vim` global
-          globals = {'vim'},
+          globals = { 'vim' },
         },
         workspace = {
           -- Make the server aware of Neovim runtime files
-          library = vim.api.nvim_get_runtime_file("", true),
+          library = vim.api.nvim_get_runtime_file('', true),
         },
         -- Do not send telemetry data containing a randomized but unique identifier
         telemetry = {
@@ -94,6 +96,5 @@ lsp_installer.on_server_ready(function(server)
 
   server:setup(opts)
   -- server:setup(require("coq").lsp_ensure_capabilities(opts))
-  vim.cmd [[ do User LspAttachBuffers ]]
+  vim.cmd([[ do User LspAttachBuffers ]])
 end)
-

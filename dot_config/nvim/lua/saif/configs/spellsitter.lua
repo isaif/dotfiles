@@ -10,7 +10,7 @@
 -- it doesn't support external spellcheckers and doesn't plan to do so
 -- so we can use null-ls for external spellcheckers
 
-require('spellsitter').setup {
+require('spellsitter').setup({
   -- Whether enabled, can be a list of filetypes, e.g. {'python', 'lua'}
   enable = true,
-}
+})

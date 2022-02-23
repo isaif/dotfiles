@@ -9,15 +9,12 @@ vim.o.showmode = true
 
 vim.cmd('colorscheme gruvbox')
 
-
-local success, lualine = pcall(require,'lualine')
+local success, lualine = pcall(require, 'lualine')
 
 if success then
-  lualine.setup{
-    options = {theme = 'gruvbox'},
-  }
+  lualine.setup({
+    options = { theme = 'gruvbox' },
+  })
 else
   error('lualine is not installed')
 end
-
-

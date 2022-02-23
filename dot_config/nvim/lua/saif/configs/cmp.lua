@@ -1,10 +1,10 @@
-local lspkind = require "lspkind"
+local lspkind = require('lspkind')
 lspkind.init()
 
-vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
 -- Setup nvim-cmp.
-local cmp = require'cmp'
+local cmp = require('cmp')
 
 cmp.setup({
   snippet = {
@@ -31,35 +31,34 @@ cmp.setup({
     { name = 'buffer', keyword_length = 5 },
   }),
   formatting = {
-    format = lspkind.cmp_format {
+    format = lspkind.cmp_format({
       mode = 'text_symbol',
       menu = {
-        buffer = "[buf]",
-        nvim_lsp = "[LSP]",
-        nvim_lua = "[api]",
-        path = "[path]",
-        luasnip = "[snip]",
+        buffer = '[buf]',
+        nvim_lsp = '[LSP]',
+        nvim_lua = '[api]',
+        path = '[path]',
+        luasnip = '[snip]',
       },
-    },
+    }),
   },
 })
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
   sources = {
-    { name = 'buffer', max_item_count=10 }
-  }
+    { name = 'buffer', max_item_count = 10 },
+  },
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
   sources = cmp.config.sources({
-    { name = 'path', max_item_count=10 }
+    { name = 'path', max_item_count = 10 },
   }, {
-    { name = 'cmdline', max_item_count=10 }
-  })
+    { name = 'cmdline', max_item_count = 10 },
+  }),
 })
 
 -- TODO: add nvim-cmp hisghlight groups.
 -- this will show autocomplete menu items in different colors
-

@@ -1,9 +1,9 @@
-local configs = require 'lspconfig/configs'
-local util = require 'lspconfig/util'
+local configs = require('lspconfig/configs')
+local util = require('lspconfig/util')
 
 local server_name = 'tsserver'
 local bin_name = 'typescript-language-server'
-if vim.fn.has 'win32' == 1 then
+if vim.fn.has('win32') == 1 then
   bin_name = bin_name .. '.cmd'
 end
 
@@ -20,7 +20,7 @@ configs[server_name] = {
       'typescript.tsx',
     },
     root_dir = function(fname)
-      return util.root_pattern 'tsconfig.json'(fname)
+      return util.root_pattern('tsconfig.json')(fname)
         or util.root_pattern('package.json', 'jsconfig.json', '.git')(fname)
     end,
   },

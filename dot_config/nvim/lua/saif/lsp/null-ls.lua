@@ -1,13 +1,13 @@
-local nls = require "null-ls"
+local nls = require('null-ls')
 
-require("null-ls").setup({
-  diagnostics_format = "[#{s}] #{c}: #{m}",
+require('null-ls').setup({
+  diagnostics_format = '[#{s}] #{c}: #{m}',
 
   sources = {
     -- nls.builtins.code_actions.gitsigns,
     nls.builtins.formatting.prettierd,
-    nls.builtins.diagnostics.eslint_d
-		nls.builtins.formatting.stylua,
+    nls.builtins.diagnostics.eslint_d,
+    nls.builtins.formatting.stylua,
     -- nls.builtins.formatting.stylua.with {
     --   extra_args = { "--config-path", vim.fn.expand "~/.config/stylua/stylua.toml" },
     -- },
@@ -32,10 +32,10 @@ require("null-ls").setup({
     -- },
   },
 
-    -- you can reuse a shared lspconfig on_attach callback here
-    on_attach = function(client)
-        if client.resolved_capabilities.document_formatting then
-            vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-        end
-    end,
+  -- you can reuse a shared lspconfig on_attach callback here
+  on_attach = function(client)
+    if client.resolved_capabilities.document_formatting then
+      vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()')
+    end
+  end,
 })

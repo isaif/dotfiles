@@ -25,15 +25,23 @@ nnoremap('<leader>fs', ':Telescope resume<cr>')
 nnoremap('<leader>fi', ':Telescope current_buffer_fuzzy_find<cr>')
 
 nnoremap('<leader>fdc', ':Telescope file_browser<cr>')
-nnoremap('<leader>fdd', [[:lua require("telescope").extensions.file_browser.file_browser({path=vim.fn.expand('%:h')})<cr>]])
+nnoremap(
+  '<leader>fdd',
+  [[:lua require("telescope").extensions.file_browser.file_browser({path=vim.fn.expand('%:h')})<cr>]]
+)
 
-nnoremap('<F3>', [[:lua require("telescope.builtin").live_grep({search_dirs={"~/.config/nvim/"}})<cr>]])
-nnoremap('<F4>', [[:lua require("telescope.builtin").live_grep({search_dirs={"~/vimwiki/"}})<cr>]])
+nnoremap(
+  '<F3>',
+  [[:lua require("telescope.builtin").live_grep({search_dirs={"~/.config/nvim/"}})<cr>]]
+)
+nnoremap(
+  '<F4>',
+  [[:lua require("telescope.builtin").live_grep({search_dirs={"~/vimwiki/"}})<cr>]]
+)
 
 -- git related settings
 nnoremap('<leader>gcb', ':Telescope git_commits<cr>')
 nnoremap('<leader>gcc', ':Telescope git_bcommits<cr>')
-
 
 --##################################################################--
 -- Harpoon
@@ -46,7 +54,6 @@ nnoremap(',a', ':lua require("harpoon.ui").nav_file(1)<CR>')
 nnoremap(',s', ':lua require("harpoon.ui").nav_file(2)<CR>')
 nnoremap(',d', ':lua require("harpoon.ui").nav_file(3)<CR>')
 -- nnoremap(',f', ':lua require("harpoon.ui").nav_file(4)')
-
 
 --##################################################################--
 -- Fugigitive
@@ -72,23 +79,21 @@ nnoremap('<leader>gb', ':Git blame<CR>')
 --nnoremap <leader>gps :Dispatch! git push<CR>
 --nnoremap <leader>gpl :Dispatch! git pull<CR>
 
-
 --##################################################################--
 -- Text objects
 --##################################################################--
 
 --  inner/around line text objects
 --  visual mode
-xnoremap({'silent'}, 'il', '<ESC>^vg_')
-xnoremap({'silent'}, 'al', '<ESC>0v$')
+xnoremap({ 'silent' }, 'il', '<ESC>^vg_')
+xnoremap({ 'silent' }, 'al', '<ESC>0v$')
 --  operator pending mode
-onoremap({'silent'}, 'il', ':<C-u>normal! ^vg_<CR>')
-onoremap({'silent'}, 'al', ':<C-u>normal! 0v$<CR>')
+onoremap({ 'silent' }, 'il', ':<C-u>normal! ^vg_<CR>')
+onoremap({ 'silent' }, 'al', ':<C-u>normal! 0v$<CR>')
 
 -- Complete buffer
 -- xnoremap({'silent'}, 'A', '<ESC>myggVG`y')
-onoremap({'silent'}, 'A', ':<C-u>normal! ggVG<CR>')
-
+onoremap({ 'silent' }, 'A', ':<C-u>normal! ggVG<CR>')
 
 --##################################################################--
 -- Lightspeed
@@ -111,7 +116,6 @@ vim.cmd([[
   nmap S <Plug>Lightspeed_omni_s
 ]])
 
-
 --##################################################################--
 -- Navigation
 --##################################################################--
@@ -121,5 +125,3 @@ nnoremap('g1', '1gt')
 nnoremap('g2', '2gt')
 nnoremap('g3', '3gt')
 nnoremap('g4', '4gt')
-
-

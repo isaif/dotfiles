@@ -8,19 +8,18 @@ vim.o.termguicolors = true
 vim.o.showmode = false
 
 -- vim.cmd('colorscheme github_dark')
-require("github-theme").setup({
-  theme_style = "dark",
+require('github-theme').setup({
+  theme_style = 'dark',
   -- other config
   -- hide_inactive_statusline = false
 })
 
-local success, lualine = pcall(require,'lualine')
+local success, lualine = pcall(require, 'lualine')
 
 if success then
-  lualine.setup{
-    options = {theme = 'github'},
-  }
+  lualine.setup({
+    options = { theme = 'github' },
+  })
 else
   error('lualine is not installed')
 end
-
