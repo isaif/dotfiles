@@ -71,7 +71,12 @@ lsp_installer.on_server_ready(function(server)
     -- in chezmoi folder it was using the chezmoi's .git as root
     -- now added .editorconfig in nvim directory to make it root
     -- if none of the options for root_dir match then lsp won't attach
-    opts.root_dir = root_pattern('.git', '.editorconfig')
+    opts.root_dir = root_pattern(
+      '.git',
+      '.editorconfig',
+      'stylua.toml',
+      '.stylua.toml'
+    )
     opts.settings = {
       Lua = {
         diagnostics = {
