@@ -119,8 +119,8 @@ noremap <F2> :Lex<CR>
 """"""""""""""""""""""""""""""""""""
 
 """ Clipboard copy/paste register"""
-nnoremap <Leader>r "+
-vnoremap <Leader>r "+
+" nnoremap <Leader>r "+
+" vnoremap <Leader>r "+
 
 """ Fzf shortcut configuration """""
 " nnoremap <Leader>b :Buffers<CR>
@@ -174,6 +174,7 @@ set sessionoptions+=tabpages,globals
 """"""""""""""""""""""""""""""""""""
 """ Vimwiki settings """""""""""""""
 """"""""""""""""""""""""""""""""""""
+" TODO: change wiki mapping prefix to k and window management prefix to w
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_global_ext = 0

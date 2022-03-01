@@ -1,7 +1,7 @@
 local nnoremap = require('vimp').nnoremap
 local xnoremap = require('vimp').xnoremap
 local onoremap = require('vimp').onoremap
--- local vnoremap = require('vimp').vnoremap
+local vnoremap = require('vimp').vnoremap
 
 nnoremap('J', 'mzJ`z')
 
@@ -125,3 +125,15 @@ nnoremap('g1', '1gt')
 nnoremap('g2', '2gt')
 nnoremap('g3', '3gt')
 nnoremap('g4', '4gt')
+
+-- navigate to previous and next buffers
+nnoremap('[b', ':bprevious<CR>')
+nnoremap(']b', ':bnext<CR>')
+
+--##################################################################--
+-- Copy and paste from the clipboard
+--##################################################################--
+
+nnoremap(',p', '"+p')
+nnoremap(',P', '"+P')
+vnoremap(',y', '"+y')
