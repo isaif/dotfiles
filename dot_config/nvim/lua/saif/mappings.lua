@@ -130,6 +130,14 @@ nnoremap('g4', '4gt')
 nnoremap('[b', ':bprevious<CR>')
 nnoremap(']b', ':bnext<CR>')
 
+-- Navigate windows using Ctrl
+nnoremap('<C-h>', '<C-w>h')
+nnoremap('<C-j>', '<C-w>j')
+nnoremap('<C-k>', '<C-w>k')
+-- unmapping <C-l> from vimwiki
+vim.cmd([[nunmap <C-L>]])
+nnoremap('<C-l>', '<C-w>l')
+
 --##################################################################--
 -- Copy and paste from the clipboard
 --##################################################################--

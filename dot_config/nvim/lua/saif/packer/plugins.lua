@@ -69,11 +69,6 @@ return packer.startup(function(use)
   use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
   use({ 'nvim-telescope/telescope-file-browser.nvim' })
 
-  -- Seamlessly navigate between tmux and vim
-  -- TODO: remove this plugin after adding the mappin
-  -- c-j, c-k, c-h, c-l
-  use('christoomey/vim-tmux-navigator')
-
   use('ThePrimeagen/harpoon')
   -- To manage tags
   -- use 'ludovicchabant/vim-gutentags'
