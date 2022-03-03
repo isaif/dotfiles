@@ -51,6 +51,11 @@ filetype plugin on
 " I always save file
 set noswapfile
 
+" Scroll vim in tmux else it will show tmux history buffer
+" To see tmux history buffer use prefix [ and then use mouse
+" or vim navigation bindings
+set mouse=a
+
 " When enter is pressed while cursor is between the {}
 " Move closing curly brackets to new line
 " and start a new line between them
