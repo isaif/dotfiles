@@ -143,7 +143,8 @@ noremap <Leader>zi <c-w>_ \| <c-w>\|
 noremap <Leader>zo <c-w>=
 
 """ Save file """"""""""""""""""""""
-noremap <Leader>s :w<CR>
+" I never save a single file
+" noremap <Leader>s :w<CR>
 noremap <Leader>a :wa<CR>
 
 """ Fugitive binding """""""""""""""
