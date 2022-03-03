@@ -47,6 +47,10 @@ set smartindent
 " javascript.vim for javascript related settings and so on.
 filetype plugin on
 
+" see if I can do without swapfile
+" I always save file
+set noswapfile
+
 " When enter is pressed while cursor is between the {}
 " Move closing curly brackets to new line
 " and start a new line between them
