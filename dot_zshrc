@@ -160,7 +160,7 @@ export PROJECT_HOME=$HOME/Projects
 source $HOME/pipenvwrapper/pipenvwrapper.sh
 
 # Paths
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 export PATH="/home/$USER/bin:$PATH"
 
