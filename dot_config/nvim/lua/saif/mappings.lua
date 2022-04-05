@@ -40,7 +40,7 @@ nnoremap(
 )
 
 -- git related settings
-nnoremap('<leader>gcb', ':Telescope git_commits<cr>')
+nnoremap('<leader>gcv', ':Telescope git_commits<cr>')
 nnoremap('<leader>gcc', ':Telescope git_bcommits<cr>')
 
 --##################################################################--
