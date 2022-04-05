@@ -3,6 +3,7 @@ local xnoremap = require('vimp').xnoremap
 local onoremap = require('vimp').onoremap
 local vnoremap = require('vimp').vnoremap
 
+-- keep cursor in position while joining lines
 nnoremap('J', 'mzJ`z')
 
 --##################################################################--
@@ -145,3 +146,4 @@ nnoremap('<C-l>', '<C-w>l')
 nnoremap(',p', '"+p')
 nnoremap(',P', '"+P')
 vnoremap(',y', '"+y')
+nnoremap(',y', '"+y')
