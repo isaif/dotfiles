@@ -93,7 +93,26 @@ EOF
 "nnoremap <F3> :call Openvimrc()<CR>
 "nnoremap ,vr :source $MYVIMRC<CR>
 
-" Replace word under cursor in file and line
+
+" Tmux uses <C-a> as prefix
+" vim uses <C-a> in command mode for WORD 
+" i.e. <C-r><C-a> to insert WORD
+" so now I have to press <C-a> twice to use <C-a> in vim
+" Surprisingly it works without using <C-a> twice in command mode mapping
+" if exists('$TMUX')
+"   " echom "Vim is running inside the tmux"
+" else
+"   " echom "Vim is NOT running inside tmux"
+" endif
+
+" Replace a WORD under cursor in file and line
+" :%s/\<WordToReplace\>/New/g
+" \<\> is use to match exact
+nnoremap ,rrf :%s/<C-r><C-a> //g<Left><Left>
+nnoremap ,rrl :s/<C-r><C-a> //g<Left><Left>
+
+" Replace a word under cursor in file and line
+" a word can contain alphbets numerals underscore
 nnoremap ,rf :%s/\<<C-r><C-w>\>//g<Left><Left>
 nnoremap ,rl :s/\<<C-r><C-w>\>//g<Left><Left>
 
