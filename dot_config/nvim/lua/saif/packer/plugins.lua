@@ -139,6 +139,10 @@ return packer.startup(function(use)
 
   use('haringsrob/nvim_context_vt')
 
+  -- this plugin also provides context so  nvim-ts-context-commentstring
+  -- can be removed
+  use('lukas-reineke/indent-blankline.nvim')
+
   --##################################################################
   -- Utilities
   --##################################################################
