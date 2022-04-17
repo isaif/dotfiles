@@ -51,6 +51,25 @@ require('lualine').setup({
     lualine_y = {},
     lualine_z = {},
   },
-  tabline = {},
+  tabline = {
+    lualine_a = {
+      {
+        'tabs',
+        max_length = vim.o.columns / 3, -- Maximum width of tabs component.
+        -- Note:
+        -- It can also be a function that returns
+        -- the value of `max_length` dynamically.
+        mode = 1, -- 0: Shows tab_nr
+        -- 1: Shows tab_name
+        -- 2: Shows tab_nr + tab_name
+
+        -- tabs_color = {
+        --   -- Same values as the general color option can be used here.
+        --   active = 'lualine_{section}_normal', -- Color for active tab.
+        --   inactive = 'lualine_{section}_inactive', -- Color for inactive tab.
+        -- },
+      },
+    },
+  },
   extensions = { 'fugitive' },
 })
