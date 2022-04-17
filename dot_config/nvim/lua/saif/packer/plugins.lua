@@ -20,6 +20,9 @@ return packer.startup(function(use)
 
   use({
     'nvim-treesitter/nvim-treesitter',
+    config = function()
+      require('saif.configs.treesitter')
+    end,
     run = ':TSUpdate',
   })
 
@@ -33,7 +36,12 @@ return packer.startup(function(use)
   use('hrsh7th/cmp-buffer')
   use('hrsh7th/cmp-path')
   use('hrsh7th/cmp-cmdline')
-  use('hrsh7th/nvim-cmp')
+  use({
+    'hrsh7th/nvim-cmp',
+    config = function()
+      require('saif.configs.cmp')
+    end,
+  })
 
   -- For luasnip users.
   use({
@@ -63,6 +71,9 @@ return packer.startup(function(use)
 
   use({
     'nvim-telescope/telescope.nvim',
+    config = function()
+      require('saif.configs.telescope')
+    end,
     requires = { { 'nvim-lua/plenary.nvim' } },
   })
 
@@ -106,7 +117,8 @@ return packer.startup(function(use)
   use({
     'numToStr/Comment.nvim',
     config = function()
-      require('Comment').setup()
+      -- require('Comment').setup()
+      require('saif.configs.nvim-comment')
     end,
   })
   --  use 'numToStr/Comment.nvim'
@@ -132,7 +144,12 @@ return packer.startup(function(use)
     end,
   })
   -- auto close html tags using treesitter
-  use('windwp/nvim-ts-autotag')
+  use({
+    'windwp/nvim-ts-autotag',
+    config = function()
+      require('saif.configs.nvim-ts-autotags')
+    end,
+  })
 
   -- surround plugin
   use('machakann/vim-sandwich')
@@ -141,14 +158,24 @@ return packer.startup(function(use)
 
   -- this plugin also provides context so  nvim-ts-context-commentstring
   -- can be removed
-  use('lukas-reineke/indent-blankline.nvim')
+  use({
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require('saif.configs.indent-blankline')
+    end,
+  })
 
   --##################################################################
   -- Utilities
   --##################################################################
 
   -- Auto session manager
-  use('rmagatti/auto-session')
+  use({
+    'rmagatti/auto-session',
+    config = function()
+      require('saif.configs.auto-session')
+    end,
+  })
   -- Session restorer using above plugin
   -- use'rmagatti/session-lens'
 
@@ -166,6 +193,9 @@ return packer.startup(function(use)
     -- Optional but recommended
     -- 'nvim-treesitter/nvim-treesitter',
     'lewis6991/spellsitter.nvim',
+    config = function()
+      require('saif.configs.spellsitter')
+    end,
   })
 
   --##################################################################
@@ -186,6 +216,9 @@ return packer.startup(function(use)
 
   use({
     'nvim-lualine/lualine.nvim',
+    config = function()
+      require('saif.configs.lualine')
+    end,
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
   })
 
