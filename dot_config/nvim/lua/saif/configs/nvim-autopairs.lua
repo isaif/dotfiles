@@ -19,3 +19,4 @@ require('nvim-autopairs').setup({
     -- highlight_grey='Comment'
   },
 })
+-- TODO: don't autoclose " as it is used in .vimrc as comment

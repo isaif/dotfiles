@@ -5,6 +5,7 @@ local opts = {
   auto_session_enabled = true,
   auto_save_enabled = nil,
   auto_restore_enabled = nil,
+  -- won't create session in these directories but will in its subdirectories
   auto_session_suppress_dirs = { '~/', '~/my-projects', '~/experiments' },
 }
 
