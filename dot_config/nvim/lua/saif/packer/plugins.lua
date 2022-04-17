@@ -32,38 +32,32 @@ return packer.startup(function(use)
   -- use {'ms-jpq/coq.artifacts', branch= 'artifacts'}
 
   -- cmp-nvim completion plugin
-  use('hrsh7th/cmp-nvim-lsp')
-  use('hrsh7th/cmp-buffer')
-  use('hrsh7th/cmp-path')
-  use('hrsh7th/cmp-cmdline')
   use({
     'hrsh7th/nvim-cmp',
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
+      'hrsh7th/cmp-nvim-lua',
+      'saadparwaiz1/cmp_luasnip',
+      use({
+        'L3MON4D3/LuaSnip',
+        event = 'CursorHold',
+        after = 'nvim-cmp',
+        config = function()
+          require('saif.configs.luasnip')
+        end,
+        requires = { 'rafamadriz/friendly-snippets' },
+      }),
+    },
     config = function()
       require('saif.configs.cmp')
     end,
   })
 
-  -- For luasnip users.
-  use({
-    'L3MON4D3/LuaSnip',
-    event = 'CursorHold',
-    after = 'nvim-cmp',
-    config = function()
-      require('saif.configs.luasnip')
-    end,
-    requires = { 'rafamadriz/friendly-snippets' },
-  })
-  use('saadparwaiz1/cmp_luasnip')
-
   -- lspkind to show symbols in completion menu
   use('onsails/lspkind-nvim')
-
-  -- use 'nvim-lua/lsp-status.nvim'
-  -- use 'tjdevries/lsp_extensions.nvim'
-  -- use 'glepnir/lspsaga.nvim'
-  -- use 'onsails/lspkind-nvim'
-  -- use 'ray-x/lsp_signature.nvim'
-  -- use 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
   --##################################################################
   -- Navigation
@@ -163,6 +157,8 @@ return packer.startup(function(use)
     config = function()
       require('saif.configs.indent-blankline')
     end,
+    -- cmd = 'IndentBlanklineToggle',
+    cmd = 'IndentBlanklineEnable',
   })
 
   --##################################################################
@@ -184,11 +180,14 @@ return packer.startup(function(use)
   -- use 'tpope/vim-obsession'
 
   -- rename tabs plugin
-  use('gcmt/taboo.vim')
+  -- use('gcmt/taboo.vim')
 
   -- Easy adding of mappings
   use('svermeulen/vimpeccable')
 
+  -- Enable neovim's builtin spellcheker for buffers
+  -- with treesitter highlighting
+  -- TODO spell highlighting color
   use({
     -- Optional but recommended
     -- 'nvim-treesitter/nvim-treesitter',
