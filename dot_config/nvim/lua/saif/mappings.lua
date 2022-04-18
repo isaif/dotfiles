@@ -136,8 +136,9 @@ nnoremap('<C-h>', '<C-w>h')
 nnoremap('<C-j>', '<C-w>j')
 nnoremap('<C-k>', '<C-w>k')
 -- unmapping <C-l> from vimwiki
-vim.cmd([[nunmap <C-L>]])
-nnoremap('<C-l>', '<C-w>l')
+-- vim.cmd([[nunmap <C-L>]])
+-- nnoremap('<C-l>', '<C-w>l')
+vim.cmd([[nnoremap <C-l> <C-w>l]])
 
 --##################################################################--
 -- Copy and paste from the clipboard
