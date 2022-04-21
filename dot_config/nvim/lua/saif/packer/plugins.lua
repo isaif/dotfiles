@@ -115,7 +115,7 @@ return packer.startup(function(use)
       require('saif.configs.nvim-comment')
     end,
   })
-  --  use 'numToStr/Comment.nvim'
+
   -- Treesitter support for Comment.nvim
   use('JoosepAlviste/nvim-ts-context-commentstring')
 
@@ -127,6 +127,7 @@ return packer.startup(function(use)
   -- use 'editorconfig/editorconfig-vim'
 
   -- use 'https://github.com/kana/vim-submode'
+
   use('mattn/emmet-vim')
 
   -- auto closing brackets
@@ -137,6 +138,7 @@ return packer.startup(function(use)
       require('saif.configs.nvim-autopairs')
     end,
   })
+
   -- auto close html tags using treesitter
   use({
     'windwp/nvim-ts-autotag',
@@ -148,10 +150,11 @@ return packer.startup(function(use)
   -- surround plugin
   use('machakann/vim-sandwich')
 
+  -- To show context of current line use virtual text
   use('haringsrob/nvim_context_vt')
 
-  -- this plugin also provides context so  nvim-ts-context-commentstring
-  -- can be removed
+  -- this plugin also provides context so nvim_context_vt
+  -- can be removed if indent_blankline is used always
   use({
     'lukas-reineke/indent-blankline.nvim',
     config = function()
@@ -172,7 +175,8 @@ return packer.startup(function(use)
       require('saif.configs.auto-session')
     end,
   })
-  -- Session restorer using above plugin
+
+  -- Session restorer using above auto-session
   -- use'rmagatti/session-lens'
 
   -- Vim session manager
@@ -188,6 +192,8 @@ return packer.startup(function(use)
   -- Enable neovim's builtin spellcheker for buffers
   -- with treesitter highlighting
   -- TODO spell highlighting color
+  -- this doesn't support external sources
+  -- therefore we will need to use null-ls for external sources
   use({
     -- Optional but recommended
     -- 'nvim-treesitter/nvim-treesitter',
