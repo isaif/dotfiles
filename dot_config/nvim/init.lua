@@ -1,3 +1,13 @@
+--##################################################################--
+-- Sourcing lua files
+--##################################################################--
+-- Requiring a nonexistent module or a module which contains syntax errors
+-- aborts the currently executing script. pcall() may be used to prevent errors
+require("saif")
+
+--##################################################################--
+-- vim native
+--##################################################################--
 vim.cmd([[
 
 " Highlight the 81st character / column in every row
@@ -104,12 +114,5 @@ function! Openvimrc()
   endif
 endfunction
 
+
 ]])
-
---##################################################################--
--- Sourcing lua files
---##################################################################--
--- Requiring a nonexistent module or a module which contains syntax errors
--- aborts the currently executing script. pcall() may be used to prevent errors
-
-require('saif')
