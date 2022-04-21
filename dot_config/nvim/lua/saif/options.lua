@@ -35,7 +35,7 @@ vim.opt.swapfile = false
 -- Scroll vim in tmux else it will show tmux history buffer
 -- To see tmux history buffer use prefix [ and then use mouse
 -- or vim navigation bindings
-vim.opt.mouse = a
+vim.opt.mouse = 'a'
 
 -- Highlight the 81st character / column in every row
 -- highlight ColorColumn ctermbg=magenta
