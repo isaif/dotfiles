@@ -1,214 +1,19 @@
 vim.cmd([[
 
-" NEOVIM CONFIG
-
-""""""""""""""""""""""""""""""""""""
-""""""""Personal customization""""""
-""""""""""""""""""""""""""""""""""""
-" This option makes cursor as block cursor in nvim
-set guicursor=
-
-set relativenumber
-
-"This will cause wrap to only wrap at the characters in the breakat
-"setting, which defaults to space, tab, and small set of punctuation characters.
-set linebreak
-
-" Search files using fuzzy
-set path+=**
-set wildmenu
-
-" Allow hidden buffers
-set hidden
-
-" Line length marker
-"set colorcolumn=79
-
-" Maintain undo history between sessions
-" TODO can we share same undo dir with neovim and vim
-set undofile
-set undodir=~/.config/nvim/undodir
-
-" Session directory
-"let g:sessions_dir = '~/.vim/sessions'
-
-"remove delay switching between insert and normal mode
-set ttimeoutlen=10
-
-" autoindent enable in vimgolf section
-" smartindent will indent lines based on indent in surrounding lines
-" useful when indent is not set for some filetypes
-set smartindent
-
-" enable filetype plugins
-" useful to customize vim per filetype
-" filetype on and filetype indent on are enabled in vimgolf section
-" create a directory 'ftplugin' in .vim and add filetype.vim i.e.
-" javascript.vim for javascript related settings and so on.
-filetype plugin on
-
-" see if I can do without swapfile
-" I always save file
-set noswapfile
-
-" Scroll vim in tmux else it will show tmux history buffer
-" To see tmux history buffer use prefix [ and then use mouse
-" or vim navigation bindings
-set mouse=a
-
-" When enter is pressed while cursor is between the {}
-" Move closing curly brackets to new line
-" and start a new line between them
-" inoremap <expr> <cr>
-"    \   getline(".") =~ '\S\s*{$'                 ? "<bs><cr>{<cr>}<esc>O"
-"    \ : getline('.') =~ '^\s*{$'                  ? "<cr>}<esc>O"
-"    \ : getline(".")[col(".")-2:col(".")-1]=="{}" ? "<cr><esc>O"
-"    \ :                                             "<cr>"
-
 " Highlight the 81st character / column in every row
 highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%81v', 100)
 
-" movement in wrapped lines
-" noremap j gj
-" noremap k gk
-
 " beautiful folds
-function FoldText()
-	let line = getline(v:foldstart)
-	let numOfLines = v:foldend - v:foldstart
-	let fillCount = winwidth('%') - len(line) - len(numOfLines) - 14
-	return line . '  ' . repeat('.', fillCount) . ' (' . numOfLines . ' L)'
-endfunction
-set foldtext=FoldText()
-set fillchars=fold:\  " removes trailing dots. Mind that there is a whitespace after the \!
-
-
-""""""""""""""""""""""""""""""""""""
-"" Sourcing init.lua """""""""""""
-""""""""""""""""""""""""""""""""""""
-" Requiring a nonexistent module or a module which contains syntax errors
-" aborts the currently executing script. pcall() may be used to prevent errors.
-
-lua <<EOF
-require('saif')
-EOF
-
-
-""""""""""""""""""""""""""""""""""""
-"" comma leader config """""""""""""
-""""""""""""""""""""""""""""""""""""
-
-" Open vimrc
-"nnoremap <F3> :call Openvimrc()<CR>
-"nnoremap ,vr :source $MYVIMRC<CR>
-
-
-" Tmux uses <C-a> as prefix
-" vim uses <C-a> in command mode for WORD 
-" i.e. <C-r><C-a> to insert WORD
-" so now I have to press <C-a> twice to use <C-a> in vim
-" Surprisingly it works without using <C-a> twice in command mode mapping
-" if exists('$TMUX')
-"   " echom "Vim is running inside the tmux"
-" else
-"   " echom "Vim is NOT running inside tmux"
-" endif
-
-" Replace a WORD under cursor in file and line
-" :%s/\<WordToReplace\>/New/g
-" \<\> is use to match exact
-nnoremap ,rrf :%s/<C-r><C-a> //g<Left><Left>
-nnoremap ,rrl :s/<C-r><C-a> //g<Left><Left>
-
-" Replace a word under cursor in file and line
-" a word can contain alphbets numerals underscore
-nnoremap ,rf :%s/\<<C-r><C-w>\>//g<Left><Left>
-nnoremap ,rl :s/\<<C-r><C-w>\>//g<Left><Left>
-
-" Copy all
-" nnoremap ,c ggVGy
-
-" Uppercase a word
-nnoremap ,u vaWUE
-
-
-""""""""""""""""""""""""""""""""""""
-""" Personal bindings """"""""""""""
-""""""""""""""""""""""""""""""""""""
-
-"map jj to esc
-inoremap jj <Esc>
-
-" Map space to leader and not changing it, the leader is still \
-map <SPACE> <Leader>
-
-" Clear highlights on hitting ESC twice
-" nnoremap <silent> <esc><esc> :nohlsearch<CR>
-
-" disable highlight on esc
-nnoremap <silent> <esc> :nohlsearch<CR><Esc>
-
-noremap <F2> :Lex<CR>
-
-
-""""""""""""""""""""""""""""""""""""
-""" Leader configuration """""""""""
-""""""""""""""""""""""""""""""""""""
-
-""" Clipboard copy/paste register"""
-" nnoremap <Leader>r "+
-" vnoremap <Leader>r "+
-
-""" Fzf shortcut configuration """""
-" nnoremap <Leader>b :Buffers<CR>
-" nnoremap <Leader>e :Files<CR>
-" nnoremap <Leader>ff :BLines<CR>
-" nnoremap <Leader>fh :Helptags<CR>
-" nnoremap <Leader>fo :History<CR>
-" nnoremap <Leader>fp :Ag<CR>
-
-""" Window management """"""""""""""
-nnoremap <Leader>v <C-w>
-nnoremap <Leader>c <C-w>c
-
-" Zoom in and zoom out current window
-noremap <Leader>zi <c-w>_ \| <c-w>\|
-noremap <Leader>zo <c-w>=
-
-""" Save file """"""""""""""""""""""
-" I never save a single file
-" noremap <Leader>s :w<CR>
-noremap <Leader>a :wa<CR>
-
-""" Fugitive binding """""""""""""""
-
-""""""""""""""""""""""""""""""""""""
-""" Vim's inbuilt completion """""""
-""""""""""""""""""""""""""""""""""""
-" ,, for <C-x><C-o>
-" ,; for <C-n>
-" ,: for <C-x><C-f>
-" ,= for <C-c><C-l>
-" the first item is selected
-" inoremap ,, <C-x><C-o><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>" : ""<CR>
-" inoremap ,; <C-n><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>" : ""<CR>
-" inoremap ,: <C-x><C-f><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>" : ""<CR>
-" inoremap ,= <C-x><C-l><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>" : ""<CR>
-
-" <Tab> and <S-Tab> complete the next and previous item
-" the snipmate-related part is obviously not necessary for this to work
-" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : exists("g:loaded_snips") ? "\<C-r>=TriggerSnippet()\<CR>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : exists("g:loaded_snips") ? "\<C-r>=BackwardsSnippet()\<CR>" : "\<S-Tab>"
-
-
-""""""""""""""""""""""""""""""""""""
-""" Other plugin settings """"""""""
-""""""""""""""""""""""""""""""""""""
-" Taboo is able to remember tab names when you save the current 
-" session but you are required to set the following option in your .vimrc file
-set sessionoptions+=tabpages,globals
-
+" function FoldText()
+" 	let line = getline(v:foldstart)
+" 	let numOfLines = v:foldend - v:foldstart
+" 	let fillCount = winwidth('%') - len(line) - len(numOfLines) - 14
+" 	return line . '  ' . repeat('.', fillCount) . ' (' . numOfLines . ' L)'
+" endfunction
+" set foldtext=FoldText()
+" set fillchars=fold:\  " removes trailing dots. Mind that there
+" is a whitespace after the \!
 
 """"""""""""""""""""""""""""""""""""
 """ Vimwiki settings """""""""""""""
@@ -220,57 +25,6 @@ let g:vimwiki_global_ext = 0
 
 " to search vimwiki
 nnoremap <Leader>wf :VWS 
-
-
-""""""""""""""""""""""""""""""""""""
-""""""""VimGolf's .vimrc""""""""""""
-""""""""""""""""""""""""""""""""""""
-set nocompatible        " use vim defaults
-set scrolloff=3         " keep 3 lines when scrolling
-set ai                  " set auto-indenting on for programming
-
-set showcmd             " display incomplete commands
-set nobackup            " do not keep a backup file
-set number              " show line numbers
-set ruler               " show the current row and column
-
-set hlsearch            " highlight searches
-set incsearch           " do incremental searching
-
-" Disabled as it makes cursor jump to opening bracket when
-"closing bracket is entered
-"set showmatch           " jump to matches when entering regexp
-set ignorecase          " ignore case when searching
-set smartcase           " no ignorecase if Uppercase char present
-
-set visualbell t_vb=    " turn off error beep/flash
-set novisualbell        " turn off visual bell
-
-" make that backspace key work the way it should
-"set backspace=indent,eol,start
-
-" turn off user scripts, https://github.com/igrigorik/vimgolf/issues/129
-"set runtimepath=$VIMRUNTIME
-
-syntax on               " turn syntax highlighting on by default
-filetype on             " detect type of file
-filetype indent on      " load indent file for specific file type
-
-"set t_RV=
-" http://bugs.debian.org/608242,
-" http://groups.google.com/group/vim_dev/browse_thread/thread/9770ea844cec3282
-
-
-""""""""""""""""""""""""""""""""""""
-""" Emment plugin settings """""""""
-""""""""""""""""""""""""""""""""""""
-"only enable normal mode functions.
-"let g:user_emmet_mode='n'
-
-" Enable just for html/css
-" let g:user_emmet_install_global = 0
-" autocmd FileType html,css EmmetInstall
-
 
 """"""""""""""""""""""""""""""""""""
 """ Firenvim settings """"""""""""""
@@ -296,24 +50,6 @@ if exists('g:started_by_firenvim')
 	let g:loaded_airline = 1
 	set laststatus=0
 endif
-
-
-
-""""""""""""""""""""""""""""""""""""
-""" Spell config """""""""""""""""""
-""""""""""""""""""""""""""""""""""""
-
-" spelling error highlight settings
-" hi clear SpellBad
-" hi SpellBad cterm=underline,bold ctermfg=red
-
-"The following command will let us press CTRL-N or CTRL-P in
-"insert-mode to complete the word we’re typing!
-set complete+=kspell
-
-" toggle spell on
-nnoremap ,ts :set spell!<CR>
-
 
 """"""""""""""""""""""""""""""""""""
 """ Scripts """"""""""""""""""""""""
@@ -368,18 +104,12 @@ function! Openvimrc()
   endif
 endfunction
 
-" autostart coq
-" let g:coq_settings = { 'auto_start': 'shut-up' }
-
-" lualine hide tabline if one tab is open
-"au OptionSet showtabline :set showtabline=1
 ]])
 
-local vimp = require('vimp')
+--##################################################################--
+-- Sourcing lua files
+--##################################################################--
+-- Requiring a nonexistent module or a module which contains syntax errors
+-- aborts the currently executing script. pcall() may be used to prevent errors
 
-vimp.nnoremap(',vr', function()
-  vimp.unmap_all()
-  require('plenary.reload').reload_module('saif')
-  dofile(vim.env.MYVIMRC)
-  print('Reloaded vimrc!')
-end)
+require('saif')

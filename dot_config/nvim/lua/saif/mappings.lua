@@ -2,6 +2,7 @@ local nnoremap = require('vimp').nnoremap
 local xnoremap = require('vimp').xnoremap
 local onoremap = require('vimp').onoremap
 local vnoremap = require('vimp').vnoremap
+local inoremap = require('vimp').inoremap
 
 -- keep cursor in position while joining lines
 nnoremap('J', 'mzJ`z')
@@ -148,3 +149,70 @@ nnoremap(',p', '"+p')
 nnoremap(',P', '"+P')
 vnoremap(',y', '"+y')
 nnoremap(',y', '"+y')
+
+--##################################################################--
+-- Misc bindings
+--##################################################################--
+
+--map jj to esc
+inoremap('jj', '<ESC>')
+
+-- disable highlight on esc
+nnoremap({ 'silent' }, '<ESC>', ':nohls<CR><ESC>')
+
+-- open file manager
+nnoremap('<F2>', 'Lex<CR>')
+
+-- Save all file
+nnoremap('<Leader>a', ':wa<CR>')
+
+-- Uppercase a word
+nnoremap(',u', 'vaWUe')
+
+-- Replace a WORD under cursor in file and line
+-- this doesn't work correctly as it searchs for WORD followed by a space
+nnoremap(',rrf', ':%s/<C-r><C-a> //g<Left><Left>')
+nnoremap(',rrl', ':s/<C-r><C-a> //g<Left><Left>')
+
+-- Replace a word under cursor in file and line
+-- a word can contain alphbets numerals underscore
+-- \<\> is use to match exact
+-- :%s/\<WordToReplace\>/New/g
+nnoremap(',rf', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]])
+nnoremap(',rl', [[:s/\<<C-r><C-w>\>//g<Left><Left>]])
+
+vimp.nnoremap(',vr', function()
+  vimp.unmap_all()
+  require('plenary.reload').reload_module('saif')
+  dofile(vim.env.MYVIMRC)
+  print('Reloaded vimrc!')
+end)
+
+-- Map space to leader and not changing it, the leader is still \
+-- therefore using nmap because we need to use it recursively
+vimp.nmap('<SPACE>', '<Leader>')
+
+--##################################################################--
+-- Window management
+--##################################################################--
+
+nnoremap('<Leader>v', '<C-w>')
+
+-- Close window
+nnoremap('<Leader>c', '<C-w>c')
+
+-- Zoom in and zoom out current window
+nnoremap('<Leader>zi', '<c-w>_ | <c-w>|')
+nnoremap('<Leader>zo', '<c-w>=')
+
+-- spelling error highlight settings
+-- hi clear SpellBad
+-- hi SpellBad cterm=underline,bold ctermfg=red
+
+-- The following command will let us press CTRL-N or CTRL-P in
+-- insert-mode to complete the word we’re typing!
+-- TODO: set this using neovim api
+-- vim.opt.complete += kspell
+
+-- toggle spell on
+nnoremap(',ts', ':set spell!<CR>')
