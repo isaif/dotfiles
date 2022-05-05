@@ -3,7 +3,7 @@
 --##################################################################--
 -- Requiring a nonexistent module or a module which contains syntax errors
 -- aborts the currently executing script. pcall() may be used to prevent errors
-require("saif")
+require('saif')
 
 --##################################################################--
 -- vim native
@@ -114,5 +114,11 @@ function! Openvimrc()
   endif
 endfunction
 
+" hide tabline when only one tab is visible
+" doesn't work properly
+" it shows tabline when vim is started even if it had one tab
+" but does work on changes in number of tabs
+" TODO: fix this
+au OptionSet showtabline :set showtabline=1
 
 ]])
