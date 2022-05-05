@@ -164,6 +164,8 @@ return packer.startup(function(use)
     cmd = 'IndentBlanklineEnable',
   })
 
+  use('RRethy/nvim-treesitter-textsubjects')
+
   --##################################################################
   -- Utilities
   --##################################################################
