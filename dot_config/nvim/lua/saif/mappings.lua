@@ -161,7 +161,7 @@ inoremap('jj', '<ESC>')
 nnoremap({ 'silent' }, '<ESC>', ':nohls<CR><ESC>')
 
 -- open file manager
-nnoremap('<F2>', 'Lex<CR>')
+nnoremap('<F2>', ':Lex<CR>')
 
 -- Save all file
 nnoremap('<Leader>a', ':wa<CR>')
