@@ -145,8 +145,12 @@ vim.cmd([[nnoremap <C-l> <C-w>l]])
 -- Copy and paste from the clipboard
 --##################################################################--
 
+vnoremap(',p', '"+p')
 nnoremap(',p', '"+p')
+
+vnoremap(',P', '"+P')
 nnoremap(',P', '"+P')
+
 vnoremap(',y', '"+y')
 nnoremap(',y', '"+y')
 
