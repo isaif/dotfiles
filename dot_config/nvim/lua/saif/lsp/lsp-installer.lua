@@ -58,10 +58,11 @@ lsp_installer.on_server_ready(function(server)
     -- }
     -- opts.root_dir = root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git")
     opts.on_attach = function(client, buffer)
-      client.resolved_capabilities.document_formatting = false
-      client.resolved_capabilities.document_range_formatting = false
+      client.server_capabilities.document_formatting = false
+      client.server_capabilities.document_range_formatting = false
       common_on_attach(client, buffer)
     end
+    print('tsserver is alive')
   end
 
   if server.name == 'sumneko_lua' then

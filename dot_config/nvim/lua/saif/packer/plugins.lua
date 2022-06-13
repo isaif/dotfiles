@@ -15,8 +15,11 @@ return packer.startup(function(use)
   --##################################################################
 
   use('neovim/nvim-lspconfig')
-  use('jose-elias-alvarez/null-ls.nvim')
-  use('williamboman/nvim-lsp-installer')
+  use({
+    'jose-elias-alvarez/null-ls.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+  })
+  -- use('williamboman/nvim-lsp-installer')
 
   use({
     'nvim-treesitter/nvim-treesitter',
