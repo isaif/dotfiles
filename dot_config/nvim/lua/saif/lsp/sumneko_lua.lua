@@ -1,15 +1,10 @@
-local util = require('lspconfig/util')
-local root_pattern = util.root_pattern
-
-local root_dir = root_pattern(
-  '.git',
-  '.editorconfig',
-  'stylua.toml',
-  '.stylua.toml'
-)
-
 local settings = {
   Lua = {
+    -- runtime = {
+    --   -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+    --   version = 'LuaJIT',
+    --   -- Setup your lua path
+    -- },
     diagnostics = {
       globals = {
         'vim',
@@ -43,12 +38,9 @@ local M = {}
 
 M.setup = function(on_attach, capabilities)
   require('lspconfig').sumneko_lua.setup({
-    lspconfig = {
-      on_attach = on_attach,
-      capabilities = capabilities,
-      settings = settings,
-      root_dir = root_dir,
-    },
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = settings,
   })
 end
 
