@@ -3,6 +3,7 @@ local xnoremap = require('vimp').xnoremap
 local onoremap = require('vimp').onoremap
 local vnoremap = require('vimp').vnoremap
 local inoremap = require('vimp').inoremap
+local tnoremap = require('vimp').tnoremap
 
 -- keep cursor in position while joining lines
 nnoremap('J', 'mzJ`z')
@@ -142,6 +143,12 @@ nnoremap('<C-k>', '<C-w>k')
 -- nnoremap('<C-l>', '<C-w>l')
 vim.cmd([[nnoremap <C-l> <C-w>l]])
 
+-- Navigate from terminal
+tnoremap('<C-h>', '<C-\\><C-N><C-w>h')
+tnoremap('<C-j>', '<C-\\><C-N><C-w>j')
+tnoremap('<C-k>', '<C-\\><C-N><C-w>k')
+tnoremap('<C-l>', '<C-\\><C-N><C-w>l')
+
 --##################################################################--
 -- Copy and paste from the clipboard
 --##################################################################--
@@ -161,6 +168,7 @@ nnoremap(',y', '"+y')
 
 --map jj to esc
 inoremap('jj', '<ESC>')
+tnoremap('jj', '<C-\\><C-N>')
 
 -- disable highlight on esc
 nnoremap({ 'silent' }, '<ESC>', ':nohls<CR><ESC>')
