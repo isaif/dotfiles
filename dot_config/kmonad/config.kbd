@@ -70,6 +70,7 @@
   qwerty (layer-switch qwerty)
   blank (layer-switch blank)
   power (layer-switch power)
+  colemak-dh (layer-switch colemak-dh)
 )
 
 
@@ -126,6 +127,7 @@
 
 ;;----------------------------------------------------------------------------
 ;; this layer is a toggle layer which is used with ctrl button as an extend layer
+;; a toggle layer is temporary therefore @eSwt is not required in it
 ;;----------------------------------------------------------------------------
 (deflayer extend
   _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
@@ -139,11 +141,13 @@
 
 ;;----------------------------------------------------------------------------
 ;; this layer is used to switch to other layers
-;; make sure to add @eSwt to all layers so you can switch back
+;; a toggle layer is temporary therefore @eSwt is not required in it
+;; make sure to add @eSwt to all layers other than toggle layer 
+;; so you can switch back
 ;;----------------------------------------------------------------------------
 (deflayer switcher
   _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
-  _    @qwerty    @blank    _    _    _    _    _    _    @power    _    _    _    _     _    _    _     _    _    _    _
+  _    @qwerty    @blank    @colemak-dh    _    _    _    _    _    @power    _    _    _    _     _    _    _     _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _                          _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
@@ -175,6 +179,19 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _                          _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
+  _    _    _              _              _    _    _    _               _    _    _     _    _   
+)
+
+
+;;----------------------------------------------------------------------------
+;; This layer is for colemak-dh
+;;----------------------------------------------------------------------------
+(deflayer colemak-dh
+  @eSwt    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+  _    _    _    f    p    b    j    l    u    y    ;    _    _    _     _    _    _     _    _    _    _
+  _    _    r    s    t    _    m    n    e    i    o    _    _                          _    _    _
+  _    _    _    _    d    v    k    h    _    _    _    _                    _          _    _    _    _
   _    _    _              _              _    _    _    _               _    _    _     _    _   
 )
 
