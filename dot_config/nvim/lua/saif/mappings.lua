@@ -114,8 +114,9 @@ vim.cmd([[
   " remove the default s mapping
   " I will be using only bi-directional search
   noremap s s
+  noremap S S
 
-  nmap S <Plug>Lightspeed_omni_s
+  nmap ,s <Plug>Lightspeed_omni_s
 ]])
 
 --##################################################################--
