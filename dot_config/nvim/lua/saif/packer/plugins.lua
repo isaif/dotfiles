@@ -91,6 +91,13 @@ return packer.startup(function(use)
 
   use('vimwiki/vimwiki')
 
+  use({
+    'hkupty/iron.nvim',
+    config = function()
+      require('saif.configs.iron')
+    end,
+  })
+
   -- Local vimrc file is required for linting in ale
   -- When we need to use docker
   -- use 'embear/vim-localvimrc'
