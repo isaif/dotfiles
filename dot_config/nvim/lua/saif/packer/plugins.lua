@@ -169,7 +169,15 @@ return packer.startup(function(use)
   })
 
   -- surround plugin
-  use('machakann/vim-sandwich')
+  -- use('machakann/vim-sandwich')
+  use({
+    'kylechui/nvim-surround',
+    config = function()
+      require('nvim-surround').setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end,
+  })
 
   -- To show context of current line use virtual text
   use('haringsrob/nvim_context_vt')
