@@ -63,6 +63,17 @@ return packer.startup(function(use)
   use('onsails/lspkind-nvim')
 
   --##################################################################
+  -- Debugging
+  --##################################################################
+
+  use({
+    'hkupty/iron.nvim',
+    config = function()
+      require('saif.configs.iron')
+    end,
+  })
+
+  --##################################################################
   -- Navigation
   --##################################################################
 
@@ -97,13 +108,6 @@ return packer.startup(function(use)
   use('tpope/vim-fugitive')
 
   use('vimwiki/vimwiki')
-
-  use({
-    'hkupty/iron.nvim',
-    config = function()
-      require('saif.configs.iron')
-    end,
-  })
 
   -- Local vimrc file is required for linting in ale
   -- When we need to use docker
