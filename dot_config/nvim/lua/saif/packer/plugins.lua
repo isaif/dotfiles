@@ -78,9 +78,16 @@ return packer.startup(function(use)
   use({ 'nvim-telescope/telescope-file-browser.nvim' })
 
   use('ThePrimeagen/harpoon')
+
   -- To manage tags
   -- use 'ludovicchabant/vim-gutentags'
-  use('ggandor/lightspeed.nvim')
+
+  use({
+    'ggandor/lightspeed.nvim',
+    config = function()
+      require('saif.configs.lightspeed')
+    end,
+  })
 
   --##################################################################
   -- Extension plugins
