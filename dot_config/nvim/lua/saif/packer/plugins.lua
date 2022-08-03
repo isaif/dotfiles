@@ -185,7 +185,8 @@ return packer.startup(function(use)
     cmd = 'IndentBlanklineEnable',
   })
 
-  use('RRethy/nvim-treesitter-textsubjects')
+  -- Still can't find the use for this plugin
+  -- use('RRethy/nvim-treesitter-textsubjects')
 
   --##################################################################
   -- Utilities
