@@ -1,9 +1,10 @@
-local nnoremap = require('vimp').nnoremap
-local xnoremap = require('vimp').xnoremap
-local onoremap = require('vimp').onoremap
-local vnoremap = require('vimp').vnoremap
-local inoremap = require('vimp').inoremap
-local tnoremap = require('vimp').tnoremap
+local nnoremap = require('saif.mapping_helper').nnoremap
+local xnoremap = require('saif.mapping_helper').xnoremap
+local onoremap = require('saif.mapping_helper').onoremap
+local vnoremap = require('saif.mapping_helper').vnoremap
+local inoremap = require('saif.mapping_helper').inoremap
+local tnoremap = require('saif.mapping_helper').tnoremap
+-- local vimp = require('vimp')
 
 -- keep cursor in position while joining lines
 nnoremap('J', 'mzJ`z')
@@ -13,8 +14,8 @@ nnoremap('J', 'mzJ`z')
 --##################################################################--
 -- local nnoremap = require('saif/mapping_helper').nnoremap
 
-nnoremap('<leader>ff', ':Telescope find_files<cr>')
-nnoremap('<leader>fg', ':Telescope live_grep<cr>')
+nnoremap('<leader>ff', ':Telescope find_files<cr>', { silent = false })
+nnoremap('<leader>fg', '<cmd>Telescope live_grep<cr>')
 nnoremap('<leader>fb', ':Telescope buffers<cr>')
 nnoremap('<leader>fo', ':Telescope oldfiles<cr>')
 nnoremap('<leader>fh', ':Telescope help_tags<cr>')
@@ -26,6 +27,7 @@ nnoremap('<leader>fv', ':Telescope vim_options<cr>')
 nnoremap('<leader>fr', ':Telescope registers<cr>')
 nnoremap('<leader>fs', ':Telescope resume<cr>')
 nnoremap('<leader>fi', ':Telescope current_buffer_fuzzy_find<cr>')
+nnoremap('<leader>fe', ':Telescope diagnostics<cr>')
 
 nnoremap('<leader>fdc', ':Telescope file_browser<cr>')
 nnoremap(
@@ -35,7 +37,7 @@ nnoremap(
 
 nnoremap(
   '<F3>',
-  [[:lua require("telescope.builtin").live_grep({search_dirs={"~/.config/nvim/"}})<cr>]]
+  [[:lua require("telescope.builtin").live_grep({search_dirs={"~/.config/nvim/lua"}})<cr>]]
 )
 nnoremap(
   '<F4>',
@@ -58,7 +60,11 @@ nnoremap(',fa', ':lua require("harpoon.mark").set_current_at(1)<CR>')
 nnoremap(',fs', ':lua require("harpoon.mark").set_current_at(2)<CR>')
 nnoremap(',fd', ':lua require("harpoon.mark").set_current_at(3)<CR>')
 
-nnoremap(',g', ':lua require("harpoon.ui").toggle_quick_menu()<CR>')
+nnoremap(
+  ',g',
+  ':lua require("harpoon.ui").toggle_quick_menu()<CR>',
+  { silent = false }
+)
 
 nnoremap(',a', ':lua require("harpoon.ui").nav_file(1)<CR>')
 nnoremap(',s', ':lua require("harpoon.ui").nav_file(2)<CR>')
@@ -74,13 +80,12 @@ nnoremap('<leader>gs', ':Git<CR>')
 nnoremap('<leader>gd', ':Gdiffsplit<CR>')
 nnoremap('<leader>gb', ':Git blame<CR>')
 --nnoremap <leader>ga :Git add %:p<CR><CR>
--- nnoremap <leader>gs :Git<CR>
+--nnoremap <leader>gs :Git<CR>
 --nnoremap <leader>gc :Gcommit -v -q<CR>
 --nnoremap <leader>gt :Gcommit -v -q %:p<CR>
--- nnoremap <leader>gd :Gdiff<CR>
+--nnoremap <leader>gd :Gdiff<CR>
 --nnoremap <leader>ge :Gedit<CR>
 --nnoremap <leader>gr :Gread<CR>
---nnoremap <leader>gw :Gwrite<CR><CR>
 --nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
 --nnoremap <leader>gp :Ggrep<leader>
 --nnoremap <leader>gm :Gmove<leader>
@@ -95,15 +100,15 @@ nnoremap('<leader>gb', ':Git blame<CR>')
 
 --  inner/around line text objects
 --  visual mode
-xnoremap({ 'silent' }, 'il', '<ESC>^vg_')
-xnoremap({ 'silent' }, 'al', '<ESC>0v$')
+xnoremap('il', '<ESC>^vg_')
+xnoremap('al', '<ESC>0v$')
 --  operator pending mode
-onoremap({ 'silent' }, 'il', ':<C-u>normal! ^vg_<CR>')
-onoremap({ 'silent' }, 'al', ':<C-u>normal! 0v$<CR>')
+onoremap('il', ':<C-u>normal! ^vg_<CR>')
+onoremap('al', ':<C-u>normal! 0v$<CR>')
 
 -- Complete buffer
--- xnoremap({'silent'}, 'A', '<ESC>myggVG`y')
-onoremap({ 'silent' }, 'A', ':<C-u>normal! ggVG<CR>')
+-- xnoremap(', '<ESC>myggVG`y')
+onoremap('A', ':<C-u>normal! ggVG<CR>')
 
 --##################################################################--
 -- Navigation
@@ -156,7 +161,7 @@ inoremap('jj', '<ESC>')
 tnoremap('jj', '<C-\\><C-N>')
 
 -- disable highlight on esc
-nnoremap({ 'silent' }, '<ESC>', ':nohls<CR><ESC>')
+nnoremap('<ESC>', ':nohls<CR><ESC>')
 
 -- open file manager
 nnoremap('<F2>', ':Lex<CR>')
@@ -179,16 +184,36 @@ nnoremap(',rrl', ':s/<C-r><C-a> //g<Left><Left>')
 nnoremap(',rf', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]])
 nnoremap(',rl', [[:s/\<<C-r><C-w>\>//g<Left><Left>]])
 
-vimp.nnoremap(',vr', function()
-  vimp.unmap_all()
-  require('plenary.reload').reload_module('saif')
+-- vimp.nnoremap(',vr', function()
+--   vimp.unmap_all()
+--   require('plenary.reload').reload_module('saif')
+--   dofile(vim.env.MYVIMRC)
+--   print('Reloaded vimrc!')
+-- end)
+
+TODO: fix reloading of config
+function _G.reload_nvim_conf()
+  for name, _ in pairs(package.loaded) do
+    -- if name:match('^core') or name:match('^lsp') or name:match('^plugins') then
+    if name:match('^saif') and not name:match('lsp_progress') then
+      package.loaded[name] = nil
+    end
+  end
+
   dofile(vim.env.MYVIMRC)
-  print('Reloaded vimrc!')
-end)
+  vim.notify('Nvim configuration reloaded!', vim.log.levels.INFO)
+end
+
+vim.keymap.set(
+  'n',
+  ',vr',
+  '<cmd>lua reload_nvim_conf()<CR>',
+  { silent = false }
+)
 
 -- Map space to leader and not changing it, the leader is still \
 -- therefore using nmap because we need to use it recursively
-vimp.nmap('<SPACE>', '<Leader>')
+vim.keymap.set({ 'n', 'v' }, '<SPACE>', '<Leader>', { remap = true })
 
 --##################################################################--
 -- Window management

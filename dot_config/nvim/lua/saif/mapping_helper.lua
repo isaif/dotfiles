@@ -1,17 +1,61 @@
-local mapping = {}
+local M = {}
 
-local noremap = { noremap = true, silent = true }
+-- vim.keymap.set has remap = false by default
+M.noremap = function(mode, rhs, lhs, opts)
+  local default_opts = { silent = true }
 
-local map = function(mode, rhs, lhs, opts)
-  vim.api.nvim_set_keymap(mode, rhs, lhs, opts)
+  -- if opts then
+  --   for k, v in pairs(opts) do
+  --     default_opts[k] = v
+  --   end
+  -- end
+
+  if opts then
+    default_opts = vim.tbl_extend('force', default_opts, opts)
+  end
+  -- if rhs == '<leader>ff' then
+  -- if rhs == ',ld' or '<leader>ff' then
+  -- print(rhs)
+  -- print(vim.inspect(default_opts))
+  -- print(vim.inspect(opts))
+  -- print('-------')
+  -- end
+
+  vim.keymap.set(mode, rhs, lhs, default_opts)
 end
 
-local nmap = function(...)
-  map('n', ...)
+M.nnoremap = function(lhs, rhs, opts)
+  -- print(rhs)
+  -- print(vim.inspect(opts))
+  opts = opts or {}
+  -- print(vim.inspect(opts))
+  -- print('-------')
+  M.noremap('n', lhs, rhs)
 end
 
-function mapping.nnoremap(lsh, rhs)
-  nmap(lsh, rhs, noremap)
+M.inoremap = function(lhs, rhs, opts)
+  opts = opts or {}
+  M.noremap('i', lhs, rhs)
 end
 
-return mapping
+M.xnoremap = function(lhs, rhs, opts)
+  opts = opts or {}
+  M.noremap('x', lhs, rhs)
+end
+
+M.onoremap = function(lhs, rhs, opts)
+  opts = opts or {}
+  M.noremap('o', lhs, rhs)
+end
+
+M.vnoremap = function(lhs, rhs, opts)
+  opts = opts or {}
+  M.noremap('v', lhs, rhs)
+end
+
+M.tnoremap = function(lhs, rhs, opts)
+  opts = opts or {}
+  M.noremap('t', lhs, rhs)
+end
+
+return M

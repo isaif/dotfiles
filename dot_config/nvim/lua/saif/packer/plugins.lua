@@ -219,7 +219,7 @@ return packer.startup(function(use)
   -- use('gcmt/taboo.vim')
 
   -- Easy adding of mappings
-  use('svermeulen/vimpeccable')
+  -- use('svermeulen/vimpeccable')
 
   -- Enable neovim's builtin spellcheker for buffers
   -- with treesitter highlighting
