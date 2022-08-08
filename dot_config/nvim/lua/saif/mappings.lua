@@ -191,7 +191,7 @@ nnoremap(',rl', [[:s/\<<C-r><C-w>\>//g<Left><Left>]])
 --   print('Reloaded vimrc!')
 -- end)
 
-TODO: fix reloading of config
+--TODO: fix reloading of config
 function _G.reload_nvim_conf()
   for name, _ in pairs(package.loaded) do
     -- if name:match('^core') or name:match('^lsp') or name:match('^plugins') then
