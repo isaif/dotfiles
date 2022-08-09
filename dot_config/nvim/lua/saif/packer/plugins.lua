@@ -93,11 +93,19 @@ return packer.startup(function(use)
   -- To manage tags
   -- use 'ludovicchabant/vim-gutentags'
 
+  -- use({
+  --   'ggandor/lightspeed.nvim',
+  --   config = function()
+  --     require('saif.configs.lightspeed')
+  --   end,
+  -- })
+
   use({
-    'ggandor/lightspeed.nvim',
-    config = function()
-      require('saif.configs.lightspeed')
-    end,
+    'ggandor/leap.nvim',
+    -- how does leap using saif.configs.leap without requiring it?
+    -- config = function()
+    --   require('saif.configs.leapnvim')
+    -- end,
   })
 
   --##################################################################
