@@ -259,6 +259,8 @@ return packer.startup(function(use)
   -- use "Pocco81/Catppuccino.nvim"
   -- use 'folke/tokyonight.nvim'
 
+  use('kmonad/kmonad-vim')
+
   use({
     'nvim-lualine/lualine.nvim',
     config = function()
