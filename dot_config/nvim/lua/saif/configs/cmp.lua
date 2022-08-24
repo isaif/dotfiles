@@ -6,6 +6,11 @@ vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 -- Setup nvim-cmp.
 local cmp = require('cmp')
 
+-- fixing check nill error
+if cmp == nil then
+  return
+end
+
 cmp.setup({
   snippet = {
     expand = function(args)
