@@ -192,17 +192,26 @@ return packer.startup(function(use)
 
   -- this plugin also provides context so nvim_context_vt
   -- can be removed if indent_blankline is used always
-  use({
-    'lukas-reineke/indent-blankline.nvim',
-    config = function()
-      require('saif.configs.indent-blankline')
-    end,
-    -- cmd = 'IndentBlanklineToggle',
-    cmd = 'IndentBlanklineEnable',
-  })
+  -- mini plugin also provides indent line so commenting out for now
+  -- use({
+  --   'lukas-reineke/indent-blankline.nvim',
+  --   config = function()
+  --     require('saif.configs.indent-blankline')
+  --   end,
+  --   -- cmd = 'IndentBlanklineToggle',
+  --   cmd = 'IndentBlanklineEnable',
+  -- })
 
   -- Still can't find the use for this plugin
   -- use('RRethy/nvim-treesitter-textsubjects')
+
+  use({
+    'echasnovski/mini.nvim',
+    config = function()
+      require('saif.configs.mini')
+      -- require('mini.ai').setup()
+    end,
+  })
 
   --##################################################################
   -- Utilities
