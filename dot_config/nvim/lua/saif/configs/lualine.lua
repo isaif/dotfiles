@@ -24,7 +24,7 @@ require('lualine').setup({
         path = 1,
         shorting_target = 20,
       },
-      'lsp_progress',
+      -- 'lsp_progress',
     },
     -- lualine_c = {'filename'},
     lualine_x = {
@@ -70,6 +70,17 @@ require('lualine').setup({
         -- },
       },
     },
+    -- lualine_x = {
+    --   'lsp_progress',
+    -- },
   },
+  -- winbar = {
+  --   lualine_a = {},
+  --   lualine_b = {},
+  --   lualine_c = { 'lsp_progress' },
+  --   lualine_x = {},
+  --   lualine_y = {},
+  --   lualine_z = {},
+  -- },
   extensions = { 'fugitive' },
 })

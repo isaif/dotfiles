@@ -278,7 +278,14 @@ return packer.startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
   })
 
-  use('arkav/lualine-lsp-progress')
+  use({
+    'vigoux/notifier.nvim',
+    config = function()
+      require('notifier').setup({
+        -- You configuration here
+      })
+    end,
+  })
 
   -- Doesn't have much themes yet
   -- I will have to setup everthing which I don't have time for
