@@ -53,15 +53,16 @@ nnoremap('<leader>gcc', ':Telescope git_bcommits<cr>')
 --##################################################################--
 
 -- add file to list
-nnoremap(',ff', ':lua require("harpoon.mark").add_file()<CR>')
+nnoremap(',G', ':lua require("harpoon.mark").add_file()<CR>')
 
 -- add file at particular index
-nnoremap(',fa', ':lua require("harpoon.mark").set_current_at(1)<CR>')
-nnoremap(',fs', ':lua require("harpoon.mark").set_current_at(2)<CR>')
-nnoremap(',fd', ':lua require("harpoon.mark").set_current_at(3)<CR>')
+nnoremap(',ga', ':lua require("harpoon.mark").set_current_at(1)<CR>')
+nnoremap(',gs', ':lua require("harpoon.mark").set_current_at(2)<CR>')
+nnoremap(',gd', ':lua require("harpoon.mark").set_current_at(3)<CR>')
+nnoremap(',gf', ':lua require("harpoon.mark").set_current_at(4)<CR>')
 
 nnoremap(
-  ',g',
+  ',gg',
   ':lua require("harpoon.ui").toggle_quick_menu()<CR>',
   { silent = false }
 )
@@ -69,6 +70,7 @@ nnoremap(
 nnoremap(',a', ':lua require("harpoon.ui").nav_file(1)<CR>')
 nnoremap(',s', ':lua require("harpoon.ui").nav_file(2)<CR>')
 nnoremap(',d', ':lua require("harpoon.ui").nav_file(3)<CR>')
+nnoremap(',f', ':lua require("harpoon.ui").nav_file(3)<CR>')
 -- nnoremap(',f', ':lua require("harpoon.ui").nav_file(4)')
 
 --##################################################################--
