@@ -70,7 +70,7 @@ nnoremap(
 nnoremap(',a', ':lua require("harpoon.ui").nav_file(1)<CR>')
 nnoremap(',s', ':lua require("harpoon.ui").nav_file(2)<CR>')
 nnoremap(',d', ':lua require("harpoon.ui").nav_file(3)<CR>')
-nnoremap(',f', ':lua require("harpoon.ui").nav_file(3)<CR>')
+nnoremap(',f', ':lua require("harpoon.ui").nav_file(4)<CR>')
 -- nnoremap(',f', ':lua require("harpoon.ui").nav_file(4)')
 
 --##################################################################--
