@@ -29,11 +29,8 @@ nnoremap('<leader>fs', ':Telescope resume<cr>')
 nnoremap('<leader>fi', ':Telescope current_buffer_fuzzy_find<cr>')
 nnoremap('<leader>fe', ':Telescope diagnostics<cr>')
 
-nnoremap('<leader>fdc', ':Telescope file_browser<cr>')
-nnoremap(
-  '<leader>fdd',
-  [[:lua require("telescope").extensions.file_browser.file_browser({path=vim.fn.expand('%:h')})<cr>]]
-)
+nnoremap('<leader>fD', ':Telescope file_browser<cr>')
+nnoremap('<leader>fd', '<cmd>Telescope file_browser path=%:p:h<cr>')
 
 nnoremap(
   '<F3>',
