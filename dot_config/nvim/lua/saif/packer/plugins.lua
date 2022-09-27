@@ -255,14 +255,15 @@ return packer.startup(function(use)
   -- TODO spell highlighting color
   -- this doesn't support external sources
   -- therefore we will need to use null-ls for external sources
-  use({
-    -- Optional but recommended
-    -- 'nvim-treesitter/nvim-treesitter',
-    'lewis6991/spellsitter.nvim',
-    config = function()
-      require('saif.configs.spellsitter')
-    end,
-  })
+  -- No longer required as it is now builtin
+  -- use({
+  --   -- Optional but recommended
+  --   -- 'nvim-treesitter/nvim-treesitter',
+  --   'lewis6991/spellsitter.nvim',
+  --   config = function()
+  --     require('saif.configs.spellsitter')
+  --   end,
+  -- })
 
   --##################################################################
   -- Themes and friends
@@ -280,6 +281,7 @@ return packer.startup(function(use)
   -- use "Pocco81/Catppuccino.nvim"
   -- use 'folke/tokyonight.nvim'
 
+  -- provides highlights for kmonad configuration file
   use('kmonad/kmonad-vim')
 
   use({
