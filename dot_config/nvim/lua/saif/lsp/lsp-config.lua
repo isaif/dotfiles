@@ -2,13 +2,20 @@ local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 
 local lsp_formatting = function(bufnr)
   vim.lsp.buf.format({
-    -- filter = function(clients)
-    --   return vim.tbl_filter(function(client)
-    --     return client.name == 'null-ls'
-    --   end, clients)
-    -- end,
+    filter = function(client)
+      -- return vim.tbl_filter(function(client)
+      --   return client.name == 'null-ls'
+      -- end, clients)
+
+      -- don't use null-ls for formatting prisma files
+      if client.name == 'prismals' then
+        return client.name == 'prismals'
+      else
+        return client.name == 'null-ls'
+      end
+    end,
     bufnr = bufnr,
-    name = 'null-ls',
+    -- name = 'null-ls',
   })
 end
 
@@ -61,7 +68,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'sumneko_lua', 'tsserver', 'null-ls' }
+local servers = { 'sumneko_lua', 'tsserver', 'null-ls', 'prismals' }
 for _, server in pairs(servers) do
   require('saif.lsp.' .. server).setup(on_attach, capabilities)
 end
