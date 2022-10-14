@@ -7,6 +7,8 @@ require('lualine').setup({
     -- section_separators = { left = '', right = ''},
     -- disabled_filetypes = {},
     always_divide_middle = true,
+    -- enable global line
+    globalstatus = true,
   },
   sections = {
     lualine_a = { 'mode' },
@@ -26,7 +28,6 @@ require('lualine').setup({
       },
       -- 'lsp_progress',
     },
-    -- lualine_c = {'filename'},
     lualine_x = {
       -- 'encoding',
       -- 'fileformat',
@@ -36,10 +37,10 @@ require('lualine').setup({
     lualine_z = { 'location' },
   },
   -- When buffer is inactive
+  -- not required when using global line
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
-    -- lualine_c = {'filename'},
     lualine_c = {
       {
         'filename',
@@ -51,36 +52,45 @@ require('lualine').setup({
     lualine_y = {},
     lualine_z = {},
   },
-  tabline = {
+  tabline = {},
+  winbar = {
     lualine_a = {
       {
         'tabs',
-        max_length = vim.o.columns / 3, -- Maximum width of tabs component.
-        -- Note:
-        -- It can also be a function that returns
-        -- the value of `max_length` dynamically.
-        mode = 1, -- 0: Shows tab_nr
-        -- 1: Shows tab_name
-        -- 2: Shows tab_nr + tab_name
-
-        -- tabs_color = {
-        --   -- Same values as the general color option can be used here.
-        --   active = 'lualine_{section}_normal', -- Color for active tab.
-        --   inactive = 'lualine_{section}_inactive', -- Color for inactive tab.
-        -- },
+        mode = 1,
+        -- show tabs only on the first window
+        -- i.e. the top left window
+        cond = function()
+          return vim.api.nvim_win_get_number(0) == 1
+        end,
       },
     },
-    -- lualine_x = {
-    --   'lsp_progress',
-    -- },
+    lualine_z = {
+      {
+        'filename',
+        color = 'lualine_a_normal',
+        path = 1,
+        shorting_target = 40,
+      },
+    },
   },
-  -- winbar = {
-  --   lualine_a = {},
-  --   lualine_b = {},
-  --   lualine_c = { 'lsp_progress' },
-  --   lualine_x = {},
-  --   lualine_y = {},
-  --   lualine_z = {},
-  -- },
+  inactive_winbar = {
+    lualine_a = {
+      {
+        'tabs',
+        mode = 1,
+        cond = function()
+          return vim.api.nvim_win_get_number(0) == 1
+        end,
+      },
+    },
+    lualine_z = {
+      {
+        'filename',
+        path = 1,
+        shorting_target = 40,
+      },
+    },
+  },
   extensions = { 'fugitive' },
 })
