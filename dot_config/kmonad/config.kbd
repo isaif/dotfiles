@@ -4,7 +4,7 @@
 
 
 (defcfg
-  input  (device-file "/dev/input/by-id/usb-CHESEN_USB_Keyboard-event-kbd")
+  input  (device-file "/dev/input/by-id/usb-SEMICO_USB_Gaming_Keyboard-event-kbd")
   output (uinput-sink "My KMonad output"
     ;; To understand the importance of the following line, see the section on
     ;; Compose-key sequences at the near-bottom of this file.
