@@ -99,3 +99,5 @@ require('lualine').setup({
   },
   extensions = { 'fugitive' },
 })
+
+vim.opt.showtabline = 0

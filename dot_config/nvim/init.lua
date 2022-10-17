@@ -114,11 +114,5 @@ function! Openvimrc()
   endif
 endfunction
 
-" hide tabline when only one tab is visible
-" doesn't work properly
-" it shows tabline when vim is started even if it had one tab
-" but does work on changes in number of tabs
-" TODO: fix this
-au OptionSet showtabline :set showtabline=1
 
 ]])
