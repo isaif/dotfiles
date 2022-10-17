@@ -4,6 +4,9 @@ vim.cmd([[au TextYankPost * silent! lua vim.highlight.on_yank()]])
 --"""""""""""""""""""""""""""""""""""
 --"""""""Personal customization""""""
 --"""""""""""""""""""""""""""""""""""
+
+vim.opt.cmdheight = 0
+
 -- This option makes cursor as block cursor in nvim
 vim.opt.guicursor = ''
 vim.opt.relativenumber = true
