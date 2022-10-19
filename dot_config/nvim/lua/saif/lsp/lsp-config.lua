@@ -68,7 +68,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'sumneko_lua', 'tsserver', 'null-ls', 'prismals' }
+local servers = { 'sumneko_lua', 'tsserver', 'null-ls', 'prismals', 'tailwind' }
 for _, server in pairs(servers) do
   require('saif.lsp.' .. server).setup(on_attach, capabilities)
 end
