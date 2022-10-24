@@ -1,4 +1,8 @@
-require('telescope').setup({
+local telescope = require('telescope')
+local actions = require('telescope.actions')
+local action_layout = require('telescope.actions.layout')
+
+telescope.setup({
   defaults = {
     -- Default configuration for telescope goes here:
     -- config_key = value,
@@ -8,14 +12,15 @@ require('telescope').setup({
     },
     mappings = {
       i = {
-        -- map actions.which_key to <C-h> (default: <C-/>)
-        -- actions.which_key shows the mappings for your picker,
-        -- e.g. git_{create, delete, ...}_branch for the git_branches picker
-
-        ['<C-p>'] = require('telescope.actions.layout').toggle_preview,
-        ['<C-h>'] = 'which_key',
-        ['<C-j>'] = require('telescope.actions').move_selection_next,
-        ['<C-k>'] = require('telescope.actions').move_selection_previous,
+        ['<C-h>'] = action_layout.toggle_preview,
+        ['<C-j>'] = actions.move_selection_next,
+        ['<C-k>'] = actions.move_selection_previous,
+        -- cycle previewer for git commits to show full message
+        ['<C-n>'] = actions.cycle_previewers_next,
+        ['<C-p>'] = actions.cycle_previewers_prev,
+      },
+      n = {
+        ['<C-h>'] = action_layout.toggle_preview,
       },
     },
   },
