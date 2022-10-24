@@ -32,14 +32,19 @@ nnoremap('<leader>fe', '<cmd>Telescope diagnostics<cr>')
 nnoremap('<leader>fD', '<cmd>Telescope file_browser<cr>')
 nnoremap('<leader>fd', '<cmd>Telescope file_browser path=%:p:h<cr>')
 
-nnoremap(
-  '<F3>',
-  [[<cmd>lua require("telescope.builtin").live_grep({search_dirs={"~/.config/nvim/lua"}})<cr>]]
-)
-nnoremap(
-  '<F4>',
-  [[<cmd>lua require("telescope.builtin").live_grep({search_dirs={"~/vimwiki/"}})<cr>]]
-)
+local function live_grep_dir(dir)
+  return require('telescope.builtin').live_grep({
+    search_dirs = { dir },
+  })
+end
+
+nnoremap('<F3>', function()
+  live_grep_dir('~/.config/nvim/lua')
+end)
+
+nnoremap('<F4>', function()
+  live_grep_dir('~/vimwiki/')
+end)
 
 -- git related settings
 nnoremap('<leader>gC', '<cmd>Telescope git_commits<cr>')
