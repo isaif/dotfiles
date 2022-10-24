@@ -129,13 +129,13 @@ nnoremap('[b', '<cmd>bprevious<CR>')
 nnoremap(']b', '<cmd>bnext<CR>')
 
 -- Navigate windows using Ctrl
-nnoremap('<C-h>', '<C-w>h')
-nnoremap('<C-j>', '<C-w>j')
-nnoremap('<C-k>', '<C-w>k')
--- unmapping <C-l> from vimwiki
--- vim.cmd([[nunmap <C-L>]])
--- nnoremap('<C-l>', '<C-w>l')
-vim.cmd([[nnoremap <C-l> <C-w>l]])
+-- nnoremap('<C-h>', '<C-w>h')
+-- nnoremap('<C-j>', '<C-w>j')
+-- nnoremap('<C-k>', '<C-w>k')
+-- -- unmapping <C-l> from vimwiki
+-- -- vim.cmd([[nunmap <C-L>]])
+-- -- nnoremap('<C-l>', '<C-w>l')
+-- vim.cmd([[nnoremap <C-l> <C-w>l]])
 
 -- Navigate from terminal
 tnoremap('<C-h>', '<C-\\><C-N><C-w>h')

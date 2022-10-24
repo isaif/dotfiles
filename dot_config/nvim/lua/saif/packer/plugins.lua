@@ -90,6 +90,8 @@ return packer.startup(function(use)
 
   use('ThePrimeagen/harpoon')
 
+  use('christoomey/vim-tmux-navigator')
+
   -- To manage tags
   -- use 'ludovicchabant/vim-gutentags'
 
