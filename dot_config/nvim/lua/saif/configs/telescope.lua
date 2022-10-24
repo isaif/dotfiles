@@ -42,6 +42,11 @@ telescope.setup({
     --   extension_config_key = value,
     -- }
     -- please take a look at the readme of the extension you want to configure
+    file_browser = {
+      respect_gitignore = false,
+      -- show hidden files and folders
+      hidden = true,
+    },
   },
 })
 
