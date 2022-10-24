@@ -1,7 +1,7 @@
 local M = {}
 
 -- vim.keymap.set has remap = false by default
-M.noremap = function(mode, rhs, lhs, opts)
+M.noremap = function(mode, lhs, rhs, opts)
   local default_opts = { silent = true }
 
   -- if opts then
@@ -21,7 +21,7 @@ M.noremap = function(mode, rhs, lhs, opts)
   -- print('-------')
   -- end
 
-  vim.keymap.set(mode, rhs, lhs, default_opts)
+  vim.keymap.set(mode, lhs, rhs, default_opts)
 end
 
 M.nnoremap = function(lhs, rhs, opts)
