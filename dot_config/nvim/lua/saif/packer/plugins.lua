@@ -295,12 +295,20 @@ return packer.startup(function(use)
   })
 
   use({
-    'vigoux/notifier.nvim',
+    'folke/noice.nvim',
+    event = 'VimEnter',
     config = function()
-      require('notifier').setup({
-        -- You configuration here
-      })
+      require('saif.config.noice')
     end,
+    requires = {
+      -- if you lazy-load any plugin below,
+      -- make sure to add proper `module="..."` entries
+      'MunifTanjim/nui.nvim',
+      -- OPTIONAL:
+      --`nvim-notify` is only needed, if you want to use the notification view.
+      -- If not available, we use `mini` as the fallback
+      'rcarriga/nvim-notify',
+    },
   })
 
   -- Doesn't have much themes yet
