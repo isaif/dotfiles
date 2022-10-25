@@ -8,7 +8,8 @@ vim.cmd([[au TextYankPost * silent! lua vim.highlight.on_yank()]])
 vim.opt.cmdheight = 0
 
 -- This option makes cursor as block cursor in nvim
-vim.opt.guicursor = ''
+vim.opt.guicursor = 'a:block'
+
 vim.opt.relativenumber = true
 
 --This will cause wrap to only wrap at the characters in the breakat
