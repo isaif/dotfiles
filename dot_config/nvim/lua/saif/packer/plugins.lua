@@ -298,7 +298,7 @@ return packer.startup(function(use)
     'folke/noice.nvim',
     event = 'VimEnter',
     config = function()
-      require('saif.config.noice')
+      require('saif.configs.noice')
     end,
     requires = {
       -- if you lazy-load any plugin below,
