@@ -171,7 +171,7 @@ nnoremap('<ESC>', '<cmd>nohls<CR><ESC>')
 nnoremap('<F2>', '<cmd>Lex<CR>')
 
 -- Save all file
-nnoremap('<Leader>a', '<cmd>wa<CR>')
+nnoremap('<Leader>a', '<cmd>silent wa<CR>')
 
 -- Uppercase a word
 nnoremap(',u', 'vaWUe')
