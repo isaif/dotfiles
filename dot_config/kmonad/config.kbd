@@ -43,12 +43,11 @@
 
 
 ;;----------------------------------------------------------------------------
-;; Make rctl into a button which switches to extend layer
+;; Make space into a button which switches to extend layer on hold
 ;; The Extend Layer provides an additional set of mappings for your keys 
 ;; by defining a new "Extend" modifier key.
 ;; Holding down this key activates "Extend" mode and provides navigation
 ;; and editing functions using keys in the main body of the keyboard.
-;; Now using space for extend layer
 ;;----------------------------------------------------------------------------
 (defalias
   ext (layer-toggle extend) ;; extend layer activate
@@ -127,7 +126,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
   @esCt     _    @sSf    @dMe    @fCt    _    _    @jCt    @kMe  @lSf    _    _    _                          _    _    _
   _    _    _    _    @vAlt    _    @nAlt    _    _    _    _    _                    _          _    _    _    _
-  @ext    _    _              @SpExt              _    _    _    _               _    _    _     _    _   
+  _    _    _              @SpExt              _    _    _    _               _    _    _     _    _   
 )
 
 
