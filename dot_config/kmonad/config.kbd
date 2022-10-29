@@ -48,9 +48,11 @@
 ;; by defining a new "Extend" modifier key.
 ;; Holding down this key activates "Extend" mode and provides navigation
 ;; and editing functions using keys in the main body of the keyboard.
+;; Now using space for extend layer
 ;;----------------------------------------------------------------------------
 (defalias
-  ext (layer-toggle extend)
+  ext (layer-toggle extend) ;; extend layer activate
+  SpExt  (tap-hold-next-release 150 spc @ext) ;; space on tap and extend layer on hold
   pWord C-left ;; navigate to previous word using ctrl left
   nWord C-right ;; navigate to next word using ctrl right
 )
@@ -123,20 +125,20 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
   @esCt     _    @sSf    @dMe    @fCt    _    _    @jCt    @kMe  @lSf    _    _    _                          _    _    _
   _    _    _    _    @vAlt    _    @nAlt    _    _    _    _    _                    _          _    _    _    _
-  @ext    _    _              _              _    _    _    _               _    _    _     _    _   
+  @ext    _    _              @SpExt              _    _    _    _               _    _    _     _    _   
 )
 
 
 ;;----------------------------------------------------------------------------
-;; this layer is a toggle layer which is used with ctrl button as an extend layer
+;; this layer is a toggle layer which is used with space button as an extend layer
 ;; a toggle layer is temporary therefore @eSwt is not required in it
 ;;----------------------------------------------------------------------------
 (deflayer extend
   _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
   _    _    _    _    _    _    _    _    home    end    _    _    _    _     _    _    _     _    _    _    _
-  _    _    _    _    _    _    left    down    up    right    :    |    _                          _    _    _
-  caps    _    _    _    _    bspc    @pWord    @nWord    _    _    _    _                    _          _    _    _    _
+  _    _    _    _    _    _    left    down    up    right    :   _    _                          _    _    _
+  caps    _    _    _    _    @pWord    bspc    @nWord    _    _    _    _                    _          _    _    _    _
   _    _    _              _              _    _    _    _               _    _    _     _    _   
 )
 
