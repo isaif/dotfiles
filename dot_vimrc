@@ -198,7 +198,7 @@ Plug 'mattn/emmet-vim'
 Plug 'Townk/vim-autoclose'
 
 " To manage tags 
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'vimwiki/vimwiki'
 
