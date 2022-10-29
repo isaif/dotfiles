@@ -107,12 +107,12 @@ nnoremap('<leader>gb', '<cmd>Git blame<CR>')
 xnoremap('il', '<ESC>^vg_')
 xnoremap('al', '<ESC>0v$')
 --  operator pending mode
-onoremap('il', '<cmd><C-u>normal! ^vg_<CR>')
-onoremap('al', '<cmd><C-u>normal! 0v$<CR>')
+onoremap('il', '<cmd>normal! ^vg_<CR>')
+onoremap('al', '<cmd>normal! 0v$<CR>')
 
 -- Complete buffer
 -- xnoremap(', '<ESC>myggVG`y')
-onoremap('A', '<cmd><C-u>normal! ggVG<CR>')
+onoremap('A', '<cmd>normal! ggVG<CR>')
 
 --##################################################################--
 -- Navigation

@@ -1,6 +1,8 @@
 local M = {}
 
 -- vim.keymap.set has remap = false by default
+-- mappings with <cmd> is silent by default
+-- <cmd> doesn't need <C-u> as it doesn't change mode
 M.noremap = function(mode, lhs, rhs, opts)
   local default_opts = { silent = true }
 
