@@ -14,7 +14,7 @@ nnoremap('J', 'mzJ`z')
 --##################################################################--
 -- local nnoremap = require('saif/mapping_helper').nnoremap
 
-nnoremap('<leader>ff', '<cmd>Telescope find_files<cr>', { silent = false })
+nnoremap('<leader>ff', '<cmd>Telescope find_files<cr>')
 nnoremap('<leader>fg', '<cmd>Telescope live_grep<cr>')
 nnoremap('<leader>fb', '<cmd>Telescope buffers<cr>')
 nnoremap('<leader>fo', '<cmd>Telescope oldfiles<cr>')
