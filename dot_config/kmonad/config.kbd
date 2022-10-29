@@ -37,6 +37,8 @@
   lSf  (tap-hold-next-release 150 l rsft)
   vAlt  (tap-hold-next-release 150 v lalt)
   nAlt  (tap-hold-next-release 150 n ralt)
+  ;; numsymSwitcher (layer-toggle numsym)
+  ;; numsymSp  (tap-hold-next-release 150 space @numsymSwitcher)
 )
 
 
@@ -195,3 +197,16 @@
   _    _    _              _              _    _    _    _               _    _    _     _    _   
 )
 
+
+;;----------------------------------------------------------------------------
+;; this layers has all the numbers and symbols
+;;----------------------------------------------------------------------------
+;; (deflayer numsym
+;;   _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
+;;   _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+;;   _    !    @    #    $    %    ^    &    *    \(    \)    ~    `    _     _    _    _     _    _    _    _
+;;   _    1    2    3    4    5    6    7    8    9    0    \    _                          _    _    _
+;;   _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
+;;   _    _    _              _              _    _    _    _               _    _    _     _    _   
+;; )
+;;
