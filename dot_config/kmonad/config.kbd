@@ -70,7 +70,9 @@
 ;;----------------------------------------------------------------------------
 (defalias
   swt (layer-toggle switcher)
-  eSwt  (tap-hold-next-release 150 esc @swt)
+  ;; current keyboard have esc in place of grv key i.e. ` and ~ 
+  ;; so changing esc to grv key
+  eSwt  (tap-hold-next-release 150 grv @swt)
   qwerty (layer-switch qwerty)
   blank (layer-switch blank)
   power (layer-switch power)
