@@ -203,6 +203,9 @@ alias v='nvim'
 alias che="chezmoi"
 alias "checd"="chezmoi-cd"
 
+# tmuxp
+alias tp='tmuxp load -y $(tmuxp ls | fzf )'
+
 # Not using spacevim
 # alias svim='vim -u ~/.SpaceVim/vimrc'
 
