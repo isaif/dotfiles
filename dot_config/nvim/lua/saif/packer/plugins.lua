@@ -296,7 +296,7 @@ return packer.startup(function(use)
 
   use({
     'folke/noice.nvim',
-    event = 'VimEnter',
+    -- event = 'VimEnter',
     config = function()
       require('saif.configs.noice')
     end,
@@ -307,7 +307,14 @@ return packer.startup(function(use)
       -- OPTIONAL:
       --`nvim-notify` is only needed, if you want to use the notification view.
       -- If not available, we use `mini` as the fallback
-      'rcarriga/nvim-notify',
+      -- use({
+      --   'rcarriga/nvim-notify',
+      --   config = function()
+      --     require('notify').setup({
+      --       render = 'minimal',
+      --     })
+      --   end,
+      -- }),
     },
   })
 
