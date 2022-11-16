@@ -134,6 +134,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
+################################################
+# Tmuxp settings
+################################################
+# eval "$(_TMUXP_COMPLETE=zsh_source tmuxp)"
+export DISABLE_AUTO_TITLE='true'
 
 
 ################################################
