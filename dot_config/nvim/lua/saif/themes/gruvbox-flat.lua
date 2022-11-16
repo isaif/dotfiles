@@ -8,7 +8,11 @@ vim.g.gruvbox_flat_style = 'dark'
 vim.o.cursorline = true
 
 -- vim.o.background = 'dark'
+
+-- following two options are required by nvim-highlight-colors
 -- vim.o.termguicolors = true
+-- vim.o.t_Co = true
+
 vim.o.showmode = false
 
 vim.cmd('colorscheme gruvbox-flat')
@@ -17,12 +21,12 @@ vim.cmd('colorscheme gruvbox-flat')
 -- vim.g.gruvbox_flat_style = "dark"
 -- vim.g.gruvbox_flat_style = "hard"
 
-local success, lualine = pcall(require, 'lualine')
+-- local success, lualine = pcall(require, 'lualine')
 
-if success then
-  lualine.setup({
-    options = { theme = 'gruvbox-flat' },
-  })
-else
-  error('lualine is not installed')
-end
+-- if success then
+--   lualine.setup({
+--     options = { theme = 'gruvbox-flat' },
+--   })
+-- else
+--   error('lualine is not installed')
+-- end
