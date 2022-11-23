@@ -55,7 +55,7 @@ nnoremap('<leader>gcc', '<cmd>Telescope git_bcommits<cr>')
 --##################################################################--
 
 -- add file to list
-nnoremap(',G', '<cmd>lua require("harpoon.mark").add_file()<CR>')
+-- nnoremap(',G', '<cmd>lua require("harpoon.mark").add_file()<CR>')
 
 -- add file at particular index
 nnoremap(',ga', '<cmd>lua require("harpoon.mark").set_current_at(1)<CR>')
@@ -69,11 +69,23 @@ nnoremap(
   { silent = false }
 )
 
-nnoremap(',a', '<cmd>lua require("harpoon.ui").nav_file(1)<CR>')
-nnoremap(',s', '<cmd>lua require("harpoon.ui").nav_file(2)<CR>')
-nnoremap(',d', '<cmd>lua require("harpoon.ui").nav_file(3)<CR>')
-nnoremap(',f', '<cmd>lua require("harpoon.ui").nav_file(4)<CR>')
+nnoremap(',aa', '<cmd>lua require("harpoon.ui").nav_file(1)<CR>')
+nnoremap(',ss', '<cmd>lua require("harpoon.ui").nav_file(2)<CR>')
+nnoremap(',dd', '<cmd>lua require("harpoon.ui").nav_file(3)<CR>')
+nnoremap(',ff', '<cmd>lua require("harpoon.ui").nav_file(4)<CR>')
 -- nnoremap(',f', '<cmd>lua require("harpoon.ui").nav_file(4)')
+
+-- open in a vertical split
+nnoremap(',av', '<cmd>vs<CR><cmd>lua require("harpoon.ui").nav_file(1)<CR>')
+nnoremap(',sv', '<cmd>vs<CR><cmd>lua require("harpoon.ui").nav_file(2)<CR>')
+nnoremap(',dv', '<cmd>vs<CR><cmd>lua require("harpoon.ui").nav_file(3)<CR>')
+nnoremap(',fv', '<cmd>vs<CR><cmd>lua require("harpoon.ui").nav_file(4)<CR>')
+
+-- open in a new tab
+nnoremap(',at', '<cmd>tabe<CR><cmd>lua require("harpoon.ui").nav_file(1)<CR>')
+nnoremap(',st', '<cmd>tabe<CR><cmd>lua require("harpoon.ui").nav_file(2)<CR>')
+nnoremap(',dt', '<cmd>tabe<CR><cmd>lua require("harpoon.ui").nav_file(3)<CR>')
+nnoremap(',ft', '<cmd>tabe<CR><cmd>lua require("harpoon.ui").nav_file(4)<CR>')
 
 --##################################################################--
 -- Fugigitive
