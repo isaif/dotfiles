@@ -58,10 +58,6 @@ nnoremap('<F4>', function()
   live_grep_dir('~/vimwiki/')
 end)
 
--- git related settings
-nnoremap('<leader>gC', '<cmd>Telescope git_commits<cr>')
-nnoremap('<leader>gcc', '<cmd>Telescope git_bcommits<cr>')
-
 --##################################################################--
 -- Harpoon
 --##################################################################--
@@ -102,6 +98,9 @@ nnoremap(',ft', '<cmd>tabe<CR><cmd>lua require("harpoon.ui").nav_file(4)<CR>')
 --##################################################################--
 -- Fugigitive
 --##################################################################--
+
+nnoremap('<leader>gC', '<cmd>Telescope git_commits<cr>')
+nnoremap('<leader>gcc', '<cmd>Telescope git_bcommits<cr>')
 
 nnoremap('<leader>gg', '<cmd>tab G<CR>')
 nnoremap('<leader>gs', '<cmd>Git<CR>')
