@@ -66,12 +66,12 @@ return packer.startup(function(use)
   -- Debugging
   --##################################################################
 
-  use({
-    'hkupty/iron.nvim',
-    config = function()
-      require('saif.configs.iron')
-    end,
-  })
+  -- use({
+  --   'hkupty/iron.nvim',
+  --   config = function()
+  --     require('saif.configs.iron')
+  --   end,
+  -- })
 
   --##################################################################
   -- Navigation
@@ -87,6 +87,9 @@ return packer.startup(function(use)
 
   use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
   use({ 'nvim-telescope/telescope-file-browser.nvim' })
+  -- show media preview in telescope
+  -- doesn't work with find_files currently
+  -- use('nvim-telescope/telescope-media-files.nvim')
 
   use('ThePrimeagen/harpoon')
 
@@ -109,6 +112,15 @@ return packer.startup(function(use)
     --   require('saif.configs.leapnvim')
     -- end,
   })
+
+  -- use({
+  --   'ggandor/leap-ast.nvim',
+  --   config = function()
+  --     vim.keymap.set({ 'n', 'x', 'o' }, ',vv', function()
+  --       require('leap-ast').leap()
+  --     end, {})
+  --   end,
+  -- })
 
   --##################################################################
   -- Extension plugins
@@ -264,6 +276,13 @@ return packer.startup(function(use)
   --   'lewis6991/spellsitter.nvim',
   --   config = function()
   --     require('saif.configs.spellsitter')
+  --   end,
+  -- })
+
+  -- use({
+  --   'brenoprata10/nvim-highlight-colors',
+  --   config = function()
+  --     require('nvim-highlight-colors').setup({})
   --   end,
   -- })
 
