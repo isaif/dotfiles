@@ -201,15 +201,15 @@ nnoremap(',u', 'vaWUe')
 
 -- Replace a WORD under cursor in file and line
 -- this doesn't work correctly as it searchs for WORD followed by a space
-nnoremap(',rrf', '<cmd>%s/<C-r><C-a> //g<Left><Left>')
-nnoremap(',rrl', '<cmd>s/<C-r><C-a> //g<Left><Left>')
+nnoremap(',rrf', ':%s/<C-r><C-a> //g<Left><Left>')
+nnoremap(',rrl', ':s/<C-r><C-a> //g<Left><Left>')
 
 -- Replace a word under cursor in file and line
 -- a word can contain alphbets numerals underscore
 -- \<\> is use to match exact
 -- :%s/\<WordToReplace\>/New/g
-nnoremap(',rf', [[<cmd>%s/\<<C-r><C-w>\>//g<Left><Left>]])
-nnoremap(',rl', [[<cmd>s/\<<C-r><C-w>\>//g<Left><Left>]])
+nnoremap(',rf', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]])
+nnoremap(',rl', [[:s/\<<C-r><C-w>\>//g<Left><Left>]])
 
 -- vimp.nnoremap(',vr', function()
 --   vimp.unmap_all()
