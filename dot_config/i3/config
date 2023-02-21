@@ -346,7 +346,7 @@ bindsym $mod+mod1+u gaps inner current minus 5
 
 # Disable title bar for windows
 # as required by gaps
-#for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 2
 
 # Enable title bar
 #default_border normal 4
