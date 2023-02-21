@@ -108,9 +108,9 @@ return packer.startup(function(use)
   use({
     'ggandor/leap.nvim',
     -- how does leap using saif.configs.leap without requiring it?
-    -- config = function()
-    --   require('saif.configs.leapnvim')
-    -- end,
+    config = function()
+      require('saif.configs.leapnvim')
+    end,
   })
 
   -- use({
