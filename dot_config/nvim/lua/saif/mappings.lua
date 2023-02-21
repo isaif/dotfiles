@@ -29,8 +29,20 @@ nnoremap('<leader>fs', '<cmd>Telescope resume<cr>')
 nnoremap('<leader>fi', '<cmd>Telescope current_buffer_fuzzy_find<cr>')
 nnoremap('<leader>fe', '<cmd>Telescope diagnostics<cr>')
 
+-- Mappings for telescope file_browser extension
+-- C-g to go to parent directory
+-- C-w to go to working directory
+-- nnoremap('<leader>fD', '<cmd>Telescope file_browser previewer=false<cr>')
 nnoremap('<leader>fD', '<cmd>Telescope file_browser<cr>')
 nnoremap('<leader>fd', '<cmd>Telescope file_browser path=%:p:h<cr>')
+
+-- rename current file
+nnoremap('<leader>r', function()
+  require('telescope').extensions.file_browser.file_browser({
+    path = '%:p:h',
+    select_buffer = true,
+  })
+end)
 
 local function live_grep_dir(dir)
   return require('telescope.builtin').live_grep({
