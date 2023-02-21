@@ -91,14 +91,16 @@ plugins=(tmux git gh asdf zsh-autosuggestions zsh-syntax-highlighting zoxide vir
 ################################################
 # Fzf settings
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_BASE="/usr/bin/fzf"
+# export FZF_BASE="/usr/bin/fzf"
+#fd --type f --hidden --exclude .git
+# export FZF_DEFAULT_COMMAND='fd -H'
+# export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git --color=always'
 # ripgrep setting for fzf not working correctly
 #export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs'
 # export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
 #export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-# export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
-
+# DISABLE_FZF_KEY_BINDINGS="true"
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
 # command for listing path candidates.
 # - The first argument to the function ($1) is the base path to start traversal
@@ -141,7 +143,7 @@ source $ZSH/oh-my-zsh.sh
 # eval "$(_TMUXP_COMPLETE=zsh_source tmuxp)"
 # tmxup autocompletion for v 1.17+ but experimental
 # shtab --shell=zsh -u tmuxp.cli.create_parser \
-  | sudo tee /usr/local/share/zsh/site-functions/_TMUXP
+  # | sudo tee /usr/local/share/zsh/site-functions/_TMUXP
 export DISABLE_AUTO_TITLE='true'
 
 
@@ -170,7 +172,9 @@ eval "$(pyenv init -)"
 [ -f "/home/saif/.ghcup/env" ] && source "/home/saif/.ghcup/env" # ghcup-env
 
 
-source /usr/bin/virtualenvwrapper.sh
+# temporary fix for egrep: warning: egrep is obsolescent; using grep -E
+# commenting out below line
+# source /usr/bin/virtualenvwrapper.sh
 source $(dirname $(gem which colorls))/tab_complete.sh
 
 
