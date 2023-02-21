@@ -1,5 +1,5 @@
 local nnoremap = require('saif.mapping_helper').nnoremap
-local xnoremap = require('saif.mapping_helper').xnoremap
+-- local xnoremap = require('saif.mapping_helper').xnoremap
 local onoremap = require('saif.mapping_helper').onoremap
 local vnoremap = require('saif.mapping_helper').vnoremap
 local inoremap = require('saif.mapping_helper').inoremap
@@ -128,11 +128,11 @@ nnoremap('<leader>gb', '<cmd>Git blame<CR>')
 
 --  inner/around line text objects
 --  visual mode
-xnoremap('il', '<ESC>^vg_')
-xnoremap('al', '<ESC>0v$')
+-- xnoremap('il', '<ESC>^vg_')
+-- xnoremap('al', '<ESC>0v$')
 --  operator pending mode
-onoremap('il', '<cmd>normal! ^vg_<CR>')
-onoremap('al', '<cmd>normal! 0v$<CR>')
+-- onoremap('il', '<cmd>normal! ^vg_<CR>')
+-- onoremap('al', '<cmd>normal! 0v$<CR>')
 
 -- Complete buffer
 -- xnoremap(', '<ESC>myggVG`y')
