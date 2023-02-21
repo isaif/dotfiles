@@ -204,7 +204,7 @@ alias che="chezmoi"
 alias "checd"="chezmoi-cd"
 
 # tmuxp
-alias tp='tmuxp load -y $(tmuxp ls | fzf )'
+# alias tp='tmuxp load -y $(tmuxp ls | fzf --border none)'
 
 # Not using spacevim
 # alias svim='vim -u ~/.SpaceVim/vimrc'
@@ -226,6 +226,10 @@ alias c="clear"
 # I think this is to open previous session of vim
 # Useful for using vim with tmux
 alias vims="vim -S"
+
+# keybord shortcut for tmux and tmuxp omniselection
+# bindkey -s '^b' 'bash omnitmux.sh\n'
+alias tt="omnitmux.sh"
 
 # this was dotfile management technique using bare git repository
 # no longer requires as chezmoi is being used
