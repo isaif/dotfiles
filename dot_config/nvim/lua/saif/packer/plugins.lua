@@ -337,6 +337,13 @@ return packer.startup(function(use)
     },
   })
 
+  use({
+    'stevearc/dressing.nvim',
+    config = function()
+      require('saif.configs.dressing')
+    end,
+  })
+
   -- Doesn't have much themes yet
   -- I will have to setup everthing which I don't have time for
   -- use 'famiu/feline.nvim'
