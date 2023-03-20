@@ -314,6 +314,13 @@ return packer.startup(function(use)
   })
 
   use({
+    'b0o/incline.nvim',
+    config = function()
+      require('saif.configs.incl')
+    end,
+  })
+
+  use({
     'folke/noice.nvim',
     -- event = 'VimEnter',
     config = function()

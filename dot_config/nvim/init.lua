@@ -116,3 +116,5 @@ endfunction
 
 
 ]])
+
+vim.opt.showtabline = 0
