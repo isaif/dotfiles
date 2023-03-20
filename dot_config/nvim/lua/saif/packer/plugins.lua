@@ -94,6 +94,7 @@ return packer.startup(function(use)
   use('ThePrimeagen/harpoon')
 
   use('christoomey/vim-tmux-navigator')
+  use('RyanMillerC/better-vim-tmux-resizer')
 
   -- To manage tags
   -- use 'ludovicchabant/vim-gutentags'
