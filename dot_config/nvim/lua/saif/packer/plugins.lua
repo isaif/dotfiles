@@ -352,6 +352,8 @@ return packer.startup(function(use)
     end,
   })
 
+  use('vimpostor/vim-tpipeline')
+
   -- Doesn't have much themes yet
   -- I will have to setup everthing which I don't have time for
   -- use 'famiu/feline.nvim'
