@@ -9,6 +9,12 @@ require('saif')
 -- vim native
 --##################################################################--
 vim.cmd([[
+"t-pipeline plugin setting to hide the statubar on horizontal split
+let g:tpipeline_clearstl = 1
+" set fcs=stlnc:-
+" set fcs+=stl:-
+set fcs=stlnc:─,stl:─,vert:│
+
 
 " Highlight the 81st character / column in every row
 highlight ColorColumn ctermbg=magenta
