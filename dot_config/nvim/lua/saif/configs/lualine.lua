@@ -11,16 +11,23 @@ require('lualine').setup({
     -- enable global line
     globalstatus = true,
     refresh = {
-      statusline = 200,
+      -- statusline = 200,
       -- tabline = 1000,
       -- winbar = 1000,
     },
   },
   sections = {
-    lualine_a = { 'mode' },
+    lualine_a = {
+      {
+        'mode',
+        -- fmt = function(str)
+        --   return str:sub(1, 1)
+        -- end,
+      },
+    },
     lualine_b = {
       'branch',
-      'diff',
+      -- 'diff',
       { 'diagnostics', sources = { 'nvim_diagnostic' } },
     },
     lualine_c = {
@@ -30,7 +37,7 @@ require('lualine').setup({
         file_status = true,
         -- 0 = just filename, 1 = relative path, 2 = absolute path
         path = 1,
-        shorting_target = 20,
+        shorting_target = 40,
       },
       -- 'lsp_progress',
     },
@@ -69,8 +76,9 @@ require('lualine').setup({
           -- Same values as the general color option can be used here.
           -- active = 'lualine_{section}_normal', -- Color for active tab.
           -- inactive = 'lualine_{section}_inactive', -- Color for inactive tab.
+          -- inactive = 'lualine_a_normal_', -- Color for inactive tab.
           -- active = '', -- Color for active tab.
-          active = 'lualine_a_normal',
+          active = 'lualine_b_normal',
         },
       },
     },
