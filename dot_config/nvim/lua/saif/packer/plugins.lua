@@ -203,7 +203,14 @@ return packer.startup(function(use)
   })
 
   -- To show context of current line use virtual text
-  use('haringsrob/nvim_context_vt')
+  use({
+    'haringsrob/nvim_context_vt',
+    config = function()
+      require('nvim_context_vt').setup({
+        enabled = false,
+      })
+    end,
+  })
 
   -- this plugin also provides context so nvim_context_vt
   -- can be removed if indent_blankline is used always
