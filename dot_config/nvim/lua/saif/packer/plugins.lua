@@ -352,6 +352,7 @@ return packer.startup(function(use)
     },
   })
 
+  -- Works with noice as it is for vim.ui.select and vim.ui.input
   use({
     'stevearc/dressing.nvim',
     config = function()
@@ -359,6 +360,14 @@ return packer.startup(function(use)
     end,
   })
 
+  use({
+    'rmagatti/goto-preview',
+    config = function()
+      require('goto-preview').setup({
+        default_mappings = true, -- Bind default mappings
+      })
+    end,
+  })
   use('vimpostor/vim-tpipeline')
 
   -- Doesn't have much themes yet
