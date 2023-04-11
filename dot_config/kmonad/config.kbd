@@ -51,7 +51,8 @@
 ;;----------------------------------------------------------------------------
 (defalias
   ext (layer-toggle extend) ;; extend layer activate
-  SpExt  (tap-hold-next-release 150 spc @ext) ;; space on tap and extend layer on hold
+  ;; space on tap and extend layer on hold
+  SpExt  (tap-hold-next-release 150 spc @ext) 
   pWord C-left ;; navigate to previous word using ctrl left
   nWord C-right ;; navigate to next word using ctrl right
 )
@@ -96,6 +97,7 @@
 (defalias
   esCt (tap-hold-next-release 150 esc lctl) ;;change capslock to esc and ctl
   ;;spCt (tap-hold-next-release 150 space rctl) ;; space as ctrl
+  ctA C-a
 )
 
 
@@ -126,7 +128,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
   @esCt     _    @sSf    @dMe    @fCt    _    _    @jCt    @kMe  @lSf    _    _    _                          _    _    _
   _    _    _    _    @vAlt    _    @nAlt    _    _    _    _    _                    _          _    _    _    _
-  _    _    _              @SpExt              _    _    _    _               _    _    _     _    _   
+  _    _    @ctA              @SpExt              _    _    _    _               _    _    _     _    _   
 )
 
 
