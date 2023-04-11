@@ -3,15 +3,18 @@
 # Get all tmuxp sessions
 tmuxp_sessions=$(tmuxp ls | awk '{print $1}')
 
-if pgrep tmux > /dev/null; then
-    # Get all tmux sessions that are not already present in tmuxp
-    tmux_sessions=$(tmux ls | awk '{$2; {print substr($1, 1, length($1)-1)}}' | grep -vxF "$tmuxp_sessions")
+# If tmux is running on current or other terminal
+tmux_running=$(tmux ls 2> /dev/null)
+
+# Get all tmux running sessions that are not already present in tmuxp
+if [ -n "$tmux_running" ]; then
+    tmux_filtered_sessions=$(tmux ls | awk '{$2; {print substr($1, 1, length($1)-1)}}' | grep -vxF "$tmuxp_sessions")
 else
-    tmux_sessions=""
+    tmux_filtered_sessions=""
 fi
 
 # Show all candidates using fzf
-selected_session=$(echo -n -e "$tmuxp_sessions\n$tmux_sessions" | fzf --border none --prompt="select session> ")
+selected_session=$(echo -n -e "$tmuxp_sessions\n$tmux_filtered_sessions" | fzf --border none --prompt="select session> ")
 
 # Attach to the selected session of tmuxp or tmux
 # If inside tmux then switch to selected session
