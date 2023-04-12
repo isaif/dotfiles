@@ -379,7 +379,7 @@ smart_borders on
 $bs $mod+mod1+b 		exec google-chrome-stable
 $bs $mod+mod1+c 		exec code
 $bs $mod+mod1+a 		exec ANKI_NOHIGHDPI=1 anki
-$bs $mod+Return			exec konsole
+$bs $mod+Return			exec kitty
 #$bs $mod+mod1+r 		exec $term -e ranger
 #$bs $mod+m 			exec $term -e ncmpcpp
 #$bs $mod+n			$term -e newsboat
