@@ -1,6 +1,3 @@
--- Space as leader key
-vim.g.mapleader = ' '
-
 local nnoremap = require('util.mapping_helper').nnoremap
 -- local xnoremap = require('util.mapping_helper').xnoremap
 -- local onoremap = require('util.mapping_helper').onoremap
