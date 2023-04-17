@@ -19,9 +19,6 @@ local options = function()
           -- ['<C-p>'] = actions.cycle_previewers_prev,
           -- don't go into normal mode, just close
           ['<Esc>'] = actions.close,
-          -- -- move the preview window up and down
-          -- ['<C-u>'] = require('telescope.actions').preview_scrolling_up,
-          -- ['<C-d>'] = require('telescope.actions').preview_scrolling_down,
         },
         n = {
           ['<C-p>'] = action_layout.toggle_preview,
@@ -44,18 +41,16 @@ local keys = function()
   return {
 
     { '<leader>e', '<cmd>Telescope find_files<cr>' },
-    -- { '<leader>ff', '<cmd>Telescope find_files<cr>' },
     { '<leader>fg', '<cmd>Telescope live_grep<cr>' },
     { '<leader>fb', '<cmd>Telescope buffers<cr>' },
     { '<leader>fo', '<cmd>Telescope oldfiles<cr>' },
     { '<leader>fh', '<cmd>Telescope help_tags<cr>' },
     { '<leader>fc', '<cmd>Telescope commands_history<cr>' },
-    -- {'<leader>fcc', '<cmd>Telescope commands<cr>'},
     { '<leader>fq', '<cmd>Telescope quickfix<cr>' },
     { '<leader>fl', '<cmd>Telescope loclist<cr>' },
     { '<leader>fv', '<cmd>Telescope vim_options<cr>' },
     { '<leader>fr', '<cmd>Telescope registers<cr>' },
-    { '<leader>fs', '<cmd>Telescope resume<cr>' },
+    { '<leader>ff', '<cmd>Telescope resume<cr>' },
     { '<leader>fi', '<cmd>Telescope current_buffer_fuzzy_find<cr>' },
     { '<leader>fe', '<cmd>Telescope diagnostics<cr>' },
 
