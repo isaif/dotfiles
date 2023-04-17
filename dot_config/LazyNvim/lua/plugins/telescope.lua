@@ -1,4 +1,4 @@
-local options = function()
+local opts = function()
   local actions = require('telescope.actions')
   local action_layout = require('telescope.actions.layout')
 
@@ -93,15 +93,16 @@ end
 
 return {
   'nvim-telescope/telescope.nvim',
-  opts = options,
+  opts = opts,
   keys = keys,
   dependencies = {
-    { 'nvim-lua/plenary.nvim' },
-    'nvim-telescope/telescope-fzf-native.nvim',
-    build = 'make',
+    'nvim-lua/plenary.nvim',
+    {
+      'nvim-telescope/telescope-fzf-native.nvim',
+      build = 'make',
+      config = function()
+        require('telescope').load_extension('fzf')
+      end,
+    },
   },
-  config = function(_, opts)
-    require('telescope').setup(opts)
-    require('telescope').load_extension('fzf')
-  end,
 }
