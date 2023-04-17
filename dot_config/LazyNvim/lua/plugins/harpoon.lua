@@ -27,4 +27,8 @@ local keys = {
   { ',td', '<cmd>tabe<CR><cmd>lua require("harpoon.ui").nav_file(3)<CR>' },
   { ',tf', '<cmd>tabe<CR><cmd>lua require("harpoon.ui").nav_file(4)<CR>' },
 }
-return { 'ThePrimeagen/harpoon', keys = keys }
+return {
+  'ThePrimeagen/harpoon',
+  keys = keys,
+  dependencies = { 'nvim-lua/plenary.nvim' },
+}
