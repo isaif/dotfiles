@@ -1,7 +1,6 @@
 -- plugins which don't require extra setup
 
 return {
-  'neovim/nvim-lspconfig',
   {
     'jose-elias-alvarez/null-ls.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
