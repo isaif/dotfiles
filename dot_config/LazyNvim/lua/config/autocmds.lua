@@ -61,3 +61,72 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
     vim.fn.mkdir(vim.fn.fnamemodify(file, ':p:h'), 'p')
   end,
 })
+
+-- show cursor line only in active window
+vim.api.nvim_create_autocmd({ 'InsertLeave', 'WinEnter' }, {
+  callback = function()
+    local ok, cl = pcall(vim.api.nvim_win_get_var, 0, 'auto-cursorline')
+    if ok and cl then
+      vim.wo.cursorline = true
+      vim.api.nvim_win_del_var(0, 'auto-cursorline')
+    end
+  end,
+})
+vim.api.nvim_create_autocmd({ 'InsertEnter', 'WinLeave' }, {
+  callback = function()
+    local cl = vim.wo.cursorline
+    if cl then
+      vim.api.nvim_win_set_var(0, 'auto-cursorline', cl)
+      vim.wo.cursorline = false
+    end
+  end,
+})
+
+-- Fix conceallevel for json & help files
+vim.api.nvim_create_autocmd({ 'FileType' }, {
+  pattern = { 'json', 'jsonc' },
+  callback = function()
+    vim.wo.spell = false
+    vim.wo.conceallevel = 0
+  end,
+})
+
+vim.api.nvim_create_augroup('_editing', { clear = true })
+
+-- -- Enable spell check and word wrap for certain file types
+-- vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+--   group = '_editing',
+--   pattern = { '*.txt', '*.md', '*.tex' },
+--   callback = function()
+--     vim.cmd('setlocal spell')
+--     vim.cmd('setlocal wrap')
+--   end,
+-- })
+
+-- Prevent IndentLine from hiding ``` in markdown files
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  group = '_editing',
+  pattern = { '*.md', '*.markdown' },
+  callback = function()
+    vim.g['indentLine_enabled'] = 0
+    vim.g['markdown_syntax_conceal'] = 0
+  end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  group = '_editing',
+  pattern = 'markdown',
+  callback = function()
+    vim.g['indentLine_enabled'] = 0
+    vim.g['markdown_syntax_conceal'] = 0
+  end,
+})
+
+-- vim.api.nvim_create_augroup("_skhd", { clear = true })
+
+-- -- Set Active Admin .arb files to be ruby files
+-- vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+--   group = "_skhd",
+--   pattern = "skhdrc",
+--   callback = function() vim.cmd("setfiletype bash") end,
+-- })
