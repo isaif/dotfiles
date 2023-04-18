@@ -43,12 +43,6 @@ local options = {
       end
     end,
   },
-  -- setting for the 'JoosepAlviste/nvim-ts-context-commentstring'
-  -- this is used for commenting jsx/tsx files
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-  },
 }
 
 return {
