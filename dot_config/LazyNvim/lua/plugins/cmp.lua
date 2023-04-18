@@ -11,11 +11,11 @@ local opts = function()
     -- },
 
     -- Luasnip settings
-    -- snippet = {
-    --   expand = function(args)
-    --     require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-    --   end,
-    -- },
+    snippet = {
+      expand = function(args)
+        require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+      end,
+    },
 
     mapping = cmp.mapping.preset.insert({
       -- ["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -34,7 +34,7 @@ local opts = function()
       { name = 'nvim_lua' },
       { name = 'nvim_lsp', max_item_count = 15 },
       { name = 'path' },
-      -- { name = 'luasnip' }, -- For luasnip users.
+      { name = 'luasnip' }, -- For luasnip users.
       { name = 'buffer', keyword_length = 5 },
     }),
 
@@ -82,7 +82,7 @@ return {
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
     'hrsh7th/cmp-nvim-lua',
-    -- 'saadparwaiz1/cmp_luasnip',
+    'saadparwaiz1/cmp_luasnip',
     -- lspkind to show symbols in completion menu
     'onsails/lspkind-nvim',
   },
