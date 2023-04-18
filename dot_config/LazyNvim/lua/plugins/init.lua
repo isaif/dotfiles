@@ -6,10 +6,13 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
+  -- better tmux experience
+  'christoomey/vim-tmux-navigator',
   'RyanMillerC/better-vim-tmux-resizer',
+
   -- merge tmux statusbar and vim/neovim statusline
   -- 'vimpostor/vim-tpipeline',
-  'christoomey/vim-tmux-navigator',
+
   -- provides highlights for kmonad configuration file
   { 'kmonad/kmonad-vim', ft = 'kbd' },
 }
