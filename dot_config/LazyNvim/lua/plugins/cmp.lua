@@ -82,7 +82,7 @@ return {
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
     'hrsh7th/cmp-nvim-lua',
-    'saadparwaiz1/cmp_luasnip',
+    -- 'saadparwaiz1/cmp_luasnip',
     -- lspkind to show symbols in completion menu
     'onsails/lspkind-nvim',
   },
