@@ -9,7 +9,7 @@ local opt = vim.opt
 -- opt.wildmenu
 
 -- hide the command bar below the statusline
--- opt.cmdheight = 0
+opt.cmdheight = 0
 
 -- hide tabline
 opt.showtabline = 0
@@ -85,7 +85,7 @@ opt.formatoptions = 'jcroqlnt' -- tcqj
 -- opt.grepformat = '%f:%l:%c:%m'
 -- opt.grepprg = 'rg --vimgrep'
 opt.inccommand = 'nosplit' -- preview incremental substitute
--- opt.laststatus = 0 -- hide statusline as I will use globaline
+opt.laststatus = 3 -- global statusline
 opt.list = true -- Show some invisible characters (tabs...
 opt.pumblend = 10 -- Popup blend
 opt.pumheight = 10 -- Maximum number of entries in a popup
