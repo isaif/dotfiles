@@ -12,16 +12,23 @@ local opts = function()
       mappings = {
         i = {
           ['<C-p>'] = action_layout.toggle_preview,
+
           ['<C-j>'] = actions.move_selection_next,
           ['<C-k>'] = actions.move_selection_previous,
+
           -- cycle previewer for git commits to show full message
           ['<C-n>'] = actions.cycle_previewers_next,
           -- ['<C-p>'] = actions.cycle_previewers_prev,
+
+          -- ['<C-b>'] = actions.preview_scrolling_up,
+          -- ['<C-f>'] = actions.preview_scrolling_down,
+
           -- don't go into normal mode, just close
           ['<Esc>'] = actions.close,
         },
         n = {
           ['<C-p>'] = action_layout.toggle_preview,
+
           -- cycle previewer for git commits to show full message
           ['<C-n>'] = actions.cycle_previewers_next,
           -- ['<C-p>'] = actions.cycle_previewers_prev,
