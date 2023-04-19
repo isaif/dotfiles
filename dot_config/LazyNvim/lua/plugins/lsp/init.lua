@@ -22,6 +22,7 @@ end
 return {
   -- use official lspconfig package (and enable completion):
   'neovim/nvim-lspconfig',
+  event = { 'BufReadPre', 'BufNewFile' },
   dependencies = {
     'hrsh7th/cmp-nvim-lsp',
   },
