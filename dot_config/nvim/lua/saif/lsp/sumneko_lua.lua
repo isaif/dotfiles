@@ -22,7 +22,7 @@ local settings = {
       keywordSnippet = 'Disable',
     },
     workspace = {
-      -- checkThirdParty = false,
+      checkThirdParty = false,
       -- library = {
       --     ["${3rd}/love2d/library"] = true,
       -- },
