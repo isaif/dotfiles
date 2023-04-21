@@ -67,13 +67,9 @@ local opts = {
 return {
   'b0o/incline.nvim',
   opts = opts,
-  -- config = function()
-  --   require('saif.configs.incl')
-  -- end,
-  config = true,
+  -- config = true,
   dependencies = {
-    -- this is only required as I am using icons to show diagnostic
-    -- on incline
+    -- required as I am using icons
     'nvim-tree/nvim-web-devicons',
   },
 }
