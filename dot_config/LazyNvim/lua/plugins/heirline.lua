@@ -300,12 +300,36 @@ return {
     --   end,
     -- }
 
+    local Tabpage = {
+      provider = function(self)
+        -- return '%' .. self.tabnr .. 'T ' .. self.tabpage .. ' %T'
+        return '%' .. self.tabnr .. 'T ' .. self.tabpage .. ' %T'
+      end,
+      hl = function(self)
+        if not self.is_active then
+          return 'TabLine'
+        else
+          return 'TabLineSel'
+        end
+      end,
+    }
+
+    local TabPages = {
+      -- only show this component if there's 2 or more tabpages
+      condition = function()
+        return #vim.api.nvim_list_tabpages() >= 2
+      end,
+      { provider = '%=' },
+      utils.make_tablist(Tabpage),
+    }
+
     local StatusLine = {
       ViMode,
       Space,
       FileNameBlock,
       Align,
       -- FileType,
+      TabPages,
       Space,
       ScrollBar,
       Space,
@@ -313,6 +337,6 @@ return {
       Space,
     }
 
-    heirline.setup({ statusline = StatusLine, winbar = nil })
+    heirline.setup({ statusline = StatusLine })
   end,
 }
