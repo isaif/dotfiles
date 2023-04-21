@@ -3,7 +3,6 @@ return {
   event = 'UIEnter',
   dependencies = {
     'nvim-tree/nvim-web-devicons',
-    -- 'neovim/nvim-lspconfig',
   },
   config = function()
     local heirline = require('heirline')
@@ -33,35 +32,6 @@ return {
       git_change = utils.get_highlight('diffChanged').fg,
     }
 
-    -- local colors = {
-    --   bright_bg = utils.get_highlight('Folded').bg,
-    --   bright_fg = utils.get_highlight('Folded').fg,
-    --   red = utils.get_highlight('DiagnosticError').fg,
-    --   dark_red = utils.get_highlight('DiffDelete').bg,
-    --   green = utils.get_highlight('String').fg,
-    --   blue = utils.get_highlight('Function').fg,
-    --   gray = utils.get_highlight('NonText').fg,
-    --   orange = utils.get_highlight('Constant').fg,
-    --   purple = utils.get_highlight('Statement').fg,
-    --   cyan = utils.get_highlight('Special').fg,
-    --   diag_warn = utils.get_highlight('DiagnosticWarn').fg,
-    --   diag_error = utils.get_highlight('DiagnosticError').fg,
-    --   diag_hint = utils.get_highlight('DiagnosticHint').fg,
-    --   diag_info = utils.get_highlight('DiagnosticInfo').fg,
-    --   git_del = utils.get_highlight('diffDeleted').fg,
-    --   git_add = utils.get_highlight('diffAdded').fg,
-    --   git_change = utils.get_highlight('diffChanged').fg,
-    -- }
-
-    conditions.buffer_not_empty = function()
-      return vim.fn.empty(vim.fn.expand('%:t')) ~= 1
-    end
-
-    conditions.hide_in_width = function(size)
-      return vim.api.nvim_get_option('columns') > (size or 140)
-    end
-
-    -- local Align = { provider = '%=', hl = { bg = colors.crust } }
     local Align = { provider = '%=' }
     local Space = { provider = ' ' }
 
@@ -86,10 +56,6 @@ return {
           niR = 'Nr',
           niV = 'Nv',
           nt = 'Nt',
-          -- v = 'V',
-          -- vs = 'Vs',
-          -- V = 'V_',
-          -- Vs = 'Vs',
           v = 'v',
           vs = 'vs',
           V = 'V',
@@ -117,21 +83,6 @@ return {
           ['!'] = '!',
           t = 'T',
         },
-        -- mode_colors = {
-        --   n = 'green',
-        --   i = 'green',
-        --   v = 'cyan',
-        --   V = 'cyan',
-        --   ['\22'] = 'cyan',
-        --   c = 'orange',
-        --   s = 'purple',
-        --   S = 'purple',
-        --   ['\19'] = 'purple',
-        --   R = 'orange',
-        --   r = 'orange',
-        --   ['!'] = 'red',
-        --   t = 'red',
-        -- },
         mode_colors = {
           n = colors.crust,
           i = colors.green,
@@ -184,25 +135,6 @@ return {
       hl = { bg = colors.crust, fg = colors.subtext1 },
     }
 
-    -- local FileIcon = {
-    --   init = function(self)
-    --     local filename = self.filename
-    --     local extension = vim.fn.fnamemodify(filename, ':e')
-    --     self.icon, self.icon_color =
-    --       require('nvim-web-devicons').get_icon_color(
-    --         vim.fn.fnamemodify(filename, ':t'),
-    --         extension,
-    --         { default = true }
-    --       )
-    --   end,
-    --   provider = function(self)
-    --     return self.icon and (' ' .. self.icon .. ' ')
-    --   end,
-    --   hl = function(self)
-    --     return { fg = self.icon_color }
-    --   end,
-    -- }
-
     local FileName = {
       provider = function(self)
         local filename = vim.fn.fnamemodify(self.filename, ':~:.')
@@ -235,29 +167,12 @@ return {
       },
     }
 
-    -- local FileNameModifer = {
-    --   hl = function()
-    --     if vim.bo.modified then
-    --       return { fg = colors.text, bold = true, force = true }
-    --     end
-    --   end,
-    -- }
-
     FileNameBlock = utils.insert(
       FileNameBlock,
-      -- FileIcon,
-      -- utils.insert(FileNameModifer, FileName),
       FileName,
       unpack(FileFlags),
       { provider = '%< ' }
     )
-
-    -- local FileType = {
-    --   provider = function()
-    --     return vim.bo.filetype
-    --   end,
-    --   -- hl = { fg = utils.get_highlight('Type').fg, bold = true },
-    -- }
 
     local Ruler = {
       -- %l = current line number
@@ -282,23 +197,6 @@ return {
       end,
       -- hl = { fg = 'blue', bg = 'bright_bg' },
     }
-
-    -- local FileFormat = {
-    --   provider = function()
-    --     local fmt = vim.bo.fileformat
-    --     if fmt == 'unix' then
-    --       return ' LF '
-    --     elseif fmt == 'mac' then
-    --       return ' CR '
-    --     else
-    --       return ' CRLF '
-    --     end
-    --   end,
-    --   hl = { bg = colors.crust, fg = colors.surface2 },
-    --   condition = function()
-    --     return conditions.buffer_not_empty() and conditions.hide_in_width()
-    --   end,
-    -- }
 
     local Tabpage = {
       provider = function(self)
@@ -328,7 +226,6 @@ return {
       Space,
       FileNameBlock,
       Align,
-      -- FileType,
       TabPages,
       Space,
       ScrollBar,
