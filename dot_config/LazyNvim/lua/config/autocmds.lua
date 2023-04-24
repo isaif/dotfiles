@@ -64,14 +64,18 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+-- Having issue using this with fugitive
+-- Also don't want to automatically create directory
+-- other options exist to enable it for a particular file
+-- using `:w ++p`
 -- Auto create dir when saving a file, in case some intermediate directory does not exist
-vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
-  group = augroup('auto_create_dir'),
-  callback = function(event)
-    local file = vim.loop.fs_realpath(event.match) or event.match
-    vim.fn.mkdir(vim.fn.fnamemodify(file, ':p:h'), 'p')
-  end,
-})
+-- vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+--   group = augroup('auto_create_dir'),
+--   callback = function(event)
+--     local file = vim.loop.fs_realpath(event.match) or event.match
+--     vim.fn.mkdir(vim.fn.fnamemodify(file, ':p:h'), 'p')
+--   end,
+-- })
 
 -- show cursor line only in active window
 vim.api.nvim_create_autocmd({ 'InsertLeave', 'WinEnter' }, {
