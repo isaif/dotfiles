@@ -1,6 +1,8 @@
 return {
   'numToStr/Comment.nvim',
-  event = 'VeryLazy',
+  -- event = 'VeryLazy',
+  -- event = 'InsertEnter',
+  event = 'CursorHold',
   -- TODO: lazy loading
   -- there is a discussion on the repo of lazy.nvim about passing default keys
   -- of a plugin to keys, so that we can load the plugin on pressing default

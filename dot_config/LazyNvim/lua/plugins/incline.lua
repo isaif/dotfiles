@@ -66,6 +66,7 @@ local opts = {
 
 return {
   'b0o/incline.nvim',
+  event = 'UIEnter',
   opts = opts,
   -- config = true,
   dependencies = {
