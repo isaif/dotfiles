@@ -231,6 +231,9 @@ alias v='nvim'
 alias che="chezmoi"
 alias "checd"="chezmoi-cd"
 
+# now `cclip' can be used when you it to be available to `ctrl-[vxc]'
+alias cclip='xclip -selection clipboard'
+
 # tmuxp
 # alias tp='tmuxp load -y $(tmuxp ls | fzf --border none)'
 
