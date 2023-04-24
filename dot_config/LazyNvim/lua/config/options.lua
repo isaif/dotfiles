@@ -67,7 +67,7 @@ opt.smartcase = true -- no ignorecase if Uppercase char present
 
 -- rmagatti/auto-session recomended
 opt.sessionoptions = {
-  'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions',
+  'buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions',
 }
 
 vim.g.mapleader = ' '
