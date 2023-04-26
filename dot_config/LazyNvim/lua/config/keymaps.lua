@@ -66,8 +66,12 @@ nnoremap(',rl', [[:s/\<<C-r><C-w>\>//g<Left><Left>]])
 -- Close window
 nnoremap('<Leader>c', '<C-w>c')
 
--- Close tab
-nnoremap('<Leader>tc', '<cmd>tabc<CR>')
+-- Close tab and go to previous accessed tab
+nnoremap('<Leader>tc', function()
+  local tabnr = vim.api.nvim_get_current_tabpage()
+  vim.cmd.normal("g\t")
+  vim.api.nvim_command(tabnr .. 'tabclose')
+end)
 
 -- Zoom in and zoom out current window
 nnoremap('<Leader>zi', '<c-w>_ | <c-w>|')
