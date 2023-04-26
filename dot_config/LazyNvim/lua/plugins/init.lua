@@ -7,8 +7,8 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
   -- better tmux experience
-  'christoomey/vim-tmux-navigator',
-  'RyanMillerC/better-vim-tmux-resizer',
+  { 'christoomey/vim-tmux-navigator', event = 'CursorHold' },
+  { 'RyanMillerC/better-vim-tmux-resizer', event = 'CursorHold' },
 
   -- merge tmux statusbar and vim/neovim statusline
   -- 'vimpostor/vim-tpipeline',
