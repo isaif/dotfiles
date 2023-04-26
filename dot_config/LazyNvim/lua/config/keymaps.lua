@@ -66,6 +66,9 @@ nnoremap(',rl', [[:s/\<<C-r><C-w>\>//g<Left><Left>]])
 -- Close window
 nnoremap('<Leader>c', '<C-w>c')
 
+-- Close tab
+nnoremap('<Leader>tc', '<cmd>tabc<CR>')
+
 -- Zoom in and zoom out current window
 nnoremap('<Leader>zi', '<c-w>_ | <c-w>|')
 nnoremap('<Leader>zo', '<c-w>=')
