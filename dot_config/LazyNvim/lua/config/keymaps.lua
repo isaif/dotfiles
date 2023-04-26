@@ -9,22 +9,6 @@ local tnoremap = require('util.mapping_helper').tnoremap
 -- keep cursor in position while joining lines
 nnoremap('J', 'mzJ`z')
 
--- tab navigation
-nnoremap('g1', '1gt')
-nnoremap('g2', '2gt')
-nnoremap('g3', '3gt')
-nnoremap('g4', '4gt')
-
--- navigate to previous and next buffers
-nnoremap('[b', '<cmd>bprevious<CR>')
-nnoremap(']b', '<cmd>bnext<CR>')
-
--- Navigate from terminal
--- tnoremap('<C-h>', '<C-\\><C-N><C-w>h')
--- tnoremap('<C-j>', '<C-\\><C-N><C-w>j')
--- tnoremap('<C-k>', '<C-\\><C-N><C-w>k')
--- tnoremap('<C-l>', '<C-\\><C-N><C-w>l')
-
 --##################################################################--
 -- Copy and paste from the clipboard
 --##################################################################--
@@ -53,6 +37,9 @@ nnoremap('<ESC>', '<cmd>nohls<CR><ESC>')
 nnoremap('<F2>', '<cmd>Lex<CR>')
 
 -- Save all file
+-- silent is not required when using <cmd>
+-- but without silent it shows message of chezmoi autocmd
+-- will keep silent for now
 nnoremap('<Leader>a', '<cmd>silent wa<CR>')
 
 -- Uppercase a word
@@ -71,10 +58,10 @@ nnoremap(',rf', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]])
 nnoremap(',rl', [[:s/\<<C-r><C-w>\>//g<Left><Left>]])
 
 --##################################################################--
--- Window management
+-- Window and Tab management
 --##################################################################--
 
-nnoremap('<Leader>v', '<C-w>')
+-- nnoremap('<Leader>w', '<C-w>')
 
 -- Close window
 nnoremap('<Leader>c', '<C-w>c')
@@ -82,6 +69,26 @@ nnoremap('<Leader>c', '<C-w>c')
 -- Zoom in and zoom out current window
 nnoremap('<Leader>zi', '<c-w>_ | <c-w>|')
 nnoremap('<Leader>zo', '<c-w>=')
+
+-- tab navigation
+nnoremap('g1', '1gt')
+nnoremap('g2', '2gt')
+nnoremap('g3', '3gt')
+nnoremap('g4', '4gt')
+
+-- navigate to previous and next buffers
+nnoremap('[b', '<cmd>bprevious<CR>')
+nnoremap(']b', '<cmd>bnext<CR>')
+
+-- Navigate from terminal
+-- tnoremap('<C-h>', '<C-\\><C-N><C-w>h')
+-- tnoremap('<C-j>', '<C-\\><C-N><C-w>j')
+-- tnoremap('<C-k>', '<C-\\><C-N><C-w>k')
+-- tnoremap('<C-l>', '<C-\\><C-N><C-w>l')
+
+--##################################################################--
+-- Spell settings
+--##################################################################--
 
 -- spelling error highlight settings
 -- hi clear SpellBad
