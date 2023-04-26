@@ -3,6 +3,7 @@ local M = {}
 -- vim.keymap.set has remap = false by default
 -- mappings with <cmd> is silent by default
 -- <cmd> doesn't need <C-u> as it doesn't change mode
+-- remap = true to enable recursive mapping
 M.noremap = function(mode, lhs, rhs, opts)
   local default_opts = { silent = true }
 
@@ -29,35 +30,35 @@ end
 M.nnoremap = function(lhs, rhs, opts)
   -- print(rhs)
   -- print(vim.inspect(opts))
-  opts = opts or {}
+  opts = opts or nil
   -- print(vim.inspect(opts))
   -- print('-------')
-  M.noremap('n', lhs, rhs)
+  M.noremap('n', lhs, rhs, opts)
 end
 
 M.inoremap = function(lhs, rhs, opts)
-  opts = opts or {}
-  M.noremap('i', lhs, rhs)
+  opts = opts or nil
+  M.noremap('i', lhs, rhs, opts)
 end
 
 M.xnoremap = function(lhs, rhs, opts)
-  opts = opts or {}
-  M.noremap('x', lhs, rhs)
+  opts = opts or nil
+  M.noremap('x', lhs, rhs, opts)
 end
 
 M.onoremap = function(lhs, rhs, opts)
-  opts = opts or {}
-  M.noremap('o', lhs, rhs)
+  opts = opts or nil
+  M.noremap('o', lhs, rhs, opts)
 end
 
 M.vnoremap = function(lhs, rhs, opts)
-  opts = opts or {}
-  M.noremap('v', lhs, rhs)
+  opts = opts or nil
+  M.noremap('v', lhs, rhs, opts)
 end
 
 M.tnoremap = function(lhs, rhs, opts)
-  opts = opts or {}
-  M.noremap('t', lhs, rhs)
+  opts = opts or nil
+  M.noremap('t', lhs, rhs, opts)
 end
 
 return M
