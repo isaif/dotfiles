@@ -28,8 +28,8 @@ opt.linebreak = true
 opt.breakindent = true
 
 -- Maintain undo history between sessions
-opt.undofile = true
-opt.undodir = os.getenv('HOME') .. '/.config/nvim/undodir'
+--opt.undofile = true
+--opt.undodir = os.getenv('HOME') .. '/.config/nvim/undodir'
 
 --remove delay switching between insert and normal mode
 opt.ttimeoutlen = 10
@@ -77,12 +77,12 @@ vim.g.mapleader = ' '
 -- opt.autowrite = true -- Enable auto write
 -- opt.clipboard = "unnamedplus" -- Sync with system clipboard
 -- opt.completeopt = "menu,menuone,noselect"
-opt.completeopt = 'menu,menuone,noinsert'
+-- opt.completeopt = 'menu,menuone,noinsert'
 opt.conceallevel = 3 -- Hide * markup for bold and italic
 opt.confirm = true -- Confirm to save changes before exiting modified buffer
 opt.cursorline = true -- Enable highlighting of the current line
 opt.expandtab = true -- Use spaces instead of tabs
-opt.formatoptions = 'jcroqlnt' -- tcqj
+-- opt.formatoptions = 'jcroqlnt' -- tcqj
 -- opt.grepformat = '%f:%l:%c:%m'
 -- opt.grepprg = 'rg --vimgrep'
 opt.inccommand = 'nosplit' -- preview incremental substitute
@@ -104,7 +104,7 @@ opt.tabstop = 2 -- Number of spaces tabs count for
 -- opt.timeoutlen = 300 -- mapping timeout
 opt.undolevels = 10000
 -- opt.updatetime = 200 -- Save swap file and trigger CursorHold
-opt.wildmode = 'longest:full,full' -- Command-line completion mode
+-- opt.wildmode = 'longest:full,full' -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
 -- opt.wrap = false -- Disable line wrap
 opt.updatetime = 100 -- faster completion (4000ms default)
