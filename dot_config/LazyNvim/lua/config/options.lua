@@ -71,7 +71,7 @@ opt.sessionoptions = {
   'buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions',
 }
 
-vim.g.mapleader = ' '
+-- vim.g.mapleader = ' '
 -- vim.g.maplocalleader = ' '
 
 -- opt.autowrite = true -- Enable auto write

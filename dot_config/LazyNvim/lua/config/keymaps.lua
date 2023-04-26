@@ -6,6 +6,8 @@ local inoremap = require('util.mapping_helper').inoremap
 local tnoremap = require('util.mapping_helper').tnoremap
 -- local vimp = require('vimp')
 
+nnoremap('<Space>', '<Leader>', { remap = true })
+
 -- keep cursor in position while joining lines
 nnoremap('J', 'mzJ`z')
 
