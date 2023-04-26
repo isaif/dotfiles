@@ -174,6 +174,13 @@ return {
       { provider = '%< ' }
     )
 
+    local ShowCmd = {
+      condition = function()
+        return vim.o.cmdheight == 0
+      end,
+      provider = ':%3.5(%S%)',
+    }
+
     local Ruler = {
       -- %l = current line number
       -- %L = number of lines in the buffer
@@ -223,6 +230,7 @@ return {
 
     local StatusLine = {
       ViMode,
+      ShowCmd,
       Space,
       FileNameBlock,
       Align,

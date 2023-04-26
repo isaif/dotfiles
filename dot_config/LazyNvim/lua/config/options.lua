@@ -13,6 +13,7 @@ opt.cmdheight = 0
 
 -- hide tabline
 opt.showtabline = 0
+opt.showcmdloc = 'statusline'
 
 opt.guicursor = 'a:block' -- block cursor
 opt.termguicolors = true -- true color support
