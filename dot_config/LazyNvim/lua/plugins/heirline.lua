@@ -203,7 +203,9 @@ return {
 
     local GitBranch = {
       condition = function()
-        if vim.fn.FugitiveHead() == '' then
+        local _, fugitiveHead = pcall(vim.fn.FugitiveHead)
+
+        if fugitiveHead == '' then
           return false
         else
           return true
