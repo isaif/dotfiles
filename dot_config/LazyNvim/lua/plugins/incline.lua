@@ -1,3 +1,4 @@
+-- TODO: show filename if current window is not active even if cursor is on first line
 local function get_diagnostic_label(props)
   local icons = { error = '', warn = '', info = '', hint = '' }
   local label = {}
@@ -20,24 +21,24 @@ local function get_diagnostic_label(props)
   return label
 end
 
--- local function get_git_diff(props)
---   local icons = { removed = '', changed = '', added = '' }
---   local labels = {}
---   local signs = vim.api.nvim_buf_get_var(props.buf, 'gitsigns_status_dict')
---   -- local signs = vim.b.gitsigns_status_dict
---   for name, icon in pairs(icons) do
---     if tonumber(signs[name]) and signs[name] > 0 then
---       table.insert(
---         labels,
---         { icon .. ' ' .. signs[name] .. ' ', group = 'Diff' .. name }
---       )
---     end
---   end
---   if #labels > 0 then
---     table.insert(labels, { '| ' })
---   end
---   return labels
--- end
+local function get_git_diff(props)
+  local icons = { removed = '~', changed = '-', added = '+' }
+  local labels = {}
+  local signs = vim.api.nvim_buf_get_var(props.buf, 'gitsigns_status_dict')
+  -- local signs = vim.b.gitsigns_status_dict
+  for name, icon in pairs(icons) do
+    if tonumber(signs[name]) and signs[name] > 0 then
+      table.insert(
+        labels,
+        { icon .. ' ' .. signs[name] .. ' ', group = 'Diff' .. name }
+      )
+    end
+  end
+  if #labels > 0 then
+    table.insert(labels, { '| ' })
+  end
+  return labels
+end
 
 local opts = {
   hide = {
@@ -55,7 +56,7 @@ local opts = {
 
     local buffer = {
       { get_diagnostic_label(props) },
-      -- { get_git_diff(props) },
+      { get_git_diff(props) },
       { ft_icon, guifg = ft_color },
       { ' ' },
       { filename, gui = modified },
@@ -70,7 +71,7 @@ return {
   opts = opts,
   -- config = true,
   dependencies = {
-    -- required as I am using icons
+    -- required as I am using icons for filetype
     'nvim-tree/nvim-web-devicons',
   },
 }
