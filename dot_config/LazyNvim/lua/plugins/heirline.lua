@@ -136,18 +136,25 @@ return {
 
     local FileName = {
       provider = function(self)
+        local filetype = vim.bo.filetype
+        local filename = vim.api.nvim_buf_get_name(0)
         -- Filename for help file
-        if vim.bo.filetype == 'help' then
-          local filename = vim.api.nvim_buf_get_name(0)
-          return vim.fn.fnamemodify(filename, ':t') .. ' [HELP]'
+        if filetype == 'help' then
+          return vim.fn.fnamemodify(filename, ':t:r') .. ' [Help]'
+        -- elseif vim.fn.isdirectory(filename) == 1 then
+        --     return vim.fn.fnamemodify(filename, ':p:.')
+        elseif filetype == 'fugitive' then
+          -- local value, _ = require('nvim-web-devicons').get_icon('git')
+          return '[Fugitive]'
+        elseif filetype == 'TelescopePrompt' then
+          return '[Telescope]'
+        elseif filename == '' then
+          return '[No Name]'
         end
 
         -- first, trim the pattern relative to the current directory. For other
         -- options, see :h filename-modifers
-        local filename = vim.fn.fnamemodify(self.filename, ':.')
-        if filename == '' then
-          return '[No Name]'
-        end
+        filename = vim.fn.fnamemodify(self.filename, ':.')
         -- now, if the filename would occupy more than 1/4th of the available
         -- space, we trim the file path to its initials
         -- See Flexible Components section below for dynamic truncation
