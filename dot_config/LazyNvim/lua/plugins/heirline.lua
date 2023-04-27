@@ -191,6 +191,19 @@ return {
       provider = '%3.5(%S%) ',
     }
 
+    local GitBranch = {
+      condition = function()
+        if vim.fn.FugitiveHead() == '' then
+          return false
+        else
+          return true
+        end
+      end,
+      provider = function()
+        return ' ' .. vim.fn.FugitiveHead() .. ' '
+      end,
+    }
+
     local Ruler = {
       -- %l = current line number
       -- %L = number of lines in the buffer
@@ -241,6 +254,7 @@ return {
     local Left = {
       ViMode,
       MacroRec,
+      GitBranch,
       hl = { bg = 'bg' },
     }
 
