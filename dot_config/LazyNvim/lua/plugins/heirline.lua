@@ -117,7 +117,8 @@ return {
         return { fg = self.mode_colors[mode], bold = true }
       end,
       -- Re-evaluate the component only on ModeChanged event!
-      -- Also allows the statusline to be re-evaluated when entering operator-pending mode
+      -- Also allows the statusline to be re-evaluated
+      -- when entering operator-pending mode
       update = {
         'ModeChanged',
         pattern = '*:*',
@@ -208,18 +209,17 @@ return {
       provider = '%3.5(%S%) ',
     }
 
-    local GitBranch = {
-      condition = function()
-        local _, fugitiveHead = pcall(vim.fn.FugitiveHead)
+    local Git = {
+      condition = conditions.is_git_repo,
 
-        if fugitiveHead == '' then
-          return false
-        else
-          return true
-        end
+      init = function(self)
+        self.status_dict = vim.b.gitsigns_status_dict
       end,
-      provider = function()
-        return ' ' .. vim.fn.FugitiveHead() .. ' '
+
+      hl = { fg = colors.gray },
+
+      provider = function(self)
+        return ' ' .. self.status_dict.head .. ' '
       end,
     }
 
@@ -273,7 +273,7 @@ return {
     local Left = {
       ViMode,
       MacroRec,
-      GitBranch,
+      Git,
       hl = { bg = 'bg' },
     }
 
