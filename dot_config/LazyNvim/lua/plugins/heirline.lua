@@ -132,7 +132,6 @@ return {
         self.filename = vim.api.nvim_buf_get_name(0)
       end,
       condition = conditions.buffer_not_empty,
-      hl = { bg = colors.crust, fg = colors.subtext1 },
     }
 
     local FileName = {
@@ -146,8 +145,6 @@ return {
         end
         return filename
       end,
-      -- hl = { fg = colors.subtext1, bold = true },
-      hl = { fg = colors.subtext1 },
     }
 
     local FileFlags = {
@@ -155,30 +152,25 @@ return {
         condition = function()
           return vim.bo.modified
         end,
-        provider = ' [+] ',
-        hl = { fg = colors.lavender },
+        provider = ' [+]',
       },
       {
         condition = function()
           return not vim.bo.modifiable or vim.bo.readonly
         end,
-        provider = '',
+        provider = ' ',
         hl = { fg = colors.red },
       },
     }
 
-    FileNameBlock = utils.insert(
-      FileNameBlock,
-      FileName,
-      unpack(FileFlags),
-      { provider = '%< ' }
-    )
+    FileNameBlock = utils.insert(FileNameBlock, FileName, unpack(FileFlags))
+
 
     local ShowCmd = {
       condition = function()
         return vim.o.cmdheight == 0
       end,
-      provider = ':%3.5(%S%)',
+      provider = '%3.5(%S%) ',
     }
 
     local Ruler = {
@@ -187,7 +179,7 @@ return {
       -- %c = column number
       -- %P = percentage through file of displayed window
       -- provider = '%7(%l/%3L%):%2c %P',
-      provider = '%3l:%2c',
+      provider = ' %2c',
     }
 
     local ScrollBar = {
@@ -202,17 +194,18 @@ return {
         local i = math.floor((curr_line - 1) / lines * #self.sbar) + 1
         return string.rep(self.sbar[i], 2)
       end,
-      -- hl = { fg = 'blue', bg = 'bright_bg' },
+      hl = { fg = colors.blue, bg = colors.bright_bg },
     }
 
     local Tabpage = {
       provider = function(self)
-        -- return '%' .. self.tabnr .. 'T ' .. self.tabpage .. ' %T'
         return '%' .. self.tabnr .. 'T ' .. self.tabpage .. ' %T'
       end,
       hl = function(self)
         if not self.is_active then
-          return 'TabLine'
+          -- 'Tabline', 'TabLineSel' are hl groups in neovim
+          -- return 'TabLine'
+          return 'bg'
         else
           return 'TabLineSel'
         end
@@ -224,22 +217,30 @@ return {
       condition = function()
         return #vim.api.nvim_list_tabpages() >= 2
       end,
-      { provider = '%=' },
       utils.make_tablist(Tabpage),
     }
 
-    local StatusLine = {
+    local Left = {
       ViMode,
-      ShowCmd,
-      Space,
-      FileNameBlock,
-      Align,
+      hl = { bg = 'bg' },
+    }
+
+    local Right = {
       TabPages,
-      Space,
-      ScrollBar,
       Space,
       Ruler,
       Space,
+      ScrollBar,
+      hl = { bg = 'bg' },
+    }
+
+    local StatusLine = {
+      Left,
+      Space,
+      FileNameBlock,
+      Align,
+      ShowCmd,
+      Right,
     }
 
     heirline.setup({ statusline = StatusLine })
