@@ -7,6 +7,7 @@ local tnoremap = require('util.mapping_helper').tnoremap
 -- local vimp = require('vimp')
 
 nnoremap('<Space>', '<Leader>', { remap = true })
+vnoremap('<Space>', '<Leader>', { remap = true })
 
 -- keep cursor in position while joining lines
 nnoremap('J', 'mzJ`z')
@@ -71,7 +72,7 @@ nnoremap('<Leader>c', '<C-w>c')
 -- Close tab and go to previous accessed tab
 nnoremap('<Leader>tc', function()
   local tabnr = vim.api.nvim_get_current_tabpage()
-  vim.cmd.normal("g\t")
+  vim.cmd.normal('g\t')
   vim.api.nvim_command(tabnr .. 'tabclose')
 end)
 
