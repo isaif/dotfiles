@@ -165,6 +165,24 @@ return {
 
     FileNameBlock = utils.insert(FileNameBlock, FileName, unpack(FileFlags))
 
+    local MacroRec = {
+      condition = function()
+        return vim.fn.reg_recording() ~= '' and vim.o.cmdheight == 0
+      end,
+      {
+        provider = ' 󰻃 ',
+        hl = { fg = colors.orange, bold = true },
+      },
+      {
+        provider = function()
+          return '[' .. vim.fn.reg_recording() .. '] '
+        end,
+      },
+      update = {
+        'RecordingEnter',
+        'RecordingLeave',
+      },
+    }
 
     local ShowCmd = {
       condition = function()
@@ -222,6 +240,7 @@ return {
 
     local Left = {
       ViMode,
+      MacroRec,
       hl = { bg = 'bg' },
     }
 
