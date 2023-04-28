@@ -229,7 +229,13 @@ return {
       -- %c = column number
       -- %P = percentage through file of displayed window
       -- provider = '%7(%l/%3L%):%2c %P',
-      provider = ' %2c',
+      {
+        provider = ': ',
+        hl = { fg = colors.gray },
+      },
+      {
+        provider = '%2c',
+      },
     }
 
     local ScrollBar = {
@@ -250,7 +256,7 @@ return {
     local Tabpage = {
       provider = function(self)
         -- return '%' .. self.tabnr .. 'T ' .. self.tabpage .. ' %T'
-        local tabnr =  self.tabnr
+        local tabnr = self.tabnr
         return ' ' .. tabnr .. ' '
       end,
       hl = function(self)
