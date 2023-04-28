@@ -26,13 +26,14 @@ vnoremap('cy', '"+y')
 nnoremap('cy', '"+y')
 
 --##################################################################--
--- Misc bindings
+-- Misc keymaps
 --##################################################################--
 
 --map jj to esc
 inoremap('jj', '<ESC>')
 tnoremap('jj', '<C-\\><C-N>')
 
+-- TODO: autocmd to disable highlight on cursor move
 -- disable highlight on esc
 nnoremap('<ESC>', '<cmd>nohls<CR><ESC>')
 
@@ -88,12 +89,13 @@ end)
 nnoremap('<Leader>zi', '<c-w>_ | <c-w>|')
 nnoremap('<Leader>zo', '<c-w>=')
 
--- tab navigation
+-- Tab navigation
 nnoremap('g1', '1gt')
 nnoremap('g2', '2gt')
 nnoremap('g3', '3gt')
 nnoremap('g4', '4gt')
 
+-- Tab navigation using arrow keys
 nnoremap('<Right>', 'gt')
 nnoremap('<Left>', 'gT')
 
