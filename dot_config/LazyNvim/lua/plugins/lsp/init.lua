@@ -49,8 +49,9 @@ return {
       bufmap(',ls', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
       bufmap(',la', '<cmd>lua vim.lsp.buf.code_action()<CR>')
       bufmap(',lm', '<cmd>lua vim.diagnostic.open_float()<CR>')
-      bufmap('[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
-      bufmap(']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
+      -- This mapping is provided by mini.bracketed plugin
+      -- bufmap('[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
+      -- bufmap(']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
 
       if client.supports_method('textDocument/formatting') then
         vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
