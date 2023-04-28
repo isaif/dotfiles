@@ -45,6 +45,14 @@ nnoremap('<F2>', '<cmd>Lex<CR>')
 -- will keep silent for now
 nnoremap('<Leader>a', '<cmd>silent wa<CR>')
 
+--##################################################################--
+-- Editing keymaps
+--##################################################################--
+
+-- Add empty lines before and after cursor line
+nnoremap('gO', "<cmd>call append(line('.') - 1, repeat([''], v:count1))<CR>")
+nnoremap('go', "<cmd>call append(line('.'),     repeat([''], v:count1))<CR>")
+
 -- Uppercase a word
 nnoremap(',u', 'vaWUe')
 
