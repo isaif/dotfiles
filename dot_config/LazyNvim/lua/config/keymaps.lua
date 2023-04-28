@@ -16,14 +16,14 @@ nnoremap('J', 'mzJ`z')
 -- Copy and paste from the clipboard
 --##################################################################--
 
-vnoremap(',p', '"+p')
-nnoremap(',p', '"+p')
+vnoremap('cp', '"+p')
+nnoremap('cp', '"+p')
 
-vnoremap(',P', '"+P')
-nnoremap(',P', '"+P')
+vnoremap('cP', '"+P')
+nnoremap('cP', '"+P')
 
-vnoremap(',y', '"+y')
-nnoremap(',y', '"+y')
+vnoremap('cy', '"+y')
+nnoremap('cy', '"+y')
 
 --##################################################################--
 -- Misc bindings
