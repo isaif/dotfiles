@@ -74,6 +74,12 @@ opt.sessionoptions = {
 -- vim.g.mapleader = ' '
 -- vim.g.maplocalleader = ' '
 
+-- TODO: find more about this options
+-- Infer letter cases for a richer built-in keyword completion
+-- opt.infercase = true
+-- opt.virtualedit = 'block' -- Allow going past the end of line in visual block mode
+-- opt.formatoptions = 'qjl1' -- Don't autoformat comments
+
 -- opt.autowrite = true -- Enable auto write
 -- opt.clipboard = "unnamedplus" -- Sync with system clipboard
 -- opt.completeopt = "menu,menuone,noselect"
@@ -88,11 +94,22 @@ opt.expandtab = true -- Use spaces instead of tabs
 opt.inccommand = 'nosplit' -- preview incremental substitute
 opt.laststatus = 3 -- global statusline
 opt.list = true -- Show some invisible characters (tabs...
-opt.pumblend = 10 -- Popup blend
+
+opt.pumblend = 10 -- Make builtin completion menus slightly transparent
 opt.pumheight = 10 -- Maximum number of entries in a popup
+opt.winblend = 10 -- Make floating windows slightly transparent
+
+-- TODO: know more about this options
+-- opt.listchars = 'extends:…,precedes:…,nbsp:␣' -- Define which helper symbols to show
+-- opt.list = true -- Show some helper symbols
+
 opt.shiftround = true -- Round indent
 opt.shiftwidth = 2 -- Size of an indent
+
+-- TODO: find more about this option
 opt.shortmess:append({ W = true, I = true, c = true })
+-- opt.shortmess:append('WcC') -- Reduce command line messages
+
 opt.showmode = false -- Dont show mode since we have a statusline
 opt.sidescrolloff = 8 -- Columns of context
 opt.signcolumn = 'yes' -- Always show the signcolumn, otherwise it would shift the text each time
@@ -109,7 +126,7 @@ opt.winminwidth = 5 -- Minimum window width
 -- opt.wrap = false -- Disable line wrap
 opt.updatetime = 100 -- faster completion (4000ms default)
 
-opt.splitkeep = 'screen'
+opt.splitkeep = 'screen' -- Reduce scroll during window split
 -- if vim.fn.has('nvim-0.9.0') == 1 then
 --   opt.splitkeep = 'screen'
 --   -- opt.shortmess:append({ C = true })
@@ -117,3 +134,12 @@ opt.splitkeep = 'screen'
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
+
+-- spelling error highlight settings
+-- hi clear SpellBad
+-- hi SpellBad cterm=underline,bold ctermfg=red
+
+-- The following command will let us press CTRL-N or CTRL-P in
+-- insert-mode to complete the word we’re typing!
+-- TODO: set this using neovim api
+-- vim.opt.complete += kspell

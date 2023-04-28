@@ -99,18 +99,5 @@ nnoremap(']b', '<cmd>bnext<CR>')
 -- tnoremap('<C-k>', '<C-\\><C-N><C-w>k')
 -- tnoremap('<C-l>', '<C-\\><C-N><C-w>l')
 
---##################################################################--
--- Spell settings
---##################################################################--
-
--- spelling error highlight settings
--- hi clear SpellBad
--- hi SpellBad cterm=underline,bold ctermfg=red
-
--- The following command will let us press CTRL-N or CTRL-P in
--- insert-mode to complete the word we’re typing!
--- TODO: set this using neovim api
--- vim.opt.complete += kspell
-
 -- toggle spell on
 nnoremap(',ts', '<cmd>set spell!<CR>')
