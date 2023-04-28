@@ -50,6 +50,11 @@ nnoremap('<Leader>a', '<cmd>silent wa<CR>')
 -- Editing keymaps
 --##################################################################--
 
+-- Copy, comment it and then paste
+-- It requires Comment.nvim plugin for commenting
+nnoremap(',c', '<cmd>normal yygccp<CR>')
+vnoremap(',c', '<cmd>normal ygvgbp<CR>')
+
 -- Add empty lines before and after cursor line
 nnoremap('gO', "<cmd>call append(line('.') - 1, repeat([''], v:count1))<CR>")
 nnoremap('go', "<cmd>call append(line('.'),     repeat([''], v:count1))<CR>")
