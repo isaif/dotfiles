@@ -1,11 +1,21 @@
 return {
   'echasnovski/mini.ai',
   event = 'CursorHold',
+  dependencies = {
+    -- required for treesitter custom_textobjects to work
+    'nvim-treesitter/nvim-treesitter-textobjects',
+  },
   config = function()
     local spec_treesitter = require('mini.ai').gen_spec.treesitter
 
     require('mini.ai').setup({
       custom_textobjects = {
+        F = spec_treesitter({ a = '@function.outer', i = '@function.inner' }),
+        o = spec_treesitter({
+          a = { '@conditional.outer', '@loop.outer' },
+          i = { '@conditional.inner', '@loop.inner' },
+        }),
+
         -- Whole buffer
         g = function()
           local from = { line = 1, col = 1 }
