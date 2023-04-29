@@ -28,8 +28,8 @@ opt.linebreak = true
 opt.breakindent = true
 
 -- Maintain undo history between sessions
---opt.undofile = true
---opt.undodir = os.getenv('HOME') .. '/.config/nvim/undodir'
+opt.undofile = true
+opt.undodir = vim.fn.stdpath('state') .. '/undodir'
 
 --remove delay switching between insert and normal mode
 opt.ttimeoutlen = 10

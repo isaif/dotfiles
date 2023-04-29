@@ -23,7 +23,8 @@ vim.opt.linebreak = true
 -- Maintain undo history between sessions
 -- TODO can we share same undo dir with neovim and vim
 vim.opt.undofile = true
-vim.opt.undodir = os.getenv('HOME') .. '/.config/nvim/undodir'
+-- vim.opt.undodir = os.getenv('HOME') .. '/.config/nvim/undodir'
+vim.opt.undodir = vim.fn.stdpath('state') .. '/undodir'
 
 --remove delay switching between insert and normal mode
 vim.opt.ttimeoutlen = 10
