@@ -1,6 +1,0 @@
-require('saif/packer')
-require('saif/lsp')
-require('saif/configs')
-require('saif/themes')
-require('saif/mappings')
-require('saif/options')
