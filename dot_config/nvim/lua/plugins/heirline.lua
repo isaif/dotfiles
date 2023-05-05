@@ -3,6 +3,8 @@ return {
   event = 'UIEnter',
   dependencies = {
     'nvim-tree/nvim-web-devicons',
+    -- required to show branch head
+    'lewis6991/gitsigns.nvim',
   },
   config = function()
     local heirline = require('heirline')
