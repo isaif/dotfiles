@@ -25,8 +25,22 @@ return {
   event = { 'BufReadPre', 'BufNewFile' },
   dependencies = {
     'hrsh7th/cmp-nvim-lsp',
+
+    -- Automatically configures lua-language-server
+    -- for your Neovim config, Neovim runtime and plugin directories
+    'folke/neodev.nvim',
   },
   config = function()
+
+    require("neodev").setup({
+      -- override = function(root_dir, library)
+      --   -- if require("neodev.util").has_file(root_dir, "/etc/nixos") then
+      --   --   library.enabled = true
+      --   --   library.plugins = true
+      --   -- end
+      -- end,
+    })
+
     -- local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
     local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()

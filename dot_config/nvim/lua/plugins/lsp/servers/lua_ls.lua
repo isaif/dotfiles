@@ -7,7 +7,6 @@ local settings = {
     -- },
     diagnostics = {
       globals = {
-        'vim',
         -- "use",
         -- "describe",
         -- "it",
@@ -22,11 +21,15 @@ local settings = {
       keywordSnippet = 'Disable',
     },
     workspace = {
-      checkThirdParty = false,
-      -- library = {
-      --     ["${3rd}/love2d/library"] = true,
-      -- },
-      library = vim.api.nvim_get_runtime_file('', true),
+      -- checkThirdParty = false,
+
+      -- library = vim.api.nvim_get_runtime_file('', true),
+      library = {
+        -- ["${3rd}/love2d/library"] = true,
+
+        -- ['/usr/share/nvim/runtime/lua'] = true,
+        -- ['/usr/share/nvim/runtime/lua/lsp'] = true,
+      }
     },
     telemetry = {
       enable = false,
