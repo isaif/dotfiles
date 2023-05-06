@@ -132,6 +132,15 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+################################################
+# Keychain
+################################################
+# Keychain is a program designed to help you easily manage your SSH keys
+# with minimal user interaction. It is implemented as a shell script
+# which drives both ssh-agent and ssh-add.
+# eval $(keychain --eval --quiet id_ed25519 id_rsa ~/.keys/my_custom_key)
+eval $(keychain --eval --quiet id_ed25519)
+
 
 ################################################
 # Tmuxp settings
