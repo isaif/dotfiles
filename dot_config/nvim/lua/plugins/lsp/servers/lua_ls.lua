@@ -1,10 +1,13 @@
 local settings = {
   Lua = {
-    -- runtime = {
-    --   -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-    --   version = 'LuaJIT',
-    --   -- Setup your lua path
-    -- },
+    runtime = {
+      -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+      -- other projects settings will have it's own config
+      -- the config wil be loaded by neoconf.nvim plugins
+      version = 'LuaJIT',
+      -- Setup your lua path
+      path = vim.split(package.path, ';')
+    },
     diagnostics = {
       globals = {
         -- "use",
@@ -21,6 +24,8 @@ local settings = {
       keywordSnippet = 'Disable',
     },
     workspace = {
+      -- It will be useful to have this option for other projects
+      -- therefore not disable globally
       -- checkThirdParty = false,
 
       -- library = vim.api.nvim_get_runtime_file('', true),
