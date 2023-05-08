@@ -29,8 +29,15 @@ return {
     -- Automatically configures lua-language-server
     -- for your Neovim config, Neovim runtime and plugin directories
     'folke/neodev.nvim',
+
+    -- Neovim plugin to manage global and project-local settings.
+    "folke/neoconf.nvim",
   },
   config = function()
+
+    require("neoconf").setup({
+      -- override any of the default settings here
+    })
 
     require("neodev").setup({
       -- override = function(root_dir, library)
