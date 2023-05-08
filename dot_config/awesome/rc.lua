@@ -363,6 +363,10 @@ local globalkeys = gears.table.join(
   awful.key({ modkey }, 'Return', function()
     awful.spawn(terminal)
   end, { description = 'open a terminal', group = 'launcher' }),
+
+  -- Start unclutter to hide mouse
+  awful.spawn.once('unclutter'),
+
   awful.key(
     { modkey, 'Control' },
     'r',
