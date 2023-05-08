@@ -16,7 +16,7 @@
     "lua_ls": {
       "Lua.completion.callSnippet": "Replace",
       "Lua.workspace.checkThirdParty": false,
-      "Lua.diagnostics.globals": ["awesome"]
+      "Lua.diagnostics.globals": ["awesome", "client", "screen", "root"]
+    }
   }
-}
 }
