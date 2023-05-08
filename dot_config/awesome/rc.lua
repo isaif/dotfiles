@@ -293,18 +293,21 @@ local globalkeys = gears.table.join(
     hotkeys_popup.show_help,
     { description = 'show help', group = 'awesome' }
   ),
+
+  -- Switch tags
   awful.key(
     { modkey },
-    'Left',
+    'i',
     awful.tag.viewprev,
     { description = 'view previous', group = 'tag' }
   ),
   awful.key(
     { modkey },
-    'Right',
+    'o',
     awful.tag.viewnext,
     { description = 'view next', group = 'tag' }
   ),
+
   awful.key(
     { modkey },
     'Escape',
