@@ -16,6 +16,10 @@ local settings = {
         -- "assert",
         -- "before_each",
         -- "after_each",
+
+        -- awesomewm has following as binary therefore need to add globals
+        -- 'awesome',
+        -- 'client',
       },
     },
     completion = {
@@ -34,6 +38,9 @@ local settings = {
 
         -- ['/usr/share/nvim/runtime/lua'] = true,
         -- ['/usr/share/nvim/runtime/lua/lsp'] = true,
+
+        -- awesomewm
+        -- ['/usr/share/awesome/lib'] = true,
       }
     },
     telemetry = {
