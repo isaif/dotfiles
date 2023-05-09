@@ -39,6 +39,7 @@ M.setup = function(on_attach, capabilities)
     capabilities = capabilities,
     sources = sources,
     diagnostics_format = diagnostics_format,
+    -- debug = true,
   })
 end
 
