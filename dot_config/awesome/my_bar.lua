@@ -7,7 +7,7 @@ local modkey = require('my_variables').modkey
 
 -- {{{ Wibar
 -- Create a textclock widget
-local mytextclock = wibox.widget.textclock()
+local mytextclock = wibox.widget.textclock('%a %b %d, %I:%M %p')
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
