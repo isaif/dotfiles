@@ -48,26 +48,28 @@ end
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.init('~/.config/awesome/theme.lua')
 
-local my_variables = require('my_variables')
-
-awful.layout.layouts = {
-  awful.layout.suit.tile,
-  awful.layout.suit.tile.left,
-  awful.layout.suit.tile.bottom,
-  awful.layout.suit.tile.top,
-  awful.layout.suit.fair,
-  -- awful.layout.suit.fair.horizontal,
-  -- awful.layout.suit.spiral,
-  -- awful.layout.suit.spiral.dwindle,
-  -- awful.layout.suit.max,
-  -- awful.layout.suit.max.fullscreen,
-  -- awful.layout.suit.magnifier,
-  -- awful.layout.suit.corner.nw,
-  -- awful.layout.suit.floating,
-  -- awful.layout.suit.corner.ne,
-  -- awful.layout.suit.corner.sw,
-  -- awful.layout.suit.corner.se,
-}
+-- {{{ Tag layout
+-- Table of layouts to cover with awful.layout.inc, order matters.
+tag.connect_signal('request::default_layouts', function()
+  awful.layout.append_default_layouts({
+    awful.layout.suit.tile,
+    awful.layout.suit.tile.left,
+    awful.layout.suit.tile.bottom,
+    awful.layout.suit.tile.top,
+    awful.layout.suit.fair,
+    -- awful.layout.suit.fair.horizontal,
+    -- awful.layout.suit.spiral,
+    -- awful.layout.suit.spiral.dwindle,
+    -- awful.layout.suit.max,
+    -- awful.layout.suit.max.fullscreen,
+    -- awful.layout.suit.magnifier,
+    -- awful.layout.suit.corner.nw,
+    -- awful.layout.suit.floating,
+    -- awful.layout.suit.corner.ne,
+    -- awful.layout.suit.corner.sw,
+    -- awful.layout.suit.corner.se,
+  })
+end)
 -- }}}
 
 -- Import wibar
