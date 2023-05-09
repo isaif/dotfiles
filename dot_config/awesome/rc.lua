@@ -72,14 +72,17 @@ tag.connect_signal('request::default_layouts', function()
 end)
 -- }}}
 
--- Import wibar
+-- Wibar component
 require('my_bar')
 
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(
+
+  -- Remove right click on desktop
   -- awful.button({}, 3, function()
   --   mymainmenu:toggle()
   -- end),
+
   awful.button({}, 4, awful.tag.viewnext),
   awful.button({}, 5, awful.tag.viewprev)
 ))
