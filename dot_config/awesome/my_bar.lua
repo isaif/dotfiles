@@ -52,24 +52,24 @@ M.my_bar = function(s)
     screen = s,
     filter = awful.widget.taglist.filter.all,
     buttons = {
-      awful.button({}, 1, function(t)
+      awful.button({}, mousebuttons.LEFT, function(t)
         t:view_only()
       end),
-      awful.button({ modkey }, 1, function(t)
+      awful.button({ modkey }, mousebuttons.LEFT, function(t)
         if client.focus then
           client.focus:move_to_tag(t)
         end
       end),
-      awful.button({}, 3, awful.tag.viewtoggle),
-      awful.button({ modkey }, 3, function(t)
+      awful.button({}, mousebuttons.RIGHT, awful.tag.viewtoggle),
+      awful.button({ modkey }, mousebuttons.RIGHT, function(t)
         if client.focus then
           client.focus:toggle_tag(t)
         end
       end),
-      awful.button({}, 4, function(t)
+      awful.button({}, mousebuttons.SCROLL_UP, function(t)
         awful.tag.viewprev(t.screen)
       end),
-      awful.button({}, 5, function(t)
+      awful.button({}, mousebuttons.SCROLL_DOWN, function(t)
         awful.tag.viewnext(t.screen)
       end),
     },
@@ -80,16 +80,16 @@ M.my_bar = function(s)
     screen = s,
     filter = awful.widget.tasklist.filter.currenttags,
     buttons = {
-      awful.button({}, 1, function(c)
+      awful.button({}, mousebuttons.LEFT, function(c)
         c:activate({ context = 'tasklist', action = 'toggle_minimization' })
       end),
-      awful.button({}, 3, function()
+      awful.button({}, mousebuttons.RIGHT, function()
         awful.menu.client_list({ theme = { width = 250 } })
       end),
-      awful.button({}, 4, function()
+      awful.button({}, mousebuttons.SCROLL_UP, function()
         awful.client.focus.byidx(-1)
       end),
-      awful.button({}, 5, function()
+      awful.button({}, mousebuttons.SCROLL_DOWN, function()
         awful.client.focus.byidx(1)
       end),
     },
