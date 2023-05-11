@@ -68,6 +68,14 @@ awful.screen.connect_for_each_screen(function(s)
 end)
 -- }}}
 
+--{{{ Set Wibar component
+local my_bar = require('my_bar').my_bar
+
+screen.connect_signal('request::desktop_decoration', function(s)
+  my_bar(s)
+end)
+--}}}
+
 -- {{{ Tag layout
 -- Table of layouts to cover with awful.layout.inc, order matters.
 tag.connect_signal('request::default_layouts', function()
@@ -92,9 +100,6 @@ tag.connect_signal('request::default_layouts', function()
 end)
 -- }}}
 
--- Wibar component
-require('my_bar')
-
 -- {{{ Store the list of mouse buttons to be applied on the wallpaper
 -- (also known as root window).
 -- root.buttons(gears.table.join(
@@ -110,6 +115,7 @@ require('my_bar')
 -- }}}
 
 local keybindings = require('keybindings')
+
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
