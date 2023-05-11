@@ -4,7 +4,7 @@ local awful = require('awful')
 
 local my_variables = require('my_variables')
 local modkey = my_variables.modkey
-local mousekeys = my_variables.mouseKeys
+local mousebuttons = my_variables.mousebuttons
 
 -- {{{ Wibar
 -- Create a textclock widget
@@ -70,16 +70,16 @@ awful.screen.connect_for_each_screen(function(s)
 
   s.mylayoutbox:buttons(
     gears.table.join(
-      awful.button({}, mousekeys.LEFT, function()
+      awful.button({}, mousebuttons.LEFT, function()
         awful.layout.inc(1)
       end),
-      awful.button({}, mousekeys.RIGHT, function()
+      awful.button({}, mousebuttons.RIGHT, function()
         awful.layout.inc(-1)
       end),
-      awful.button({}, mousekeys.SCROLL_UP, function()
+      awful.button({}, mousebuttons.SCROLL_UP, function()
         awful.layout.inc(1)
       end),
-      awful.button({}, mousekeys.SCROLL_DOWN, function()
+      awful.button({}, mousebuttons.SCROLL_DOWN, function()
         awful.layout.inc(-1)
       end)
     )

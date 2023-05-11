@@ -18,6 +18,6 @@ M.editor_cmd = M.terminal .. ' -e ' .. M.editor
 -- However, you can use another modifier like Mod1, but it may interact with others.
 M.modkey = 'Mod4'
 
-M.mouseKeys = awful.button.names
+M.mousebuttons = awful.button.names
 
 return M
