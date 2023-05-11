@@ -1,4 +1,3 @@
--- TODO: show filename if current window is not active even if cursor is on first line
 local function get_diagnostic_label(props)
   local icons = { error = '', warn = '', info = '', hint = '' }
   local label = {}
@@ -40,38 +39,39 @@ local function get_git_diff(props)
   return labels
 end
 
-local opts = {
-  hide = {
-    cursorline = true,
-  },
-  -- render = 'basic',
-  render = function(props)
-    local filename =
-      vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ':t')
-    local ft_icon, ft_color =
-      require('nvim-web-devicons').get_icon_color(filename)
-    local modified = vim.api.nvim_buf_get_option(props.buf, 'modified')
-        and 'bold,italic'
-      or 'bold'
-
-    local buffer = {
-      { get_diagnostic_label(props) },
-      { get_git_diff(props) },
-      { ft_icon, guifg = ft_color },
-      { ' ' },
-      { filename, gui = modified },
-    }
-    return buffer
-  end,
-}
-
 return {
   'b0o/incline.nvim',
   event = 'UIEnter',
-  opts = opts,
+  config = function()
+    require('incline').setup({
+      hide = {
+        cursorline = 'focused_win',
+      },
+      render = function(props)
+        local filename =
+          vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ':t')
+        local ft_icon, ft_color =
+          require('nvim-web-devicons').get_icon_color(filename)
+        local modified = vim.api.nvim_buf_get_option(props.buf, 'modified')
+            and 'bold,italic'
+          or 'bold'
+
+        local buffer = {
+          { get_diagnostic_label(props) },
+          { get_git_diff(props) },
+          { ft_icon, guifg = ft_color },
+          { ' ' },
+          { filename, gui = modified },
+        }
+        return buffer
+      end,
+    })
+  end,
   -- config = true,
   dependencies = {
     -- required as I am using icons for filetype
     'nvim-tree/nvim-web-devicons',
+    -- required to show git diff
+    'lewis6991/gitsigns.nvim',
   },
 }
