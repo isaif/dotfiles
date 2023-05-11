@@ -94,7 +94,9 @@ end)
 -- ))
 -- }}}
 
-local keybindings = require('keybindings')
+--{{{ Set keybindings
+require('keybindings')
+--}}}
 
 -- {{{ Rules
 -- Rules to apply to new clients.
