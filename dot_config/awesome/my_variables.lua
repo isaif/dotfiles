@@ -1,15 +1,20 @@
 local awful = require('awful')
+-- Theme handling library
+local beautiful = require('beautiful')
 
 local M = {}
+
+-- Themes define colours, icons, font and wallpapers.
+-- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+M.set_theme = function()
+  beautiful.init('~/.config/awesome/theme.lua')
+end
 
 -- This is used later as the default terminal and editor to run.
 -- terminal = "xterm"
 M.terminal = 'kitty'
 M.editor = os.getenv('EDITOR') or 'nano'
 M.editor_cmd = M.terminal .. ' -e ' .. M.editor
-
--- Keyboard map indicator and switcher
--- M.mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.

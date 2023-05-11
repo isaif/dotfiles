@@ -26,9 +26,7 @@ naughty.connect_signal('request::display_error', function(message, startup)
 end)
 -- }}}
 
--- Themes define colours, icons, font and wallpapers.
--- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.init('~/.config/awesome/theme.lua')
+require('my_variables').set_theme()
 
 -- {{{ Wallpaper
 screen.connect_signal('request::wallpaper', function(s)
