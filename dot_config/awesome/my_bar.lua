@@ -3,7 +3,9 @@ local gears = require('gears')
 local wibox = require('wibox')
 local awful = require('awful')
 
-local modkey = require('my_variables').modkey
+local my_variables = require('my_variables')
+local modkey = my_variables.modkey
+local mousekeys = my_variables.mouseKeys
 
 -- {{{ Wibar
 -- Create a textclock widget
@@ -80,23 +82,28 @@ awful.screen.connect_for_each_screen(function(s)
 
   -- Create a promptbox for each screen
   s.mypromptbox = awful.widget.prompt()
+
   -- Create an imagebox widget which will contain an icon indicating which layout we're using.
   -- We need one layoutbox per screen.
   s.mylayoutbox = awful.widget.layoutbox(s)
-  s.mylayoutbox:buttons(gears.table.join(
-    awful.button({}, 1, function()
-      awful.layout.inc(1)
-    end),
-    awful.button({}, 3, function()
-      awful.layout.inc(-1)
-    end),
-    awful.button({}, 4, function()
-      awful.layout.inc(1)
-    end),
-    awful.button({}, 5, function()
-      awful.layout.inc(-1)
-    end)
-  ))
+
+  s.mylayoutbox:buttons(
+    gears.table.join(
+      awful.button({}, mousekeys.LEFT, function()
+        awful.layout.inc(1)
+      end),
+      awful.button({}, mousekeys.RIGHT, function()
+        awful.layout.inc(-1)
+      end),
+      awful.button({}, mousekeys.SCROLL_UP, function()
+        awful.layout.inc(1)
+      end),
+      awful.button({}, mousekeys.SCROLL_DOWN, function()
+        awful.layout.inc(-1)
+      end)
+    )
+  )
+
   -- Create a taglist widget
   s.mytaglist = awful.widget.taglist({
     screen = s,

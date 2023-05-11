@@ -1,3 +1,5 @@
+local awful = require('awful')
+
 local M = {}
 
 -- This is used later as the default terminal and editor to run.
@@ -15,5 +17,7 @@ M.editor_cmd = M.terminal .. ' -e ' .. M.editor
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
 M.modkey = 'Mod4'
+
+M.mouseKeys = awful.button.names
 
 return M
