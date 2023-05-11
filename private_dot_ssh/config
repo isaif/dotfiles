@@ -1,0 +1,3 @@
+# To make all ssh clients, including git store keys in the agent on first use
+# Other possible values are confirm, ask and no (default).
+AddKeysToAgent yes
