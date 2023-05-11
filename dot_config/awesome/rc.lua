@@ -75,17 +75,18 @@ end)
 -- Wibar component
 require('my_bar')
 
--- {{{ Mouse bindings
-root.buttons(gears.table.join(
-
-  -- Remove right click on desktop
-  -- awful.button({}, 3, function()
-  --   mymainmenu:toggle()
-  -- end),
-
-  awful.button({}, 4, awful.tag.viewnext),
-  awful.button({}, 5, awful.tag.viewprev)
-))
+-- {{{ Store the list of mouse buttons to be applied on the wallpaper
+-- (also known as root window).
+-- root.buttons(gears.table.join(
+--   -- Remove right click on desktop
+--   -- awful.button({}, 3, function()
+--   --   mymainmenu:toggle()
+--   -- end),
+--
+--   -- scroll on wallpaper area to change tags
+--   awful.button({}, 4, awful.tag.viewnext),
+--   awful.button({}, 5, awful.tag.viewprev)
+-- ))
 -- }}}
 
 local keybindings = require('keybindings')
