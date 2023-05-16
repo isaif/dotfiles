@@ -14,9 +14,7 @@ local mytextclock = wibox.widget({
   widget = wibox.widget.textclock,
 })
 
-local M = {}
-
-M.my_bar = function(s)
+local statusbar = function(s)
   -- Each screen has its own tag table.
   awful.tag(
     { '1', '2', '3', '4', '5', '6', '7', '8', '9' },
@@ -93,6 +91,17 @@ M.my_bar = function(s)
         awful.client.focus.byidx(1)
       end),
     },
+    layout = {
+      spacing = 10,
+      layout = wibox.layout.fixed.horizontal,
+    },
+    -- style = {
+    --   -- shape_border_width = 1,
+    --   -- shape_border_color = '#777777',
+    --   -- shape = gears.shape.rounded_bar,
+    -- },
+    -- widget_template = template,
+    -- widget_template = template,
   })
 
   -- Create the wibox
@@ -101,6 +110,8 @@ M.my_bar = function(s)
     screen = s,
     widget = {
       layout = wibox.layout.align.horizontal,
+      -- center the tasklist
+      expand = 'none',
       { -- Left widgets
         layout = wibox.layout.fixed.horizontal,
         s.mytaglist,
@@ -118,4 +129,6 @@ M.my_bar = function(s)
   })
 end
 
-return M
+screen.connect_signal('request::desktop_decoration', function(s)
+  statusbar(s)
+end)
