@@ -5,14 +5,11 @@ local my_variables = require('my_variables')
 local modkey = my_variables.modkey
 local mousebuttons = my_variables.mousebuttons
 
+-- widgets
+local calendar = require('widgets.calendar')
+
 -- Keyboard map indicator and switcher
 -- local mykeyboardlayout = awful.widget.keyboardlayout()
-
--- Create a textclock widget
-local mytextclock = wibox.widget({
-  format = ' %a %b %d, %I:%M %p ',
-  widget = wibox.widget.textclock,
-})
 
 local statusbar = function(s)
   -- Each screen has its own tag table.
@@ -122,7 +119,7 @@ local statusbar = function(s)
         layout = wibox.layout.fixed.horizontal,
         -- mykeyboardlayout,
         wibox.widget.systray(),
-        mytextclock,
+        calendar.create(s),
         s.mylayoutbox,
       },
     },
