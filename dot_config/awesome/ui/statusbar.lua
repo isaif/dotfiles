@@ -117,10 +117,14 @@ local statusbar = function(s)
       s.mytasklist, -- Middle widget
       { -- Right widgets
         layout = wibox.layout.fixed.horizontal,
-        -- mykeyboardlayout,
-        wibox.widget.systray(),
-        calendar.create(s),
-        s.mylayoutbox,
+        {
+          layout = wibox.layout.fixed.horizontal,
+          -- mykeyboardlayout,
+          wibox.widget.systray(),
+          calendar.create(s),
+          s.mylayoutbox,
+          spacing = 5,
+        },
       },
     },
   })
