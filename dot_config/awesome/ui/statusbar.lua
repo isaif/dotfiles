@@ -1,5 +1,7 @@
 local wibox = require('wibox')
 local awful = require('awful')
+local beautiful = require('beautiful')
+local dpi = beautiful.xresources.apply_dpi
 
 local my_variables = require('my_variables')
 local modkey = my_variables.modkey
@@ -122,8 +124,12 @@ local statusbar = function(s)
           -- mykeyboardlayout,
           wibox.widget.systray(),
           calendar.create(s),
-          s.mylayoutbox,
           spacing = 5,
+        },
+        {
+          s.mylayoutbox,
+          margins = dpi(2),
+          widget = wibox.container.margin,
         },
       },
     },
