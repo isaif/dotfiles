@@ -3,9 +3,9 @@ local awful = require('awful')
 local beautiful = require('beautiful')
 local dpi = beautiful.xresources.apply_dpi
 
-local my_variables = require('my_variables')
-local modkey = my_variables.modkey
-local mousebuttons = my_variables.mousebuttons
+local user_variables = require('core.user_variables')
+local modkey = user_variables.modkey
+local mousebuttons = user_variables.mousebuttons
 
 -- widgets
 local calendar = require('widgets.calendar')
