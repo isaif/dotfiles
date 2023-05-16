@@ -45,7 +45,7 @@ local statusbar = function(s)
   -- Create a taglist widget
   s.mytaglist = awful.widget.taglist({
     screen = s,
-    filter = awful.widget.taglist.filter.all,
+    filter = awful.widget.taglist.filter.noempty,
     buttons = {
       awful.button({}, mousebuttons.LEFT, function(t)
         t:view_only()
