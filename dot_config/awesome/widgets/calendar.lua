@@ -24,13 +24,11 @@ local calendar = {}
 calendar.create = function(screen)
   -- Clock / Calendar 12h format
   -- Get Time/Date format using `man strftime`
-  local clock_widget = wibox.widget.textclock(
+  local clock_widget = wibox.widget({
     -- "<span font='" .. beautiful.title_font .. "'>%l:%M %p</span>",
-    "<span font='"
-      .. beautiful.title_font
-      .. "'> <b>%I:%M %p</b> </span>",
-    1
-  )
+    format = '<span><b>%I:%M %p</b></span>',
+    widget = wibox.widget.textclock,
+  })
 
   -- Alternative to naughty.notify - tooltip. You can compare both and choose the preferred one
   awful.tooltip({
