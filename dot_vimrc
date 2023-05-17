@@ -68,7 +68,7 @@ Plug 'vimwiki/vimwiki'
 " Plug 'embear/vim-localvimrc'
 
 " Themes
-" Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 
 """ Neovim specific plugins """"""""
 if has('nvim')
@@ -181,14 +181,17 @@ set sessionoptions+=tabpages,globals
 
 
 """"""""""""""""""""""""""""""""""""
-"""Theme configuration""""""""""""""
+" Theme configuration
 """"""""""""""""""""""""""""""""""""
 
-" let g:gruvbox_contrast_dark="hard"
 "set default colorscheme
-" colorscheme gruvbox
-" set background=dark
+colorscheme gruvbox
+let g:gruvbox_contrast_dark="hard"
+set background=dark
 
+let g:lightline = {
+      \ 'colorscheme': 'grubox',
+      \ }
 
 """"""""""""""""""""""""""""""""""""
 """ Spell config """""""""""""""""""
