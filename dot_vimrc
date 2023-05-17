@@ -39,6 +39,12 @@ set smartindent
 " javascript.vim for javascript related settings and so on.
 filetype plugin on
 
+" show tabline only if more than one
+set showtabline=1
+
+" enable mouse
+set mouse=a
+
 " When enter is pressed while cursor is between the {}
 " Move closing curly brackets to new line
 " and start a new line between them
@@ -92,13 +98,28 @@ nnoremap <silent> <esc><esc> :nohlsearch<CR>
 noremap <F2> :Lex<CR>
 
 
+" Copy and paste from the clipboard
+" vim must be compiled with clipboard option
+" else install gvim which also has cli version of vim
+vnoremap cp "+p
+nnoremap cp "+p
+
+vnoremap cP "+P
+nnoremap cP "+P
+
+vnoremap cy "+y
+nnoremap cy "+y
+
+
+" Tab navigation using arrow keys
+nnoremap <Right> gt
+nnoremap <Left> gT
+
+
 """"""""""""""""""""""""""""""""""""
 """ Leader configuration """""""""""
 """"""""""""""""""""""""""""""""""""
 
-""" Clipboard copy/paste register"""
-nnoremap <Leader>r "+
-vnoremap <Leader>r "+
 
 """ Fzf shortcut configuration """""
 nnoremap <Leader>b :Buffers<CR>
@@ -106,10 +127,9 @@ nnoremap <Leader>e :Files<CR>
 nnoremap <Leader>ff :BLines<CR>
 nnoremap <Leader>fh :Helptags<CR>
 nnoremap <Leader>fo :History<CR>
-nnoremap <Leader>fp :Rg<CR>
+nnoremap <Leader>fg :Rg<CR>
 
 """ Window management """"""""""""""
-nnoremap <Leader>v <C-w>
 nnoremap <Leader>c <C-w>c
 
 " Zoom in and zoom out current window
@@ -117,7 +137,6 @@ noremap <Leader>zi <c-w>_ \| <c-w>\|
 noremap <Leader>zo <c-w>=
 
 """ Save file """"""""""""""""""""""
-noremap <Leader>s :w<CR>
 noremap <Leader>a :wa<CR>
 
 """ Fugitive binding """""""""""""""
