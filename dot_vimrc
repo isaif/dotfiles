@@ -182,7 +182,6 @@ call plug#begin('~/.vim/plugged')
 " Plug 'vimpostor/vim-tpipeline'
 
 " fzf
-Plug '~/.fzf'
 Plug 'junegunn/fzf.vim'
 " Git features
 Plug 'tpope/vim-fugitive'
