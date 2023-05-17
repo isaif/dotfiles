@@ -79,30 +79,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gh asdf zsh-autosuggestions zsh-syntax-highlighting zoxide virtualenv nvm docker docker-compose fzf command-not-found)
+plugins=(git gh asdf zsh-autosuggestions zsh-syntax-highlighting zoxide virtualenv nvm docker docker-compose command-not-found)
 
 
 
-################################################
-# Fzf settings
-################################################
-# Fzf settings
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# export FZF_BASE="/usr/bin/fzf"
-#fd --type f --hidden --exclude .git
-# export FZF_DEFAULT_COMMAND='fd -H'
-# export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git --color=always'
-# ripgrep setting for fzf not working correctly
-#export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs'
-# export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
-#export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
-# DISABLE_FZF_KEY_BINDINGS="true"
-# Use fd (https://github.com/sharkdp/fd) instead of the default find
-# command for listing path candidates.
-# - The first argument to the function ($1) is the base path to start traversal
-# - See the source code (completion.{bash,zsh}) for the details.
-# export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --exclude .git'
 
 source $ZSH/oh-my-zsh.sh
 
@@ -239,10 +219,54 @@ export PATH=~/bin:$PATH
 
 
 ################################################
+# Fzf settings
+################################################
+
+# key-bindings and completions are not sourced by default
+# you can also use ohmyzsh fzf plugin to avoid sourcing manually
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+
+# {{{ use fd instead of find command
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
+
+# To apply the command to CTRL-T and ALT-C as well
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd --type d --strip-cwd-prefix --hidden --follow --exclude .git"
+# }}}
+
+# {{{ Use fd for **<Tab> fzf completion as well
+
+# Use fd (https://github.com/sharkdp/fd) instead of the default find
+# command for listing path candidates.
+# - The first argument to the function ($1) is the base path to start traversal
+# - See the source code (completion.{bash,zsh}) for the details.
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude ".git" . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+# }}}
+
+# Preview file content using bat (https://github.com/sharkdp/bat)
+export FZF_CTRL_T_OPTS="
+  --preview 'bat -n --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+
+# Print tree structure in the preview window
+export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
+
+################################################
 ######### aliases ##############################
 ################################################
 
 alias v='nvim'
+
 # chezmoi dotfiles manager
 alias che="chezmoi"
 alias "checd"="chezmoi-cd"
