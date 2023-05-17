@@ -181,19 +181,6 @@ set sessionoptions+=tabpages,globals
 
 
 """"""""""""""""""""""""""""""""""""
-" Theme configuration
-""""""""""""""""""""""""""""""""""""
-
-"set default colorscheme
-colorscheme gruvbox
-let g:gruvbox_contrast_dark="hard"
-set background=dark
-
-let g:lightline = {
-      \ 'colorscheme': 'grubox',
-      \ }
-
-""""""""""""""""""""""""""""""""""""
 """ Spell config """""""""""""""""""
 """"""""""""""""""""""""""""""""""""
 
@@ -485,4 +472,21 @@ inoremap ,= <C-x><C-l><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>" : ""<
 " the snipmate-related part is obviously not necessary for this to work
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : exists("g:loaded_snips") ? "\<C-r>=TriggerSnippet()\<CR>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : exists("g:loaded_snips") ? "\<C-r>=BackwardsSnippet()\<CR>" : "\<S-Tab>"
+
+""""""""""""""""""""""""""""""""""""
+" Theme configuration
+""""""""""""""""""""""""""""""""""""
+
+"set default colorscheme
+colorscheme gruvbox
+let g:gruvbox_contrast_dark="hard"
+set background=dark
+
+
+let g:lightline = {
+      \ 'colorscheme': 'one',
+      \ }
+
+" make background transparent
+hi Normal guibg=NONE ctermbg=NONE
 
