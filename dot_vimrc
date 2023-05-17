@@ -174,10 +174,8 @@ endif
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-" airline plugin
-" Plug 'vim-airline/vim-airline'
-" airline themes plugin
-" Plug 'vim-airline/vim-airline-themes'
+" statusline plugin
+Plug 'itchyny/lightline.vim'
 
 " Plug 'vimpostor/vim-tpipeline'
 
@@ -289,43 +287,6 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '.'
-
-
-""""""""""""""""""""""""""""""""""""
-""" Airline settings """""""""""""""
-""""""""""""""""""""""""""""""""""""
-" "patched fonts
-" let g:airline_powerline_fonts = 1
-" "set default airline theme
-" "let g:airline_theme='bubblegum'
-" let g:airline_theme='gruvbox'
-" " Enable airline for tabs
-"
-" "enable modified detection
-" let g:airline_detect_modified=1
-"
-" " defines whether the preview window should be excluded from have its window
-" " statusline modified (may help with plugins which use the preview window
-" " heavily)
-" "let g:airline_exclude_preview = 1
-"
-" " Just show the filename (no path) in the tab
-" "let g:airline#extensions#tabline#fnamemod = ':t'
-"
-" let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
-"
-" let g:airline_inactive_collapse=1
-" "let g:airline_inactive_alt_sep=1
-" "let g:airline#extensions#tabline#fnamecollapse = 1
-" let g:airline#extensions#tabline#formatter = 'unique_tail'
-"
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#show_buffers = 0
-" let g:airline#extensions#tabline#show_splits = 1
-" let g:airline#extensions#tabline#show_tabs = 1
-" let g:airline#extensions#tabline#show_tab_nr = 0
-" let g:airline#extensions#tabline#show_tab_type = 0
-" let g:airline#extensions#tabline#show_close_button = 0
 
 
 """"""""""""""""""""""""""""""""""""
