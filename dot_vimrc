@@ -42,6 +42,15 @@ filetype plugin on
 " show tabline only if more than one
 set showtabline=1
 
+" hide showmode
+set noshowmode
+
+" always show statusline
+set laststatus=2
+
+"highlight current line
+set cursorline
+
 " enable mouse
 set mouse=a
 
@@ -403,10 +412,6 @@ autocmd FileType html,css EmmetInstall
 "set default colorscheme
 " colorscheme gruvbox
 " set background=dark
-
-
-"highlight current line
-set cursorline
 
 
 """"""""""""""""""""""""""""""""""""
