@@ -141,6 +141,12 @@ nnoremap <leader>gd :Gdiff<CR>
 """"""""""""""""""""""""""""""""""""
 """Plugin configuration"""""""""""""
 """"""""""""""""""""""""""""""""""""
+" Automate install of vimplug
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 " PLug is the plugin manager
 " to install plugins use PlugInstall in command mode
 
