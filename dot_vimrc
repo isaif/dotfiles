@@ -194,11 +194,7 @@ Plug 'tpope/vim-obsession'
 Plug 'gcmt/taboo.vim'
 
 """""""""""themes""""""""""""""""""
-"Plug 'doums/darcula'
-"Plug 'https://github.com/flrnd/plastic.vim.git'
-Plug 'arcticicestudio/nord-vim'
-"Plug 'sonph/onehalf'
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
 
 " Seamlessly navigate between tmux and vim
 Plug 'christoomey/vim-tmux-navigator'
@@ -443,16 +439,14 @@ autocmd FileType html,css EmmetInstall
 """Theme configuration""""""""""""""
 """"""""""""""""""""""""""""""""""""
 
-let g:gruvbox_contrast_dark="hard"
+" let g:gruvbox_contrast_dark="hard"
 "set default colorscheme
-colorscheme gruvbox
+" colorscheme gruvbox
+" set background=dark
 
-set background=dark
 
 "highlight current line
 set cursorline
-
-set t_Co=256
 
 
 """"""""""""""""""""""""""""""""""""
