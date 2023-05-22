@@ -164,7 +164,8 @@ local function worker(user_args)
       reflection = { horizontal = true },
       layout = wibox.container.mirror,
     },
-    bottom = 2,
+    -- bottom = 2,
+    bottom = 5,
     color = background_color,
     widget = wibox.container.margin,
   })
@@ -371,8 +372,8 @@ setmetatable(cpu_widget, {
 })
 
 return cpu_widget({
-  width = 70,
-  step_width = 2,
-  step_spacing = 0,
+  width = 40,
+  step_width = 5,
+  step_spacing = 2,
   -- color = '#434c5e',
 })
