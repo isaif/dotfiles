@@ -9,6 +9,9 @@ local mousebuttons = user_variables.mousebuttons
 
 -- widgets
 local calendar = require('widgets.calendar')
+local ram_meter = require('widgets.ram_meter')
+local btrfs_df = require('widgets.btrfs_df')
+local volume = require('widgets.volume')
 
 -- Keyboard map indicator and switcher
 -- local mykeyboardlayout = awful.widget.keyboardlayout()
@@ -122,9 +125,12 @@ local statusbar = function(s)
         {
           layout = wibox.layout.fixed.horizontal,
           -- mykeyboardlayout,
+          ram_meter,
+          btrfs_df,
+          volume,
           wibox.widget.systray(),
           calendar.create(s),
-          spacing = 5,
+          spacing = 10,
         },
         {
           s.mylayoutbox,
