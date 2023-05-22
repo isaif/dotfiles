@@ -344,6 +344,9 @@ set cursorline
 " enable mouse
 set mouse=a
 
+" disable swapfile
+set noswapfile
+
 " When enter is pressed while cursor is between the {}
 " Move closing curly brackets to new line
 " and start a new line between them
