@@ -118,8 +118,16 @@ local statusbar = function(s)
       expand = 'none',
       { -- Left widgets
         layout = wibox.layout.fixed.horizontal,
+        {
+          s.mylayoutbox,
+          top = dpi(2),
+          bottom = dpi(3),
+          left = dpi(5),
+          widget = wibox.container.margin,
+        },
         s.mytaglist,
         s.mypromptbox,
+        spacing = 10,
       },
       s.mytasklist, -- Middle widget
       { -- Right widgets
@@ -135,11 +143,6 @@ local statusbar = function(s)
           wibox.widget.systray(),
           calendar.create(s),
           spacing = 10,
-        },
-        {
-          s.mylayoutbox,
-          margins = dpi(2),
-          widget = wibox.container.margin,
         },
       },
     },
