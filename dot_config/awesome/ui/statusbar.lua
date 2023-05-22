@@ -12,6 +12,7 @@ local calendar = require('widgets.calendar')
 local ram_meter = require('widgets.ram_meter')
 local btrfs_df = require('widgets.btrfs_df')
 local volume = require('widgets.volume')
+local netspeed = require('widgets.netspeed')
 
 -- Keyboard map indicator and switcher
 -- local mykeyboardlayout = awful.widget.keyboardlayout()
@@ -125,6 +126,7 @@ local statusbar = function(s)
         {
           layout = wibox.layout.fixed.horizontal,
           -- mykeyboardlayout,
+          netspeed,
           ram_meter,
           btrfs_df,
           volume,
