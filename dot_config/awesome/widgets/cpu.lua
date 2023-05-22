@@ -13,6 +13,8 @@ local watch = require('awful.widget.watch')
 local wibox = require('wibox')
 local beautiful = require('beautiful')
 local gears = require('gears')
+local dpi = beautiful.xresources.apply_dpi
+local icons = require('icons')
 
 local CMD = [[sh -c "grep '^cpu.' /proc/stat; ps -eo '%p|%c|%C|' -o "%mem" -o '|%a' --sort=-%cpu ]]
   .. [[| head -11 | tail -n +2"]]
@@ -22,6 +24,19 @@ local CMD_slim = [[grep --max-count=1 '^cpu.' /proc/stat]]
 
 local HOME_DIR = os.getenv('HOME')
 local WIDGET_DIR = HOME_DIR .. '/.config/awesome/awesome-wm-widgets/cpu-widget'
+
+local meter_icon = wibox.widget({
+  {
+    {
+      image = icons.cpu,
+      resize = true,
+      widget = wibox.widget.imagebox,
+    },
+    margins = dpi(2),
+    widget = wibox.container.margin,
+  },
+  layout = wibox.layout.fixed.horizontal,
+})
 
 local cpu_widget = {}
 local cpu_rows = {
@@ -159,15 +174,20 @@ local function worker(user_args)
 
   --- By default graph widget goes from left to right, so we mirror it and push up a bit
   cpu_widget = wibox.widget({
+    layout = wibox.layout.fixed.horizontal,
+    spacing = dpi(5),
+    meter_icon,
     {
-      cpugraph_widget,
-      reflection = { horizontal = true },
-      layout = wibox.container.mirror,
+      {
+        cpugraph_widget,
+        reflection = { horizontal = true },
+        layout = wibox.container.mirror,
+      },
+      -- bottom = 2,
+      bottom = 5,
+      color = background_color,
+      widget = wibox.container.margin,
     },
-    -- bottom = 2,
-    bottom = 5,
-    color = background_color,
-    widget = wibox.container.margin,
   })
 
   -- This part runs constantly, also when the popup is closed.

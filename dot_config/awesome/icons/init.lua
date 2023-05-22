@@ -30,6 +30,7 @@ return {
   -- effects = dir .. 'effects.svg',
   -- chart = dir .. 'chart-areaspline.svg',
   memory = dir .. 'memory.svg',
+  cpu = dir .. 'cpu.svg',
   volume = dir .. 'volume.svg',
   -- ram_memory = dir .. 'ram_memory.svg',
   disk = dir .. 'disk.svg',
