@@ -26,7 +26,7 @@ calendar.create = function(screen)
   -- Get Time/Date format using `man strftime`
   local clock_widget = wibox.widget({
     -- "<span font='" .. beautiful.title_font .. "'>%l:%M %p</span>",
-    format = '<span><b>%I:%M %p</b></span>',
+    format = '<span color="#ffffff">%I:%M %p</span>',
     widget = wibox.widget.textclock,
   })
 
