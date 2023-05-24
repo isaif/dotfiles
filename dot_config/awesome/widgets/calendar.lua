@@ -43,19 +43,19 @@ calendar.create = function(screen)
     margin_topbottom = dpi(8),
   })
 
-  local cal_shape = function(cr, width, height)
-    gears.shape.partially_rounded_rect(
-      cr,
-      width,
-      height,
-      false,
-      false,
-      true,
-      true,
-      -- 12
-      0 -- remove roundness at bottom corners
-    )
-  end
+  -- local cal_shape = function(cr, width, height)
+  --   gears.shape.partially_rounded_rect(
+  --     cr,
+  --     width,
+  --     height,
+  --     false,
+  --     false,
+  --     true,
+  --     true,
+  --     -- 12
+  --     0 -- remove roundness at bottom corners
+  --   )
+  -- end
 
   -- Calendar Widget
   local month_calendar = awful.widget.calendar_popup.month({
@@ -66,9 +66,10 @@ calendar.create = function(screen)
     long_weekdays = true,
     margin = 10, -- 10
     style_month = {
-      border_width = 2,
+      border_width = 1,
       padding = 12,
-      shape = cal_shape,
+      -- shape = cal_shape,
+      shape = gears.shape.rounded_rect,
       -- padding = 25,
     },
     style_header = { border_width = 0, bg_color = '#00000000' },
