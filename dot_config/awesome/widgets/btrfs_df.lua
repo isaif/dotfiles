@@ -30,7 +30,7 @@ local myrootfs = awful.widget.watch(
     local approx_used = string.format('%.0f', used)
 
     -- customize here
-    widget:set_text(' ' .. approx_used .. 'GiB ')
+    widget:set_text(' ' .. approx_used .. 'G')
   end
 )
 
