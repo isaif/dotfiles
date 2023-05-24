@@ -347,6 +347,14 @@ set mouse=a
 " disable swapfile
 set noswapfile
 
+" XT terminfo capability for tmux
+" useful for tpipeline plugin
+" we can use this or put set -g default-terminal "xterm-256color"
+" in tmux.conf
+" to check for XT capability use tput XT in terminal
+" let &t_fe = "\<Esc>[?1004h"
+" let &t_fd = "\<Esc>[?1004l"
+
 " When enter is pressed while cursor is between the {}
 " Move closing curly brackets to new line
 " and start a new line between them
