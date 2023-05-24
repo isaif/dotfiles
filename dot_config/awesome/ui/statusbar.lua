@@ -96,8 +96,33 @@ local statusbar = function(s)
       end),
     },
     layout = {
-      spacing = 10,
+      spacing = 2,
       layout = wibox.layout.fixed.horizontal,
+    },
+    widget_template = {
+      {
+        {
+          {
+            -- {
+            --   id = 'icon_role',
+            --   widget = wibox.widget.imagebox,
+            -- },
+            awful.widget.clienticon,
+            margins = 2,
+            widget = wibox.container.margin,
+          },
+          {
+            id = 'text_role',
+            widget = wibox.widget.textbox,
+          },
+          layout = wibox.layout.fixed.horizontal,
+        },
+        left = 8,
+        right = 8,
+        widget = wibox.container.margin,
+      },
+      id = 'background_role',
+      widget = wibox.container.background,
     },
     -- style = {
     --   -- shape_border_width = 1,
