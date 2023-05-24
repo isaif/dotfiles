@@ -107,11 +107,16 @@ return {
       -- component is instantiated.
       -- To be extra meticulous, we can also add some vim statusline syntax to
       -- control the padding and make sure our string is always at least 2
-      -- characters long. Plus a nice Icon.
+      -- characters long.
       provider = function(self)
         -- return '%2(' .. self.mode_names[self.mode] .. '%)'
 
-        return '%2(' .. self.mode_names[self.mode] .. '%) '
+        -- return '%2(' .. self.mode_names[self.mode] .. '%) '
+
+        local mode_name = self.mode_names[self.mode]
+        mode_name = #mode_name < 2 and ' ' .. mode_name or mode_name
+        return ' ' .. mode_name .. ' '
+        -- return ' ' .. self.mode_names[self.mode] .. ' '
       end,
       -- Same goes for the highlight. Now the foreground will change according to the current mode.
       hl = function(self)
