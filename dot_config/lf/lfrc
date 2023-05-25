@@ -1,6 +1,11 @@
 # interpreter for shell commands
 set shell sh
 
+# Preview images with kitty and fallback to pistol
+# pistol need to be installed for fallback
+set previewer ~/.config/lf/lf_kitty_preview
+set cleaner ~/.config/lf/lf_kitty_clean
+
 # show icons
 set icons
 
