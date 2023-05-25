@@ -53,6 +53,9 @@ theme.taglist_squares_unsel =
 
 theme.tasklist_disable_task_name = true
 
+theme.hotkeys_font = '10'
+theme.hotkeys_description_font = '10'
+
 -- Variables set for theming notifications:
 -- notification_font
 -- notification_[bg|fg]
