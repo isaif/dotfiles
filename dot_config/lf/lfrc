@@ -114,3 +114,14 @@ cmd trash %set -f; mv $fx ~/.trash
 #     zip -r $1.zip $1
 #     rm -rf $1
 # }}
+
+# Integrate zoxide
+cmd z %{{
+	result="$(zoxide query --exclude $PWD $@)"
+	lf -remote "send $id cd \"$result\""
+}}
+
+cmd zi ${{
+	result="$(zoxide query -i)"
+	lf -remote "send $id cd \"$result\""
+}}
