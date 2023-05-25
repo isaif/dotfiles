@@ -45,6 +45,12 @@ map ` !true
 map o &mimeopen $f
 map O $mimeopen --ask $f
 
+# To select a contiguous block of files
+# use this command on the first file you want to select.
+# Then, move down to the first file you do *not* want to select
+# (the one after the end of the desired selection) and use this command again. 
+map V invert-below
+
 # define a custom 'open' command
 # This command is called when current file is not a directory. You may want to
 # use either file extensions and/or mime types here. Below uses an editor for
