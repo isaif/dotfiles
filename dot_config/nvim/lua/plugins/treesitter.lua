@@ -9,6 +9,7 @@ local options = {
     'html',
     'javascript',
     'json',
+    'jsonc',
     'lua',
     'luadoc',
     'luap',

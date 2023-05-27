@@ -5,4 +5,5 @@ return {
   'lua_ls',
   'tailwind',
   'prismals',
+  'jsonls',
 }
