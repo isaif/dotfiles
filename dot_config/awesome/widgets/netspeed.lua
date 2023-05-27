@@ -19,16 +19,18 @@ local net_speed_widget = {}
 local function convert_to_h(bytes)
   local speed
   local dim
-  local bits = bytes * 8
+  -- local bits = bytes * 8
+  local bits = bytes -- I want kBps not Kbps
   -- if bits < 1000 then
   --   speed = bits
   --   dim = 'b/s'
   -- elseif bits < 1000000 then
   if bits < 1000000 then
-    speed = bits / 1000
+    speed = math.floor(bits / 1000)
     dim = 'K'
   elseif bits < 1000000000 then
     speed = bits / 1000000
+    speed = string.format('%.1f', speed)
     dim = 'M'
   elseif bits < 1000000000000 then
     speed = bits / 1000000000
@@ -37,7 +39,7 @@ local function convert_to_h(bytes)
     speed = tonumber(bits)
     dim = 'b'
   end
-  return math.floor(speed + 0.5) .. dim
+  return speed .. dim
 end
 
 local function split(string_to_split, separator)
