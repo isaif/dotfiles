@@ -5,7 +5,7 @@ local dpi = beautiful.xresources.apply_dpi
 local icons = require('icons')
 
 local meter = awful.widget.watch('ram_used', 10, function(widget, stdout)
-  widget:set_text(string.match(stdout, '%d+%.%d+[%a]'))
+  widget:set_text(string.match(stdout, '%d*%.?%d+[%a]'))
 end)
 
 local meter_icon = wibox.widget({
