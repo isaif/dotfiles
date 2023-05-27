@@ -3,8 +3,15 @@ set shell sh
 
 # Preview images with kitty and fallback to pistol
 # pistol need to be installed for fallback
-set previewer ~/.config/lf/lf_kitty_preview
-set cleaner ~/.config/lf/lf_kitty_clean
+# this won't work with tmux
+# set previewer ~/.config/lf/lf_kitty_preview
+# set cleaner ~/.config/lf/lf_kitty_clean
+
+# ctpv for preview of files, needs dependencies for that
+set previewer ctpv
+set cleaner ctpvclear
+&ctpv -s $id
+&ctpvquit $id
 
 # show icons
 set icons
