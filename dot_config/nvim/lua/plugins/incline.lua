@@ -23,8 +23,12 @@ end
 local function get_git_diff(props)
   local icons = { removed = '~', changed = '-', added = '+' }
   local labels = {}
-  local signs = vim.api.nvim_buf_get_var(props.buf, 'gitsigns_status_dict')
-  -- local signs = vim.b.gitsigns_status_dict
+  local signs = vim.b[props.buf].gitsigns_status_dict
+
+  if signs == nil then
+    return labels
+  end
+
   for name, icon in pairs(icons) do
     if tonumber(signs[name]) and signs[name] > 0 then
       table.insert(
@@ -50,17 +54,22 @@ return {
       render = function(props)
         local filename =
           vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ':t')
+        if filename == '' then
+          filename = '[No Name]'
+        end
+
         local ft_icon, ft_color =
           require('nvim-web-devicons').get_icon_color(filename)
-        local modified = vim.api.nvim_buf_get_option(props.buf, 'modified')
-            and 'bold,italic'
-          or 'bold'
+        if ft_icon then
+          ft_icon = ft_icon .. ' '
+        end
+
+        local modified = vim.bo[props.buf].modified and 'bold,italic' or 'bold'
 
         local buffer = {
           { get_diagnostic_label(props) },
           { get_git_diff(props) },
           { ft_icon, guifg = ft_color },
-          { ' ' },
           { filename, gui = modified },
         }
         return buffer
