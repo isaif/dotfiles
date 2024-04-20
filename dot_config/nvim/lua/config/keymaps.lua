@@ -38,7 +38,8 @@ tnoremap('jj', '<C-\\><C-N>')
 nnoremap('<ESC>', '<cmd>nohls<CR><ESC>')
 
 -- open file manager
-nnoremap('<F2>', '<cmd>Lex<CR>')
+-- using neo tree plugin
+-- nnoremap('<F2>', '<cmd>Lex<CR>')
 
 -- Save all file
 -- silent is not required when using <cmd>
