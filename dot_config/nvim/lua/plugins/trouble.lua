@@ -1,21 +1,26 @@
 local keymaps = {
   {
     '<leader>xx',
+    '<cmd>TroubleToggle<cr>',
+    desc = 'Toggle trouble',
+  },
+  {
+    '<leader>xd',
     '<cmd>TroubleToggle document_diagnostics<cr>',
     desc = 'Document Diagnostics (Trouble)',
   },
   {
-    '<leader>xX',
+    '<leader>xw',
     '<cmd>TroubleToggle workspace_diagnostics<cr>',
     desc = 'Workspace Diagnostics (Trouble)',
   },
   {
-    '<leader>xL',
+    '<leader>xl',
     '<cmd>TroubleToggle loclist<cr>',
     desc = 'Location List (Trouble)',
   },
   {
-    '<leader>xQ',
+    '<leader>xq',
     '<cmd>TroubleToggle quickfix<cr>',
     desc = 'Quickfix List (Trouble)',
   },
