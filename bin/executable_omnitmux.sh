@@ -3,7 +3,7 @@
 # Get all tmuxp sessions
 tmuxp_sessions=$(tmuxp ls | awk '{print $1}')
 
-# If tmux is running on current or other terminal
+# Check if tmux is running on current or other terminal
 tmux_running=$(tmux ls 2> /dev/null)
 
 # Get all tmux running sessions that are not already present in tmuxp
