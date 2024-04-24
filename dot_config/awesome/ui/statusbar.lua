@@ -14,6 +14,7 @@ local btrfs_df = require('widgets.btrfs_df')
 local volume = require('widgets.volume')
 local netspeed = require('widgets.netspeed')
 local cpu = require('widgets.cpu')
+local switch = require('utils.helpers').switch
 
 -- Keyboard map indicator and switcher
 -- local mykeyboardlayout = awful.widget.keyboardlayout()
@@ -69,10 +70,12 @@ local statusbar = function(s)
         end
       end),
       awful.button({}, mousebuttons.SCROLL_UP, function(t)
-        awful.tag.viewprev(t.screen)
+        -- awful.tag.viewprev(t.screen)
+        switch(-1)
       end),
       awful.button({}, mousebuttons.SCROLL_DOWN, function(t)
-        awful.tag.viewnext(t.screen)
+        -- awful.tag.viewnext(t.screen)
+        switch(1)
       end),
     },
   })

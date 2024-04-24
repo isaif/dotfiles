@@ -3,19 +3,27 @@ local awful = require('awful')
 local variables = require('core.user_variables')
 local modkey = variables.modkey
 
+local switch = require('utils.helpers').switch
+
 -- Tags related keybindings
 awful.keyboard.append_global_keybindings({
   awful.key(
     { modkey },
     'i',
-    awful.tag.viewprev,
-    { description = 'view previous', group = 'tag' }
+    -- awful.tag.viewprev,
+    function()
+      switch(-1)
+    end,
+    { description = 'view previous active', group = 'tag' }
   ),
   awful.key(
     { modkey },
     'o',
-    awful.tag.viewnext,
-    { description = 'view next', group = 'tag' }
+    -- awful.tag.viewnext,
+    function()
+      switch(1)
+    end,
+    { description = 'view next active', group = 'tag' }
   ),
   awful.key(
     { modkey },
