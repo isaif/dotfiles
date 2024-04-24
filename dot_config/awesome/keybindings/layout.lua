@@ -15,7 +15,7 @@ awful.keyboard.append_global_keybindings({
     group = 'client',
   }),
   awful.key(
-    { modkey },
+    { modkey, 'Shift' },
     'u',
     awful.client.urgent.jumpto,
     { description = 'jump to urgent client', group = 'client' }

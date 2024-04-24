@@ -19,7 +19,7 @@ awful.keyboard.append_global_keybindings({
   ),
   awful.key(
     { modkey },
-    'Escape',
+    'u',
     awful.tag.history.restore,
     { description = 'go back', group = 'tag' }
   ),
