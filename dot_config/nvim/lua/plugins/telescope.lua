@@ -9,6 +9,10 @@ local opts = function()
       layout_config = {
         preview_width = 80,
       },
+      history = {
+        path = '~/.local/share/nvim/databases/telescope_history.sqlite3',
+        limit = 100,
+      },
       mappings = {
         i = {
           ['<C-p>'] = action_layout.toggle_preview,
@@ -25,6 +29,10 @@ local opts = function()
 
           -- don't go into normal mode, just close
           ['<Esc>'] = actions.close,
+
+          -- history navigation for smart_history
+          ['<C-l>'] = actions.cycle_history_next,
+          ['<C-h>'] = actions.cycle_history_prev,
         },
         n = {
           ['<C-p>'] = action_layout.toggle_preview,
@@ -59,7 +67,7 @@ local keys = function()
     { '<leader>fr', '<cmd>Telescope registers<cr>' },
     { '<leader>ff', '<cmd>Telescope resume<cr>' },
     { '<leader>fi', '<cmd>Telescope current_buffer_fuzzy_find<cr>' },
-    { '<leader>fe', '<cmd>Telescope diagnostics<cr>' },
+    -- { '<leader>fe', '<cmd>Telescope diagnostics<cr>' },
 
     -- git
     { '<leader>gC', '<cmd>Telescope git_commits<CR>' },
@@ -109,6 +117,13 @@ return {
       build = 'make',
       config = function()
         require('telescope').load_extension('fzf')
+      end,
+    },
+    {
+      'nvim-telescope/telescope-smart-history.nvim',
+      dependencies = 'tami5/sqlite.lua',
+      config = function()
+        require('telescope').load_extension('smart_history')
       end,
     },
   },
