@@ -55,8 +55,10 @@ local keys = function()
 
   return {
 
-    { '<leader>e', '<cmd>Telescope find_files<cr>' },
-    { '<leader>fg', '<cmd>Telescope live_grep<cr>' },
+    -- Use telescope-menufacture
+    -- { '<leader>e', '<cmd>Telescope find_files<cr>' },
+    -- { '<leader>fg', '<cmd>Telescope live_grep<cr>' },
+
     { '<leader>fb', '<cmd>Telescope buffers<cr>' },
     { '<leader>fo', '<cmd>Telescope oldfiles<cr>' },
     { '<leader>fh', '<cmd>Telescope help_tags<cr>' },
