@@ -56,6 +56,15 @@ nnoremap('<ESC>', '<cmd>nohls<CR><ESC>')
 -- will keep silent for now
 nnoremap('<Leader>a', '<cmd>silent wa<CR>')
 
+-- Run last command
+-- warning:
+-- If the last run command was to quit then it will run that too
+-- @: can be used to run the last command
+nnoremap('<leader>r', '@:')
+
+-- open list of all commands and move it up on last run command
+nnoremap('<leader>;', 'q:<up>')
+
 --##################################################################--
 -- Editing keymaps
 --##################################################################--
