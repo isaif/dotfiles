@@ -14,7 +14,7 @@ return {
   event = 'BufWinEnter',
   keys = { { '<leader>b', '<cmd>ArenaToggle<CR>' } },
   -- Calls `.setup()` automatically
-  config = {
+  opts = {
     buf_opts = {
       ['relativenumber'] = false,
     },
