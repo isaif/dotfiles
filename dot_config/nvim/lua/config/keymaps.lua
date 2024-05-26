@@ -10,6 +10,7 @@ nnoremap('<Space>', '<Leader>', { remap = true })
 vnoremap('<Space>', '<Leader>', { remap = true })
 
 -- keep cursor in position while joining lines
+-- this uses z register as a mark
 nnoremap('J', 'mzJ`z')
 
 -- Don't move to next word when using *
