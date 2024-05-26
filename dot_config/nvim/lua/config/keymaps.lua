@@ -12,6 +12,9 @@ vnoremap('<Space>', '<Leader>', { remap = true })
 -- keep cursor in position while joining lines
 nnoremap('J', 'mzJ`z')
 
+-- Don't move to next word when using *
+nnoremap('*', '*Nzz')
+
 --##################################################################--
 -- Copy and paste from the clipboard
 --##################################################################--
