@@ -25,4 +25,18 @@ return {
       { '<leader>u', "<cmd>lua require('undotree').toggle()<cr>" },
     },
   },
+  {
+    'declancm/maximize.nvim',
+    keys = {
+      {
+        '<leader>z',
+        function()
+          require('maximize').toggle()
+        end,
+      },
+    },
+    config = function()
+      require('maximize').setup()
+    end,
+  },
 }

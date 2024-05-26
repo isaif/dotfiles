@@ -114,8 +114,9 @@ nnoremap('<Leader>c', '<C-w>c')
 -- end)
 
 -- Zoom in and zoom out current window
-nnoremap('<Leader>zi', '<c-w>_ | <c-w>|')
-nnoremap('<Leader>zo', '<c-w>=')
+-- now using maximize.nvim plugin
+-- nnoremap('<Leader>zi', '<c-w>_ | <c-w>|')
+-- nnoremap('<Leader>zo', '<c-w>=')
 
 -- Tab navigation
 nnoremap('g1', '1gt')
