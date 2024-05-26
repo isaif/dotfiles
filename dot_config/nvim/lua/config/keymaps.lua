@@ -22,8 +22,13 @@ nnoremap('*', '*Nzz')
 vnoremap('cp', '"+p')
 nnoremap('cp', '"+p')
 
-vnoremap('cP', '"+P')
-nnoremap('cP', '"+P')
+-- vnoremap('cP', '"+P')
+
+-- paste content in a new line
+-- nnoremap('cP', 'O<ESC>"+p')
+-- using 'O' will start a new line with comment
+-- if current line is a comment so it needs to be deleted
+nnoremap('cP', 'O<ESC>^d$"+p')
 
 vnoremap('cy', '"+y')
 nnoremap('cy', '"+y')
