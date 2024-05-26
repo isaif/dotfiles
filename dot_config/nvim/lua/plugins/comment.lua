@@ -1,3 +1,8 @@
+-- neovim now supports commenting natively
+-- but it provides only basic functionality
+-- something useful it provides is gcgc to remove comment from a comment block
+-- see :h various
+
 return {
   'numToStr/Comment.nvim',
   -- event = 'VeryLazy',
