@@ -1,3 +1,7 @@
+local function maximize_status()
+  return vim.t.maximized and '   ' or ''
+end
+
 local function get_diagnostic_label(props)
   local icons = { error = '', warn = '', info = '', hint = '' }
   local label = {}
@@ -67,6 +71,7 @@ return {
         local modified = vim.bo[props.buf].modified and 'bold,italic' or 'bold'
 
         local buffer = {
+          { maximize_status()},
           { get_diagnostic_label(props) },
           { get_git_diff(props) },
           { ft_icon, guifg = ft_color },
