@@ -298,7 +298,7 @@ alias c="clear"
 # Useful for using vim with tmux
 alias vims="vim -S"
 
-bindkey -s '^b' 'omnitmux.sh\n'
+bindkey -s '^k' 'omnitmux.sh\n'
 
 # this was dotfile management technique using bare git repository
 # no longer requires as chezmoi is being used
