@@ -276,6 +276,8 @@ alias cclip='xclip -selection clipboard'
 
 # tmuxp
 # alias tp='tmuxp load -y $(tmuxp ls | fzf --border none)'
+alias f='cd $(fd . ~ --type d --hidden --follow --exclude .git| fzf --border none)'
+bindkey -s '^f' 'f\n '
 
 # Not using spacevim
 # alias svim='vim -u ~/.SpaceVim/vimrc'
