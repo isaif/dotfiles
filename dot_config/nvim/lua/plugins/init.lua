@@ -10,6 +10,7 @@ return {
   -- better tmux experience
   { 'christoomey/vim-tmux-navigator', event = 'CursorHold' },
 
+  --  use Meta hjkl to resize panes
   { 'RyanMillerC/better-vim-tmux-resizer', event = 'CursorHold' },
 
   -- merge tmux statusbar and vim/neovim statusline
