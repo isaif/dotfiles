@@ -33,7 +33,7 @@ return {
     -- It uses tree-sitter (optional) if you have it installed on your system.
     -- it can take space between words, it matched three partial words with space
     -- it can also be used for / and ? but cmp-fuzzy-buffer is providing same feature
-    'amarakon/nvim-cmp-buffer-lines',
+    -- 'amarakon/nvim-cmp-buffer-lines',
 
     -- lspkind to show symbols in completion menu
     'onsails/lspkind-nvim',
@@ -88,7 +88,7 @@ return {
           -- Try it when you feel cmp performance is poor
           -- keyword_length = 3
         },
-        { name = 'buffer-lines', keyword_length = 5 },
+        -- { name = 'buffer-lines', keyword_length = 5 },
       }),
 
       experimental = {
@@ -108,7 +108,7 @@ return {
             fuzzy_path = '[path]',
             luasnip = '[snip]',
             rg = '[Rg]',
-            buffer_lines = '[bufL]',
+            -- buffer_lines = '[bufL]',
             -- yank = '[Yank]',
           },
         }),
