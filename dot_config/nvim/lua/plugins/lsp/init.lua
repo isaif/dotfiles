@@ -10,15 +10,14 @@ return {
     'folke/neodev.nvim',
 
     -- Neovim plugin to manage global and project-local settings.
-    "folke/neoconf.nvim",
+    'folke/neoconf.nvim',
   },
   config = function()
-
-    require("neoconf").setup({
+    require('neoconf').setup({
       -- override any of the default settings here
     })
 
-    require("neodev").setup({
+    require('neodev').setup({
       -- override = function(root_dir, library)
       --   -- if require("neodev.util").has_file(root_dir, "/etc/nixos") then
       --   --   library.enabled = true
