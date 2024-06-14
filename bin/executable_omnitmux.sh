@@ -10,8 +10,8 @@
 # otherwise there will be two entry pointing to same session
 #!/bin/bash
 
-echo " " >> /tmp/omnilog
-echo "____________start of script ___________" >> /tmp/omnilog
+# echo " " >> /tmp/omnilog
+# echo "____________start of script ___________" >> /tmp/omnilog
 # Get all tmuxp sessions
 tmuxp_saved_sessions=$(tmuxp ls | awk '{print $1}')
 
@@ -44,7 +44,7 @@ fi
 
 if [[ -z $selected ]]; then
     exit 0
-    echo "nothing selected" >> /tmp/omnilog
+#     echo "nothing selected" >> /tmp/omnilog
 fi
 
 selected_name=$(basename "$selected" | tr . _)
@@ -63,47 +63,47 @@ selected_name=$(basename "$selected" | tr . _)
 #     fi
 # fi
 
-echo "selected $selected" >> /tmp/omnilog
-echo "selected_name $selected_name" >> /tmp/omnilog
+# echo "selected $selected" >> /tmp/omnilog
+# echo "selected_name $selected_name" >> /tmp/omnilog
 
-echo " " >> /tmp/omnilog
-echo "tmuxp running sessions :" >> /tmp/omnilog
-echo "$tmuxp_running_session" >> /tmp/omnilog
-echo " " >> /tmp/omnilog
+# echo " " >> /tmp/omnilog
+# echo "tmuxp running sessions :" >> /tmp/omnilog
+# echo "$tmuxp_running_session" >> /tmp/omnilog
+# echo " " >> /tmp/omnilog
 
-echo " " >> /tmp/omnilog
-echo "tmuxp saved sessions :" >> /tmp/omnilog
-echo "$tmuxp_saved_sessions" >> /tmp/omnilog
-echo " " >> /tmp/omnilog
+# echo " " >> /tmp/omnilog
+# echo "tmuxp saved sessions :" >> /tmp/omnilog
+# echo "$tmuxp_saved_sessions" >> /tmp/omnilog
+# echo " " >> /tmp/omnilog
 
-echo " " >> /tmp/omnilog
-echo "tmux only sessions :" >> /tmp/omnilog
-echo "$tmux_filtered_sessions" >> /tmp/omnilog
-echo " " >> /tmp/omnilog
+# echo " " >> /tmp/omnilog
+# echo "tmux only sessions :" >> /tmp/omnilog
+# echo "$tmux_filtered_sessions" >> /tmp/omnilog
+# echo " " >> /tmp/omnilog
 
 # Use tmuxp load if that session i.e selected_name in not running
 # and it has tmuxp saved file
 first=false
 second=false
 
-if [[ $tmuxp_running_session =~ $selected_name ]]; then
-  echo "tmuxp session $selected_name is running" >> /tmp/omnilog
-else
-  echo "tmuxp session $selected_name is not running" >> /tmp/omnilog
+if [[ ! $tmuxp_running_session =~ $selected_name ]]; then
+#   echo "tmuxp session $selected_name is running" >> /tmp/omnilog
   first=true
+# else
+#   echo "tmuxp session $selected_name is not running" >> /tmp/omnilog
 fi
 
 if [[ $tmuxp_saved_sessions =~ $selected_name ]]; then
-  echo "$selected_name belongs to saved tmuxp sessions" >> /tmp/omnilog
+#   echo "$selected_name belongs to saved tmuxp sessions" >> /tmp/omnilog
   second=true
 fi
 
-echo "first $first     second $second " >> /tmp/omnilog
+# echo "first $first     second $second " >> /tmp/omnilog
 
 # if [[ $first = true]] && [[ $second = true]]; then
 if [[ $first = true &&  $second = true ]]; then
-  echo "both are true" >> /tmp/omnilog
-  echo "loading a tmuxp session for $selected_name" >> /tmp/omnilog
+#   echo "both are true" >> /tmp/omnilog
+#   echo "loading a tmuxp session for $selected_name" >> /tmp/omnilog
     tmuxp load -y $selected_name
     exit 0
 fi
@@ -114,16 +114,16 @@ fi
 # fi
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    echo "tmux is not running and not inside tmux. so create session" >> /tmp/omnilog
+#     echo "tmux is not running and not inside tmux. so create session" >> /tmp/omnilog
     tmux new-session -s $selected_name -c $selected
     exit 0
 fi
 
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
-    echo "$selected_name session is not running in tmux" >> /tmp/omnilog
-    echo "so create detached session" >> /tmp/omnilog
+#     echo "$selected_name session is not running in tmux" >> /tmp/omnilog
+#     echo "so create detached session" >> /tmp/omnilog
     tmux new-session -ds $selected_name -c $selected
 fi
 
-echo "switching client to $selected_name" >> /tmp/omnilog
+# echo "switching client to $selected_name" >> /tmp/omnilog
 tmux switch-client -t $selected_name
