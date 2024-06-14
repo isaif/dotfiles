@@ -1,24 +1,3 @@
-local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
-
-local lsp_formatting = function(bufnr)
-  vim.lsp.buf.format({
-    filter = function(client)
-      -- return vim.tbl_filter(function(client)
-      --   return client.name == 'null-ls'
-      -- end, clients)
-
-      -- don't use null-ls for formatting prisma files
-      if client.name == 'prismals' then
-        return client.name == 'prismals'
-      else
-        return client.name == 'null-ls'
-      end
-    end,
-    bufnr = bufnr,
-    -- name = 'null-ls',
-  })
-end
-
 return {
   -- use official lspconfig package (and enable completion):
   'neovim/nvim-lspconfig',
@@ -73,18 +52,6 @@ return {
       -- This mapping is provided by mini.bracketed plugin
       -- bufmap('[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
       -- bufmap(']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
-
-      if client.supports_method('textDocument/formatting') then
-        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-        vim.api.nvim_create_autocmd('BufWritePre', {
-          group = augroup,
-          buffer = bufnr,
-          callback = function()
-            lsp_formatting(bufnr)
-            -- vim.lsp.buf.format({ bufnr = bufnr })
-          end,
-        })
-      end
     end
 
     local servers = require('plugins.lsp.servers')
