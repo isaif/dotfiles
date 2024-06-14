@@ -15,6 +15,7 @@ local volume = require('widgets.volume')
 local netspeed = require('widgets.netspeed')
 local cpu = require('widgets.cpu')
 local wireless = require('widgets.wireless')
+
 local switch = require('utils.helpers').switch
 
 -- Keyboard map indicator and switcher
@@ -70,11 +71,11 @@ local statusbar = function(s)
           client.focus:toggle_tag(t)
         end
       end),
-      awful.button({}, mousebuttons.SCROLL_UP, function(t)
+      awful.button({}, mousebuttons.SCROLL_UP, function()
         -- awful.tag.viewprev(t.screen)
         switch(-1)
       end),
-      awful.button({}, mousebuttons.SCROLL_DOWN, function(t)
+      awful.button({}, mousebuttons.SCROLL_DOWN, function()
         -- awful.tag.viewnext(t.screen)
         switch(1)
       end),
