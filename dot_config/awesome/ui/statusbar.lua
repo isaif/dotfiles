@@ -14,6 +14,7 @@ local btrfs_df = require('widgets.btrfs_df')
 local volume = require('widgets.volume')
 local netspeed = require('widgets.netspeed')
 local cpu = require('widgets.cpu')
+local wireless = require('widgets.wireless')
 local switch = require('utils.helpers').switch
 
 -- Keyboard map indicator and switcher
@@ -163,6 +164,7 @@ local statusbar = function(s)
         {
           layout = wibox.layout.fixed.horizontal,
           -- mykeyboardlayout,
+          wireless,
           netspeed,
           cpu,
           ram_meter,

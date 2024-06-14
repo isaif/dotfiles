@@ -40,4 +40,10 @@ return {
   -- batt_discharging = dir .. 'battery-discharge.svg',
   -- toggled_on = dir .. 'toggled-on.svg',
   -- toggled_off = dir .. 'toggled-off.svg',
+  not_connected = dir .. 'wifi-NA.svg',
+  level_one = dir .. 'wifi-1.svg',
+  level_two = dir .. 'wifi-2.svg',
+  level_three = dir .. 'wifi-3.svg',
+  level_four = dir .. 'wifi-4.svg',
+  level_five = dir .. 'wifi-5.svg',
 }
