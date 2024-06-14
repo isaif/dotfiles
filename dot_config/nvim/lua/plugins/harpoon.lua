@@ -29,7 +29,7 @@ local keys = {
 }
 return {
   'ThePrimeagen/harpoon',
-  event = 'CursorHold',
+  -- event = 'CursorHold',
   keys = keys,
   dependencies = { 'nvim-lua/plenary.nvim' },
 }
