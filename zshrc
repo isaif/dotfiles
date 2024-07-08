@@ -261,6 +261,28 @@ export FZF_CTRL_T_OPTS="
 # Print tree structure in the preview window
 export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
 
+# {{{ Add Ctrl-F binding (Find in Files)
+# TODO: need to modify this as this is changing the FZF_DEFAULT_COMMAND
+
+# RG_PREFIX='rg --column --line-number --no-heading --color=always --smart-case '
+# INITIAL_QUERY=''
+# FZF_DEFAULT_COMMAND="$RG_PREFIX '$INITIAL_QUERY' $HOME"
+#
+# __fif() {
+#     fzf --bind "change:reload:$RG_PREFIX {q} $HOME || true" --ansi --phony --query "$INITIAL_QUERY" | cut -d ':' -f1
+# }
+#
+# find-in-files() {
+#   LBUFFER="${LBUFFER}$(__fif)"
+#   local ret=$?
+#   zle reset-prompt
+#   return $ret
+# }
+#
+# zle -N find-in-files
+# bindkey '^f' find-in-files
+# }}}
+
 ################################################
 ######### aliases ##############################
 ################################################
