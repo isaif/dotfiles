@@ -6,9 +6,10 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    stylix.url = "github:danth/stylix";
   };
 
-  outputs = {self, nixpkgs, home-manager, ... }@inputs:
+  outputs = {self, nixpkgs, home-manager, stylix, ... }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -33,6 +34,7 @@
         inherit pkgs;
         modules = [
           ./home-manager/home.nix
+          stylix.homeManagerModules.stylix
           {
               nixpkgs.overlays = overlays;
           }
