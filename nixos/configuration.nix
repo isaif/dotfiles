@@ -92,11 +92,6 @@
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
-  programs.zsh.ohMyZsh = {
-    enable = true;
-    plugins = ["git" "fzf"];
-  };
-
   # List services that you want to enable:
   services.udisks2.enable = true;
 
