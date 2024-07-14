@@ -136,7 +136,8 @@
   };
 
   home.sessionVariables = {
-    EDITOR = "vim";
-    TERM = "kitty";
+    VISUAL = "vim";
+    EDITOR = "$VISUAL";
+    # TERM="kitty";
   };
 }
