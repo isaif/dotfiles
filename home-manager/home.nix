@@ -128,12 +128,15 @@
 
   programs.git = {
     enable = true;
-    userEmail = "isaifmd@gmail.com";
-    userName = "saif";
+    userName = "isaif";
+    userEmail = "saif935775@gmail.com";
+    extraConfig = {
+      init.defaultBranch = "main";
+    };
   };
 
   home.sessionVariables = {
-    EDITOR="vim";
-    TERM="kitty";
+    EDITOR = "vim";
+    TERM = "kitty";
   };
 }
