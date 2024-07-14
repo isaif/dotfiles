@@ -36,7 +36,6 @@
 
   home.stateVersion = "24.05";
   programs.home-manager.enable = true;
-  #programs.neovim.enable = true;
 
   programs.zsh = {
     enable = true;
@@ -81,7 +80,6 @@
   programs.zoxide.enableZshIntegration = true;
 
   xdg.enable = true;
-  xdg.configFile.nvim.source = ../config/nvim;
   xdg.configFile.tmux.source = ../config/tmux;
 
   programs.kitty = {
