@@ -8,15 +8,15 @@
   home.packages = with pkgs; [
     fzf
     ripgrep
+    fd
     tree
-    kitty
     htop
     tmux
     neovim
-    fd
     sqlite
-    lf
+    lf # file manager
     dconf # required by gtk.enable
+    xclip # clipboard for copy and paste
   ];
 
   home.stateVersion = "24.05";
