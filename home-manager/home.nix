@@ -17,6 +17,21 @@
     lf # file manager
     dconf # required by gtk.enable
     xclip # clipboard for copy and paste
+
+    # lua language
+    lua51Packages.lua
+    lua51Packages.luarocks
+    lua-language-server # lsp
+    stylua # formatter
+
+    nodejs_22
+    python3
+
+    # nix language
+    nil # lsp
+    nixpkgs-fmt # formatter
+
+    # awmtt
   ];
 
   home.stateVersion = "24.05";

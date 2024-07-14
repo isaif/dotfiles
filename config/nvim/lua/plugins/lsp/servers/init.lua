@@ -3,6 +3,7 @@ return {
   'gopls',
   'tsserver',
   -- 'null_ls',
+  'nil_ls',
   'lua_ls',
   'tailwind',
   'prismals',
