@@ -9,37 +9,38 @@
     stylix.url = "github:danth/stylix";
   };
 
-  outputs = {self, nixpkgs, home-manager, stylix, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs:
     let
-      lib = nixpkgs.lib;
+      # lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       overlays = [
         inputs.neovim-nightly-overlay.overlays.default
       ];
-    in {
+    in
+    {
 
-    nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./nixos/configuration.nix
-          ./awesome.nix
-        ];
+      nixosConfigurations = {
+        nixos = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./nixos/configuration.nix
+            ./awesome.nix
+          ];
+        };
       };
-    };
 
-    homeConfigurations = {
-      "saif@nixos" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [
-          ./home-manager/home.nix
-          stylix.homeManagerModules.stylix
-          {
+      homeConfigurations = {
+        "saif@nixos" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            ./home-manager/home.nix
+            stylix.homeManagerModules.stylix
+            {
               nixpkgs.overlays = overlays;
-          }
-        ];
+            }
+          ];
+        };
       };
     };
-  };
 }
