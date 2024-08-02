@@ -1,0 +1,75 @@
+(defsrc
+  esc  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+
+
+;; defvar can be used to declare commonly-used values
+(defvar
+  tap-timeout   100
+  hold-timeout  200
+  tt $tap-timeout
+  ht $hold-timeout
+)
+
+(defalias
+  lay (layer-toggle layers)
+  arrows (layer-toggle arrows)
+  qwr (layer-switch qwerty)
+  grl (tap-hold $tt $ht grv @lay) ;; tap: grave  hold: layers layer
+  th1 (tap-hold $tt $ht esc lctl)
+  th2 (tap-hold $tt $ht spc lsft)
+
+  sSft (tap-hold-release $tt $ht s lsft)
+  dMet (tap-hold-release $tt $ht d lmet)
+  fCtl (tap-hold-release $tt $ht f lctl)
+  jCtl (tap-hold-release $tt $ht j rctl)
+  kMet (tap-hold-release $tt $ht k rmet)
+  lSft (tap-hold-release $tt $ht l rsft)
+
+  vAlt (tap-hold-release $tt $ht v lalt)
+  nAlt (tap-hold-release $tt $ht n ralt)
+  spcNum (tap-hold-release $tt $ht spc @arrows)
+)
+
+;; The first layer defined is the layer that will be active by default when
+;; kanata starts up. This layer is the standard QWERTY layout except for the
+;; backtick/grave key (@grl) which is an alias for a tap-hold key.
+;;
+;; There are currently a maximum of 25 layers allowed.
+(deflayer qwerty
+  @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  @th1 a    @sSft    @dMet    @fCtl    g    h    @jCtl    @kMet    @lSft    ;    '    ret
+  lsft z    x    c    @vAlt    b    @nAlt    m    ,    .    /    rsft
+  lctl lmet lalt           @spcNum            ralt rmet rctl
+)
+
+;; The `lrld` action stands for "live reload". This will re-parse everything
+;; except for linux-dev. So in Linux, you cannot live reload and switch keyboard
+;; devices at the time of writing. The variants `lrpv` and `lrnx` will cycle
+;; between multiple configuration files, if they are specified in the startup.
+;; arguments.
+;;
+;; Upon a successful reload, the kanata state will begin on the default base layer
+;; in the configuration. E.g. in this example configuration, you would start on
+;; the qwerty layer.
+(deflayer layers
+  _    @qwr    _   lrld  _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer arrows
+  _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  _
+  _    _    _    _    _    _    _    _ home   end _    _    _    _
+  _    _    _    _    _    _    left down up rght _  del    _
+  _    _    _    _    _    _    bspc    del    _    _    _    _
+  _    _    _              _              _    _    _
+)
+
