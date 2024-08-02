@@ -30,12 +30,12 @@
       enable = true;
       plugins = [
         "git"
-        "fzf"
         "zoxide"
         "podman"
         "docker"
         "docker-compose"
         "vi-mode"
+        "fzf"
         # "command-not-found"
         # "history"
       ];
