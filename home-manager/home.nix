@@ -11,7 +11,6 @@
   home.username = "saif";
   home.homeDirectory = "/home/saif";
 
-
   home.packages = with pkgs; [
     fzf
     ripgrep
@@ -39,6 +38,8 @@
     nixpkgs-fmt # formatter
 
     # awmtt
+    anki-bin
+    mpv # general purpose media player required by anki
   ];
 
   home.stateVersion = "24.05";
