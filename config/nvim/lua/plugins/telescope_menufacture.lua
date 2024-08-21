@@ -20,13 +20,13 @@ return {
       end,
     },
     {
-      '<leader>fg',
+      '<leader>ss',
       function()
         require('telescope').extensions.menufacture.live_grep()
       end,
     },
     {
-      '<leader>fw',
+      '<leader>sw',
       function()
         require('telescope').extensions.menufacture.grep_string()
       end,

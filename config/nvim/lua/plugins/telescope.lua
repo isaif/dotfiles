@@ -16,6 +16,7 @@ local opts = function()
       mappings = {
         i = {
           ['<C-p>'] = action_layout.toggle_preview,
+          -- TODO: remove default ctrl-u binding as it can be used to clear a line in prompt
 
           ['<C-j>'] = actions.move_selection_next,
           ['<C-k>'] = actions.move_selection_previous,
@@ -54,21 +55,19 @@ local keys = function()
   end
 
   return {
+    -- for `find_files`, `live_grep`, `grep_string` and `git_files`
+    -- check telescope_menufacture
 
-    -- Use telescope-menufacture
-    -- { '<leader>e', '<cmd>Telescope find_files<cr>' },
-    -- { '<leader>fg', '<cmd>Telescope live_grep<cr>' },
-
-    { '<leader>fb', '<cmd>Telescope buffers<cr>' },
-    { '<leader>fo', '<cmd>Telescope oldfiles<cr>' },
-    { '<leader>fh', '<cmd>Telescope help_tags<cr>' },
-    { '<leader>fc', '<cmd>Telescope commands_history<cr>' },
-    { '<leader>fq', '<cmd>Telescope quickfix<cr>' },
-    { '<leader>fl', '<cmd>Telescope loclist<cr>' },
-    { '<leader>fv', '<cmd>Telescope vim_options<cr>' },
-    { '<leader>fr', '<cmd>Telescope registers<cr>' },
-    { '<leader>ff', '<cmd>Telescope resume<cr>' },
-    { '<leader>fi', '<cmd>Telescope current_buffer_fuzzy_find<cr>' },
+    -- { '<leader>tb', '<cmd>Telescope buffers<cr>' },
+    { '<leader>to', '<cmd>Telescope oldfiles<cr>' },
+    { '<leader>th', '<cmd>Telescope help_tags<cr>' },
+    { '<leader>tc', '<cmd>Telescope commands_history<cr>' },
+    { '<leader>tq', '<cmd>Telescope quickfix<cr>' },
+    { '<leader>tl', '<cmd>Telescope loclist<cr>' },
+    { '<leader>tv', '<cmd>Telescope vim_options<cr>' },
+    { '<leader>tr', '<cmd>Telescope registers<cr>' },
+    { '<leader>tt', '<cmd>Telescope resume<cr>' },
+    { '<leader>ti', '<cmd>Telescope current_buffer_fuzzy_find<cr>' },
     -- { '<leader>fe', '<cmd>Telescope diagnostics<cr>' },
 
     -- git
@@ -77,21 +76,6 @@ local keys = function()
     { '<leader>gc', '<cmd>Telescope git_bcommits<cr>' },
     -- { '<leader>gs', '<cmd>Telescope git_status<CR>' },
 
-    -- Mappings for telescope file_browser extension
-    -- C-g to go to parent directory
-    -- C-w to go to working directory
-    -- ('<leader>fD', '<cmd>Telescope file_browser previewer=false<cr>')
-    -- { '<leader>fD', '<cmd>Telescope file_browser<cr>' },
-    -- { '<leader>fd', '<cmd>Telescope file_browser path=%:p:h<cr>' },
-
-    -- rename current file
-    -- ('<leader>r', function()
-    --   require('telescope').extensions.file_browser.file_browser({
-    --     path = '%:p:h',
-    --     select_buffer = true,
-    --   })
-    -- end)
-
     {
       '<F3>',
       function()
@@ -99,12 +83,12 @@ local keys = function()
       end,
     },
 
-    {
-      '<F4>',
-      function()
-        live_grep_dir('~/vimwiki/')
-      end,
-    },
+    -- {
+    --   '<F4>',
+    --   function()
+    --     live_grep_dir('~/vimwiki/')
+    --   end,
+    -- },
   }
 end
 
@@ -121,12 +105,12 @@ return {
         require('telescope').load_extension('fzf')
       end,
     },
-    {
-      'nvim-telescope/telescope-smart-history.nvim',
-      dependencies = 'tami5/sqlite.lua',
-      config = function()
-        require('telescope').load_extension('smart_history')
-      end,
-    },
+    -- {
+    --   'nvim-telescope/telescope-smart-history.nvim',
+    --   dependencies = 'tami5/sqlite.lua',
+    --   config = function()
+    --     require('telescope').load_extension('smart_history')
+    --   end,
+    -- },
   },
 }
