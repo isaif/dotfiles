@@ -29,7 +29,7 @@ require('lazy').setup({
   },
   -- lockfile generated after running update.
   -- Since I am using chezmoi and don't have config as git repo
-  lockfile = '~/.local/share/chezmoi/dot_config/nvim/lazy-lock.json',
+  -- lockfile = '~/.local/share/chezmoi/dot_config/nvim/lazy-lock.json',
   dev = {
     -- directory where you store your local plugin projects
     path = '~/forks/neovim-plugins/',

@@ -2,16 +2,16 @@ local function augroup(name)
   return vim.api.nvim_create_augroup('lazyvim_' .. name, { clear = true })
 end
 
--- Configure neovim to run chezmoi apply whenever a dotfile is saved
--- while inside the source directory
-vim.api.nvim_create_autocmd('BufWritePost', {
-  group = augroup('chezmoi'),
-  pattern = vim.fn.expand('~') .. '/.local/share/chezmoi/*',
-  callback = function()
-    -- vim.cmd([[!notify-send "% successfully written"]])
-    vim.cmd([[!chezmoi apply --source-path %]])
-  end,
-})
+-- -- Configure neovim to run chezmoi apply whenever a dotfile is saved
+-- -- while inside the source directory
+-- vim.api.nvim_create_autocmd('BufWritePost', {
+--   group = augroup('chezmoi'),
+--   pattern = vim.fn.expand('~') .. '/.local/share/chezmoi/*',
+--   callback = function()
+--     -- vim.cmd([[!notify-send "% successfully written"]])
+--     vim.cmd([[!chezmoi apply --source-path %]])
+--   end,
+-- })
 
 -- Highlight on yank
 vim.api.nvim_create_autocmd('TextYankPost', {
