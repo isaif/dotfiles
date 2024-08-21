@@ -69,7 +69,6 @@
   environment.systemPackages = with pkgs; [
     git
     vim-full
-    pwvucontrol
     wget
     curl
     google-chrome
@@ -78,7 +77,6 @@
     gcc
   ];
 
-  environment.variables.EDITOR = "vim";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -88,9 +86,18 @@
   #   enableSSHSupport = true;
   # };
 
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true;
 
-  environment.shells = with pkgs; [ bash zsh ];
+  environment =
+    {
+      shells = with pkgs; [ bash zsh ];
+      homeBinInPath = true;
+      variables = {
+        EDITOR = "vim";
+        VISUAL = "vim";
+      };
+    };
+
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
