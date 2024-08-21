@@ -9,7 +9,6 @@ return {
     -- 'hrsh7th/cmp-path',
 
     'hrsh7th/cmp-nvim-lua',
-    -- 'saadparwaiz1/cmp_luasnip',
 
     { 'hrsh7th/cmp-cmdline', event = { 'CmdlineEnter' } },
 
@@ -39,21 +38,19 @@ return {
     'onsails/lspkind-nvim',
   },
 
-  init = function()
-    vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
-  end,
+  -- init = function()
+  --   vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+  -- end,
 
-  config = function()
+  opts = function()
     local cmp = require('cmp')
 
-    cmp.setup({
-      -- Luasnip settings
-      snippet = {
-        expand = function(args)
-          require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-        end,
+    return {
+      auto_brackets = {}, -- configure any filetype to auto add brackets
+      completion = {
+        completeopt = 'menu,menuone,noselect',
+        -- .. (auto_select and '' or ',noselect'),
       },
-
       mapping = cmp.mapping.preset.insert({
         ['<C-u>'] = cmp.mapping.scroll_docs(-4),
         ['<C-d>'] = cmp.mapping.scroll_docs(4),
@@ -78,8 +75,6 @@ return {
 
         -- { name = 'path' },
         { name = 'fuzzy_path' },
-
-        { name = 'luasnip' }, -- For luasnip users.
 
         -- { name = 'buffer', keyword_length = 4 },
         { name = 'fuzzy_buffer', keyword_length = 4 },
@@ -113,8 +108,12 @@ return {
           },
         }),
       },
-    })
+    }
+  end,
 
+  config = function(_, opts)
+    local cmp = require('cmp')
+    cmp.setup(opts)
     cmp.setup.cmdline(':', {
       mapping = cmp.mapping.preset.cmdline(),
       sources = cmp.config.sources({
