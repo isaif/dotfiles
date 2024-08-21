@@ -57,4 +57,5 @@ return {
     event = 'VeryLazy',
     version = 'v0.13.2',
   },
+  { 'Darazaki/indent-o-matic' },
 }
