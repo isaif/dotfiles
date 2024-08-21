@@ -39,6 +39,7 @@ return {
     },
     name = 'registers',
   },
+  {
     'declancm/maximize.nvim',
     keys = {
       {
@@ -53,10 +54,19 @@ return {
     end,
   },
   {
+    'folke/twilight.nvim',
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+  },
+  {
     'LintaoAmons/scratch.nvim',
     event = 'VeryLazy',
     version = 'v0.13.2',
   },
+  -- TODO: fuzzy search path in command line
   { 'Darazaki/indent-o-matic' },
   { 'sindrets/diffview.nvim' },
 }
