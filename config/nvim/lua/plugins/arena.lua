@@ -12,7 +12,7 @@ end
 return {
   'dzfrias/arena.nvim',
   event = 'BufWinEnter',
-  keys = { { '<leader>b', '<cmd>ArenaToggle<CR>' } },
+  -- keys = { { '<leader>b', '<cmd>ArenaToggle<CR>' } },
   -- Calls `.setup()` automatically
   opts = {
     buf_opts = {
