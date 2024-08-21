@@ -9,10 +9,10 @@ local opts = function()
       layout_config = {
         preview_width = 80,
       },
-      history = {
-        path = '~/.local/share/nvim/databases/telescope_history.sqlite3',
-        limit = 100,
-      },
+      -- history = {
+      --   path = '~/.local/share/nvim/databases/telescope_history.sqlite3',
+      --   limit = 100,
+      -- },
       mappings = {
         i = {
           ['<C-p>'] = action_layout.toggle_preview,
@@ -32,8 +32,8 @@ local opts = function()
           ['<Esc>'] = actions.close,
 
           -- history navigation for smart_history
-          ['<C-l>'] = actions.cycle_history_next,
-          ['<C-h>'] = actions.cycle_history_prev,
+          -- ['<C-l>'] = actions.cycle_history_next,
+          -- ['<C-h>'] = actions.cycle_history_prev,
         },
         n = {
           ['<C-p>'] = action_layout.toggle_preview,
