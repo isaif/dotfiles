@@ -54,7 +54,7 @@ nnoremap('<ESC>', '<cmd>nohls<CR><ESC>')
 -- silent is not required when using <cmd>
 -- but without silent it shows message of chezmoi autocmd
 -- will keep silent for now
-nnoremap('<Leader>a', '<cmd>silent wa<CR>')
+nnoremap('<Leader>w', '<cmd>silent wa<CR>')
 
 -- Run last command
 -- warning:
@@ -139,4 +139,4 @@ nnoremap(']b', '<cmd>bnext<CR>')
 -- tnoremap('<C-l>', '<C-\\><C-N><C-w>l')
 
 -- toggle spell on
-nnoremap(',ts', '<cmd>set spell!<CR>')
+-- nnoremap(',ts', '<cmd>set spell!<CR>')
