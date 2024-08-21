@@ -58,4 +58,5 @@ return {
     version = 'v0.13.2',
   },
   { 'Darazaki/indent-o-matic' },
+  { 'sindrets/diffview.nvim' },
 }
