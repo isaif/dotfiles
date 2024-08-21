@@ -5,8 +5,8 @@ local keys = function()
     -- { '<leader>gC', '<cmd>Telescope git_commits<cr>' },
     -- { '<leader>gcc', '<cmd>Telescope git_bcommits<cr>' },
 
-    { '<leader>gg', '<cmd>tab G<CR>' },
-    { '<leader>gs', '<cmd>Git<CR>' },
+    { '<leader>gt', '<cmd>tab G<CR>' },
+    -- { '<leader>gs', '<cmd>Git<CR>' },
     { '<leader>gd', '<cmd>Gdiffsplit<CR>' },
     { '<leader>gb', '<cmd>Git blame<CR>' },
 
