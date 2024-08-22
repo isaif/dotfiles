@@ -62,7 +62,7 @@ return {
           -- Find the first non-blank character
           local first_non_blank = line_text:find('%S')
           -- local line_end = line_text:find('$')
-          local line_end = line_text:find('\n')
+          -- local line_end = line_text:find('\n')
 
           -- Create the region for the 'i' variant
           -- from first non-blank character to last character - 1
@@ -81,7 +81,7 @@ return {
             -- from = { line = line, col = 1 },
             from = { line = line, col = first_non_blank },
             -- to = { line = line, col = line_end },
-            to = { line = line, col = line_end },
+            to = { line = line, col = #line_text },
           }
 
           -- Return the appropriate region based on the ai_type
