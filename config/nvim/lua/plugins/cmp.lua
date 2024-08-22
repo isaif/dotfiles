@@ -132,10 +132,5 @@ return {
         { name = 'fuzzy_buffer' },
       },
     })
-
-    -- required setup for genghis plugin
-    cmp.setup.filetype('DressingInput', {
-      sources = cmp.config.sources({ { name = 'omni' } }),
-    })
   end,
 }
