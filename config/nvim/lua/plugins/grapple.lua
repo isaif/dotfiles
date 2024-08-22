@@ -24,12 +24,12 @@ return {
     },
 
     {
-      '<leader>f',
+      '<leader>d',
       '<cmd>Grapple select index=1<cr>',
       desc = 'Select first tag',
     },
     {
-      '<leader>d',
+      '<leader>f',
       '<cmd>Grapple select index=2<cr>',
       desc = 'Select second tag',
     },
