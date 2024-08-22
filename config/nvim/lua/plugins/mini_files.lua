@@ -10,6 +10,13 @@ return {
         end
       end,
     },
+    {
+      '<F2>',
+      function()
+        local MiniFiles = require('mini.files')
+        MiniFiles.open(vim.api.nvim_buf_get_name(0))
+      end,
+    },
   },
   -- opts = {
   --   windows = {
