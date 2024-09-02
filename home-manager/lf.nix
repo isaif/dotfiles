@@ -40,6 +40,10 @@
       rm ~/.local/share/lf/files
       lf -remote "send clear"
       }}
+
+
+      # put lf in background
+      map <c-z> $kill -STOP "$PPID"
     '';
   };
 
