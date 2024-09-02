@@ -63,6 +63,8 @@ nnoremap('<Leader>w', '<cmd>silent wa<CR>')
 nnoremap('<leader>r', '@:')
 
 -- open list of all commands and move it up on last run command
+-- to use q to quit this window, add 'vim' filetype to autocmd
+-- for closing windows using q
 nnoremap('<leader>;', 'q:<up>')
 
 --##################################################################--
