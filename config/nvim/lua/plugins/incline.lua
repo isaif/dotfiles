@@ -56,8 +56,12 @@ return {
         cursorline = 'focused_win',
       },
       render = function(props)
-        local filename =
-          vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ':t')
+        local full_filename = vim.api.nvim_buf_get_name(props.buf)
+        local filename = vim.fn.fnamemodify(full_filename, ':t')
+
+        local is_git_file = string.find(full_filename, '/.git/') and '[git] '
+          or ''
+
         if filename == '' then
           filename = '[No Name]'
         end
@@ -71,10 +75,11 @@ return {
         local modified = vim.bo[props.buf].modified and 'bold,italic' or 'bold'
 
         local buffer = {
-          { maximize_status()},
+          { maximize_status() },
           { get_diagnostic_label(props) },
           { get_git_diff(props) },
           { ft_icon, guifg = ft_color },
+          { is_git_file },
           { filename, gui = modified },
         }
         return buffer

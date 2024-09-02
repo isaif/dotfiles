@@ -146,8 +146,9 @@ return {
       provider = function(self)
         local filetype = vim.bo.filetype
         local filename = vim.api.nvim_buf_get_name(0)
-        -- Filename for help file
-        if filetype == 'help' then
+        local is_git_index_file = string.find(filename, '/.git/')
+
+        if filetype == 'help' then -- Filetype for help file
           return vim.fn.fnamemodify(filename, ':t:r') .. ' [Help]'
         -- elseif vim.fn.isdirectory(filename) == 1 then
         --     return vim.fn.fnamemodify(filename, ':p:.')
@@ -156,6 +157,8 @@ return {
           return '[Fugitive]'
         elseif filetype == 'TelescopePrompt' then
           return '[Telescope]'
+        elseif is_git_index_file then
+          return '[.git] ' .. string.sub(filename, is_git_index_file + 9)
         elseif filename == '' then
           return '[No Name]'
         end
