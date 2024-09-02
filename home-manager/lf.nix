@@ -1,0 +1,8 @@
+{ ... }:
+
+{
+  programs.lf = {
+    enable = true;
+  };
+
+}

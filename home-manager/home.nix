@@ -6,6 +6,7 @@
     ./kitty.nix
     ./git.nix
     ./stylix.nix
+    ./lf.nix # file manager
   ];
 
   home.username = "saif";
@@ -20,7 +21,6 @@
     tmux
     neovim
     sqlite
-    lf # file manager
     dconf # required by gtk.enable
     xclip # clipboard for copy and paste
 
