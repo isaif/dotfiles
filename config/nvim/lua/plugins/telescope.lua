@@ -71,9 +71,9 @@ local keys = function()
     -- { '<leader>fe', '<cmd>Telescope diagnostics<cr>' },
 
     -- git
-    { '<leader>gC', '<cmd>Telescope git_commits<CR>' },
+    { '<leader>gL', '<cmd>Telescope git_commits<CR>' },
     -- commit for current file
-    { '<leader>gc', '<cmd>Telescope git_bcommits<cr>' },
+    { '<leader>gl', '<cmd>Telescope git_bcommits<cr>' },
     -- { '<leader>gs', '<cmd>Telescope git_status<CR>' },
 
     {
