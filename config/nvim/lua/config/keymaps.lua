@@ -106,6 +106,9 @@ nnoremap(',rl', [[:s/\<<C-r><C-w>\>//g<Left><Left>]])
 -- Close window
 nnoremap('<Leader>c', '<C-w>c')
 
+-- Close tab
+nnoremap('<Leader> c', '<cmd>tabclose<CR>')
+
 -- Close tab and go to previous accessed tab
 -- TODO: add error handling
 -- nnoremap('<Leader>tc', function()
