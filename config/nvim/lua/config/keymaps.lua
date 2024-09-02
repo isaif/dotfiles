@@ -133,10 +133,6 @@ nnoremap('g4', '4gt')
 nnoremap('<Right>', 'gt')
 nnoremap('<Left>', 'gT')
 
--- navigate to previous and next buffers
-nnoremap('[b', '<cmd>bprevious<CR>')
-nnoremap(']b', '<cmd>bnext<CR>')
-
 -- Navigate from terminal
 -- tnoremap('<C-h>', '<C-\\><C-N><C-w>h')
 -- tnoremap('<C-j>', '<C-\\><C-N><C-w>j')
