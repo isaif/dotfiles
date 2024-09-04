@@ -20,6 +20,7 @@
     htop
     tmux
     neovim
+    tree-sitter # optional dependency of neovim
     sqlite
     dconf # required by gtk.enable
     xclip # clipboard for copy and paste
