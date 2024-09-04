@@ -72,6 +72,7 @@
     wget
     curl
     google-chrome
+    firefox-bin
     kanata
     gnumake
     gcc
@@ -85,8 +86,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # programs.firefox.enable = true;
 
   environment =
     {
