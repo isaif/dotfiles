@@ -10,12 +10,11 @@ return {
   opts = {
     line_keys = '1234567890',
     select_menu_item_commands = {
-      edit = { key = '<CR>', command = 'edit' },
       v = { key = '<C-v>', command = 'vsplit' },
-      h = { key = '<C-h>', command = 'split' },
+      h = { key = '<C-x>', command = 'split' },
     },
   },
-  config = function()
+  init = function()
     local opts = { noremap = true }
     local map = vim.keymap.set
     -- Navigate buffers bypassing the menu
