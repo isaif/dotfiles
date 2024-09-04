@@ -37,17 +37,22 @@ return {
         vim.keymap.set('n', lhs, rhs, { buffer = bufnr, silent = true })
       end
 
-      bufmap(',ld', '<cmd>Telescope lsp_document_symbols<CR>')
+      -- "grn" is mapped in Normal mode to |vim.lsp.buf.rename()|
+      -- "gra" is mapped in Normal and Visual mode to |vim.lsp.buf.code_action()|
+      -- "grr" is mapped in Normal mode to |vim.lsp.buf.references()|
+      -- CTRL-S is mapped in Insert mode to |vim.lsp.buf.signature_help()|
+
+      bufmap('grs', '<cmd>Telescope lsp_document_symbols<CR>')
       bufmap('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
       bufmap('gd', '<cmd>Telescope lsp_definitions<cr>')
       bufmap('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
-      bufmap('gr', '<cmd>Telescope lsp_references<CR>')
-      bufmap(',lt', '<cmd>Telescope lsp_type_definitions<CR>')
-      bufmap(',lr', '<cmd>lua vim.lsp.buf.rename()<CR>')
-      bufmap(',li', '<cmd>Telescope lsp_implementations<CR>')
-      bufmap(',ls', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
-      bufmap(',la', '<cmd>lua vim.lsp.buf.code_action()<CR>')
-      bufmap(',lm', '<cmd>lua vim.diagnostic.open_float()<CR>')
+      -- bufmap('gr', '<cmd>Telescope lsp_references<CR>')
+      bufmap('grt', '<cmd>Telescope lsp_type_definitions<CR>')
+      -- bufmap(',lr', '<cmd>lua vim.lsp.buf.rename()<CR>')
+      bufmap('gri', '<cmd>Telescope lsp_implementations<CR>')
+      -- bufmap(',ls', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+      -- bufmap(',la', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+      bufmap('grd', '<cmd>lua vim.diagnostic.open_float()<CR>')
       -- This mapping is provided by mini.bracketed plugin
       -- bufmap('[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
       -- bufmap(']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
