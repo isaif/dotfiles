@@ -41,6 +41,10 @@
     # awmtt
     anki-bin
     mpv # general purpose media player required by anki
+
+    sioyek # pdf reader
+
+    workrave
   ];
 
   home.stateVersion = "24.05";
