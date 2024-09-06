@@ -18,17 +18,19 @@ let
   });
 in
 {
-  services.xserver = {
-    enable = true;
-    autorun = false;
-    displayManager = {
-      defaultSession = "none+awesome";
-      startx.enable = true;
-    };
-    windowManager.awesome = {
+  services = {
+    xserver = {
       enable = true;
-      package = awesome;
+      autorun = false;
+      displayManager = {
+        startx.enable = true;
+      };
+      windowManager.awesome = {
+        enable = true;
+        package = awesome;
+      };
     };
+    displayManager.defaultSession = "none+awesome";
   };
 
 }
