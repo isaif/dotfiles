@@ -16,12 +16,14 @@ let
       patchShebangs tests/examples/_postprocess.lua
     '';
   });
-in {
+in
+{
   services.xserver = {
     enable = true;
+    autorun = false;
     displayManager = {
       defaultSession = "none+awesome";
-      sddm.enable = true;
+      startx.enable = true;
     };
     windowManager.awesome = {
       enable = true;
