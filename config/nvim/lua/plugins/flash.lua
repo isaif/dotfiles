@@ -7,6 +7,7 @@ return {
     modes = { search = { enabled = false }, char = { enabled = false } },
 
     label = {
+      uppercase = false,
       rainbow = {
         enabled = true,
         -- number between 1 and 9
