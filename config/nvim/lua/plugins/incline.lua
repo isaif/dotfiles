@@ -3,7 +3,7 @@ local function maximize_status()
 end
 
 local function get_diagnostic_label(props)
-  local icons = { error = '', warn = '', info = '', hint = '' }
+  local icons = { error = '', warn = '', info = '', hint = '󰌵' }
   local label = {}
 
   for severity, icon in pairs(icons) do
