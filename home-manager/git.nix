@@ -9,4 +9,9 @@
       init.defaultBranch = "main";
     };
   };
+  programs.ssh = {
+    enable = true;
+    addKeysToAgent = "yes"; # need to input passphrase only once
+  };
+  services.ssh-agent.enable = true;
 }
