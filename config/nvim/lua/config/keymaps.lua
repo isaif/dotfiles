@@ -109,6 +109,9 @@ nnoremap('<Leader>c', '<C-w>c')
 -- Close tab
 nnoremap('<Leader> c', '<cmd>tabclose<CR>')
 
+-- Open in new tab i.e. mazimize/zoom
+nnoremap('<Leader>z', '<cmd>tab split<CR>')
+
 -- Close tab and go to previous accessed tab
 -- TODO: add error handling
 -- nnoremap('<Leader>tc', function()

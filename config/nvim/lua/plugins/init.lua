@@ -30,20 +30,6 @@ return {
     end,
   },
   {
-    'declancm/maximize.nvim',
-    keys = {
-      {
-        '<leader>z',
-        function()
-          require('maximize').toggle()
-        end,
-      },
-    },
-    config = function()
-      require('maximize').setup()
-    end,
-  },
-  {
     'folke/twilight.nvim',
     opts = {
       -- your configuration comes here
