@@ -39,7 +39,8 @@ return {
 
     vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
     vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
-    vim.keymap.set('n', 'zm', require('ufo').closeFoldsWith)
+    vim.keymap.set('n', 'zm', require('ufo').closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
+    vim.keymap.set('n', 'zr', require('ufo').openFoldsExceptKinds)
     vim.keymap.set('n', 'zp', require('ufo').peekFoldedLinesUnderCursor)
 
     -- if IsAvailable('lspconfig') then
@@ -63,11 +64,32 @@ return {
 
     require('ufo').setup({
       open_fold_hl_timeout = 50,
-      provider_selector = function(bufnr, filetype, buftype)
+      provider_selector = function()
         return { 'treesitter', 'indent' }
       end,
 
       fold_virt_text_handler = handler,
+      preview = {
+        mappings = {
+          -- ufo has following mappings for default
+          -- q to close
+          -- In normal window: Close preview window
+          -- In preview window: Close preview window
+
+          -- tab to switch
+          -- In normal window: Go to preview window
+          -- In preview window: Go to normal window
+
+          -- <CR> to strace i.e. go to line
+          -- In normal window: Trace code based on topline
+          -- In preview window: Trace code based on cursor
+
+          scrollU = '<C-u>',
+          scrollD = '<C-d>',
+          jumpTop = '[',
+          jumpBot = ']',
+        },
+      },
     })
 
     -- buffer scope handler
