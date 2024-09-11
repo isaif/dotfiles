@@ -3,7 +3,9 @@ return {
   event = 'CursorHold',
   -- keymaps = {},
   dependencies = {
-    -- required for treesitter custom_textobjects to work
+    -- Support for tree-sitter specifications via exported MiniAI.gen_spec.treesitter() function.
+    -- In order for this to work, user should have 'textobjects' query files with specified captures for every target language.
+    -- Can have them either by just installing 'nvim-treesitter/nvim-treesitter-textobjects' (but not enabling textobjects) or creating manually inside 'after/queries/<language>/textobjects.scm' files.
     'nvim-treesitter/nvim-treesitter-textobjects',
   },
   config = function()
