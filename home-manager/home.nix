@@ -51,8 +51,9 @@
   programs.home-manager.enable = true;
 
   xdg.enable = true;
-  xdg.configFile.tmux.source = ../config/tmux;
 
+  # run home-manager switch --flake to make changes in config take effect
+  xdg.configFile.tmux.source = ../config/tmux;
 
   fonts.fontconfig.enable = true;
 
