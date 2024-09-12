@@ -98,13 +98,13 @@ return {
       '<Plug>(YankyPutBeforeFilter)',
       desc = 'Put before applying a filter',
     },
-    {
-      'lp',
-      function()
-        require('yanky.textobj').last_put()
-      end,
-      { 'o', 'x' },
-      desc = 'also can be used to select last put using lp',
-    },
+    -- {
+    --   'lp', -- slows down l key i.e. move left
+    --   function()
+    --     require('yanky.textobj').last_put()
+    --   end,
+    --   { 'o', 'x' },
+    --   desc = 'also can be used to select last put using lp',
+    -- },
   },
 }
