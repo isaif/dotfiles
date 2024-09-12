@@ -78,9 +78,16 @@ nnoremap(',c', '<cmd>normal yygccp<CR>')
 -- Comment selection and paste it below
 vnoremap(',c', '<cmd>normal ygvgbp<CR>')
 
--- Add empty lines before and after cursor line
+-- Add empty line
+-- above the current line
 nnoremap('gO', "<cmd>call append(line('.') - 1, repeat([''], v:count1))<CR>")
+-- below the current line
 nnoremap('go', "<cmd>call append(line('.'),     repeat([''], v:count1))<CR>")
+-- above and below current line
+nnoremap(
+  'g<Space>',
+  "<cmd>call append(line('.') - 1, repeat([''], v:count1)) | call append(line('.'), repeat([''], v:count1))<CR>"
+)
 
 -- Uppercase a word
 nnoremap(',u', 'vaWUe')
