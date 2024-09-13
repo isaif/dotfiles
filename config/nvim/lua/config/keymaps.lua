@@ -74,9 +74,9 @@ nnoremap('<leader>;', 'q:<up>')
 -- Copy, comment it and then paste
 -- It requires Comment.nvim plugin for commenting
 -- Comment a line and paste it below
-nnoremap(',c', '<cmd>normal yygccp<CR>')
+nnoremap(',y', '<cmd>normal yygccp<CR>')
 -- Comment selection and paste it below
-vnoremap(',c', '<cmd>normal ygvgbp<CR>')
+vnoremap(',y', '<cmd>normal ygvgbp<CR>')
 
 -- Add empty line
 -- above the current line

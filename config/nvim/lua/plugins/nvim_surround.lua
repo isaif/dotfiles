@@ -1,10 +1,43 @@
 return {
   'kylechui/nvim-surround',
   -- event = 'VeryLazy',
-  event = 'CursorHold',
-  config = function()
-    require('nvim-surround').setup({
-      -- Configuration here, or leave empty to use defaults
-    })
-  end,
+  -- event = 'CursorHold',
+  opts = {
+    keymaps = {
+      insert = false,
+      insert_line = false,
+      normal = false,
+      normal_cur = false,
+      normal_line = false,
+      normal_cur_line = false,
+      visual = false,
+      visual_line = false,
+      delete = false,
+      change = false,
+      change_line = false,
+    },
+    aliases = {
+      -- ['a'] = '>',
+      -- making 'b' similar to mini.ai
+      ['b'] = { ')', '}', ']', '>' },
+      -- 'B' is provided by vim/neovim
+      -- ['B'] = '}',
+      -- ['r'] = ']',
+      ['q'] = { '"', "'", '`' },
+      ['s'] = { '}', ']', ')', '>', '"', "'", '`' },
+    },
+  },
+  keys = {
+    { ',s', '<Plug>(nvim-surround-normal)' },
+    -- { 'ySS', '<Plug>(nvim-surround-normal-cur)' },
+    { ',s', '<Plug>(nvim-surround-visual)', mode = 'v' },
+    { ',c', '<Plug>(nvim-surround-change)' },
+    { ',d', '<Plug>(nvim-surround-delete)' },
+    { '(', '<Plug>(nvim-surround-visual)(', mode = 'v' },
+    { '{', '<Plug>(nvim-surround-visual){', mode = 'v' },
+    { '[', '<Plug>(nvim-surround-visual)[', mode = 'v' },
+    { '`', '<Plug>(nvim-surround-visual)`', mode = 'v' },
+    { '"', '<Plug>(nvim-surround-visual)"', mode = 'v' },
+    { "'", "<Plug>(nvim-surround-visual)'", mode = 'v' },
+  },
 }
