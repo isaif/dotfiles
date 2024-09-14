@@ -2,6 +2,30 @@ local opts = function()
   local actions = require('telescope.actions')
   local action_layout = require('telescope.actions.layout')
 
+  -- Go to preview window
+  -- useful for quick operations like yanking
+  -- https://github.com/nvim-telescope/telescope.nvim/issues/2778#issuecomment-2202572413
+  local focus_preview = function(prompt_bufnr)
+    local action_state = require('telescope.actions.state')
+    local picker = action_state.get_current_picker(prompt_bufnr)
+    local prompt_win = picker.prompt_win
+    local previewer = picker.previewer
+    local winid = previewer.state.winid
+    local bufnr = previewer.state.bufnr
+    vim.keymap.set('n', '<f4>', function()
+      vim.cmd(
+        string.format(
+          'noautocmd lua vim.api.nvim_set_current_win(%s)',
+          prompt_win
+        )
+      )
+    end, { buffer = bufnr })
+    vim.cmd(
+      string.format('noautocmd lua vim.api.nvim_set_current_win(%s)', winid)
+    )
+    -- api.nvim_set_current_win(winid)
+  end
+
   return {
     defaults = {
       prompt_prefix = ' ',
@@ -34,9 +58,11 @@ local opts = function()
           -- history navigation for smart_history
           -- ['<C-l>'] = actions.cycle_history_next,
           -- ['<C-h>'] = actions.cycle_history_prev,
+          ['<f4>'] = focus_preview,
         },
         n = {
           ['<C-p>'] = action_layout.toggle_preview,
+          ['<f4>'] = focus_preview,
 
           -- cycle previewer for git commits to show full message
           ['<C-n>'] = actions.cycle_previewers_next,
