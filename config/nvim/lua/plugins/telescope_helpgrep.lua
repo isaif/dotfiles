@@ -25,4 +25,7 @@ return {
     })
     telescope.load_extension('helpgrep')
   end,
+  keys = {
+    { '<leader>tg', '<cmd>Telescope helpgrep<CR>', mode = 'n' },
+  },
 }
