@@ -43,7 +43,8 @@ return {
       -- CTRL-S is mapped in Insert mode to |vim.lsp.buf.signature_help()|
 
       bufmap('grs', '<cmd>Telescope lsp_document_symbols<CR>')
-      bufmap('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+      -- 'K' mapping moved to nvim-ufo plugin mapping
+      -- bufmap('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
       bufmap('gd', '<cmd>Telescope lsp_definitions<cr>')
       bufmap('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
       -- bufmap('gr', '<cmd>Telescope lsp_references<CR>')

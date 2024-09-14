@@ -41,7 +41,20 @@ return {
     vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
     vim.keymap.set('n', 'zm', require('ufo').closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
     vim.keymap.set('n', 'zr', require('ufo').openFoldsExceptKinds)
-    vim.keymap.set('n', 'zp', require('ufo').peekFoldedLinesUnderCursor)
+
+    vim.keymap.set('n', 'K', function()
+      -- Check if the current line is folded
+      -- if vim.fn.foldclosed(vim.fn.line('.')) ~= -1 then
+      if vim.fn.foldclosed(vim.fn.line('.')) ~= -1 then
+        require('ufo').peekFoldedLinesUnderCursor()
+      -- Check if an LSP client is attached
+      elseif #vim.lsp.get_clients({ bufnr = 0 }) > 0 then
+        vim.lsp.buf.hover()
+      else
+        -- Fall back to the default 'K' behavior
+        vim.cmd('normal! K')
+      end
+    end)
 
     -- if IsAvailable('lspconfig') then
     --     -- option 2: nvim lsp as LSP client
