@@ -16,6 +16,7 @@ return {
       change = false,
       change_line = false,
     },
+    move_cursor = 'sticky',
     aliases = {
       -- ['a'] = '>',
       -- making 'b' similar to mini.ai
