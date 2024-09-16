@@ -111,8 +111,4 @@ return {
       }
     end,
   },
-  {
-    'garymjr/nvim-snippets',
-    enabled = false,
-  },
 }
