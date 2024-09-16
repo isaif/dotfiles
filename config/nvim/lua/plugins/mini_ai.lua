@@ -17,7 +17,7 @@ return {
         F = spec_treesitter({ a = '@function.outer', i = '@function.inner' }),
         o = spec_treesitter({
           a = { '@block.outer', '@conditional.outer', '@loop.outer' },
-          i = { '@block.outer', '@conditional.inner', '@loop.inner' },
+          i = { '@block.inner', '@conditional.inner', '@loop.inner' },
         }),
 
         -- current line textobject
