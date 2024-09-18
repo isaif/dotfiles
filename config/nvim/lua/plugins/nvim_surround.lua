@@ -34,9 +34,10 @@ return {
     { ',s', '<Plug>(nvim-surround-visual)', mode = 'v' },
     { ',c', '<Plug>(nvim-surround-change)' },
     { ',d', '<Plug>(nvim-surround-delete)' },
-    { '(', '<Plug>(nvim-surround-visual)(', mode = 'v' },
-    { '{', '<Plug>(nvim-surround-visual){', mode = 'v' },
-    { '[', '<Plug>(nvim-surround-visual)[', mode = 'v' },
+    { ')', '<Plug>(nvim-surround-visual))', mode = 'v' },
+    { '}', '<Plug>(nvim-surround-visual)}', mode = 'v' },
+    -- FIX: single ] not working, need to press ] twice
+    { ']', '<Plug>(nvim-surround-visual)]', mode = 'v' },
     { '`', '<Plug>(nvim-surround-visual)`', mode = 'v' },
     { '"', '<Plug>(nvim-surround-visual)"', mode = 'v' },
     { "'", "<Plug>(nvim-surround-visual)'", mode = 'v' },
