@@ -21,7 +21,6 @@
   qwr (layer-switch qwerty)
   grl (tap-hold $tt $ht grv @lay) ;; tap: grave  hold: layers layer
   th1 (tap-hold $tt $ht esc lctl)
-  th2 (tap-hold $tt $ht spc lsft)
 
   sSft (tap-hold-release $tt $ht s lsft)
   dMet (tap-hold-release $tt $ht d lmet)
