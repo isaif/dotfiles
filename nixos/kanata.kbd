@@ -32,6 +32,20 @@
   vAlt (tap-hold-release $tt $ht v lalt)
   nAlt (tap-hold-release $tt $ht n ralt)
   spcNum (tap-hold-release $tt $ht spc @arrows)
+
+  ;; Like caps-word, but you get to choose the key lists where lsft gets added.
+  ;; First list is capitalized key list i.e. anything in this list will have shift modifier
+  ;; if it had 0-9 then the will give shifted 0-9 output i.e 1 and 2 will be ! and @ respectively
+  ;; Second list is non-terminating key list i.e it won't have shift modifier activated
+  cwc (caps-word-custom-toggle
+    2000
+    (a b c d e f g h i j k l m n o p q r s t u v w x y z)
+    (kp0 kp1 kp2 kp3 kp4 kp5 kp6 kp7 kp8 kp9
+    bspc del up down left right spc 0 1 2 3 4 5 6 7 8 9 Minus rsft lsft)
+  )
+
+  ;; TODO: change esc to another layer switcher
+  tdSft (tap-hold-release $tt $ht (tap-dance $tt (esc @cwc)) lsft)
 )
 
 ;; The first layer defined is the layer that will be active by default when
@@ -43,7 +57,7 @@
   @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   @th1 a    @sSft    @dMet    @fCtl    g    h    @jCtl    @kMet    @lSft    ;    '    ret
-  lsft z    x    c    @vAlt    b    @nAlt    m    ,    .    /    rsft
+  @tdSft z    x    c    @vAlt    b    @nAlt    m    ,    .    /    rsft
   lctl lmet lalt           @spcNum            ralt rmet rctl
 )
 
