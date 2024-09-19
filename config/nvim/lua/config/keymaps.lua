@@ -34,6 +34,10 @@ nnoremap('cP', 'O<ESC>^d$"+p')
 vnoremap('cy', '"+y')
 nnoremap('cy', '"+y')
 
+-- mapping to copy last yank to clipboard register
+-- useful when yanked without cy
+nnoremap('gy', '<cmd>let @+ = @"<CR>')
+
 --##################################################################--
 -- Misc keymaps
 --##################################################################--
