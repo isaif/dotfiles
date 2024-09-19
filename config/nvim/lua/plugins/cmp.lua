@@ -5,27 +5,28 @@ return {
 
   dependencies = {
     'hrsh7th/cmp-nvim-lsp',
-    -- 'hrsh7th/cmp-buffer',
-    -- 'hrsh7th/cmp-path',
 
     'hrsh7th/cmp-nvim-lua',
 
     { 'hrsh7th/cmp-cmdline', event = { 'CmdlineEnter' } },
 
-    -- completion source for all file contents in a directory using ripgrep
-    -- using this in insert mode completion not for searching with / or ?
+    -- Completion source for all file contents in a directory using ripgrep
+    -- Using this in insert mode completion not for searching with / or ?
+    -- It can't handle spaces between words
+    -- Also can't use it for / and ? as it would search whole project
+    -- It has only single word completion unlike cmp-fuzzy-buffer which can complete
+    -- words separated by punctuation
     'lukas-reineke/cmp-rg',
 
-    -- fuzzy for buffer contents
-    -- rg is good but it can't handle spaces between words
-    -- can't use rg for / and ? as it would search whole project
-    -- cmp-buffer is also fuzzy but
+    -- Fuzzy completion for buffer contents
+    -- Depends on fuzzy.nvim (which depends either on fzf or on fzy).
+    -- In / search mode, the plugin will match the input string as is, without parsing out tokens.
+    -- This enables fuzzy search containing, for example, spaces.
+    -- hrsh7th/cmp-buffer is also fuzzy but I will use this
     { 'tzachar/cmp-fuzzy-buffer', dependencies = { 'tzachar/fuzzy.nvim' } },
 
-    -- fuzzy for path and buffer contents
+    -- source for filesystem paths, employing fd and regular expressions to find files.
     { 'tzachar/cmp-fuzzy-path', dependencies = { 'tzachar/fuzzy.nvim' } },
-
-    -- 'kbwo/cmp-yank',
 
     -- provides a source for all the lines in the current buffer.
     -- This is especially useful for C programmers.
@@ -39,10 +40,6 @@ return {
     -- yank history (clipboard history) from yanky.nvim.
     'chrisgrieser/cmp_yanky',
   },
-
-  -- init = function()
-  --   vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
-  -- end,
 
   opts = function()
     local cmp = require('cmp')
@@ -69,21 +66,15 @@ return {
       }),
 
       sources = cmp.config.sources({
-        -- { name = 'yank' },
         { name = 'nvim_lua' },
-
-        -- { name = 'nvim_lsp', max_item_count = 15 },
         { name = 'nvim_lsp' },
-
-        -- { name = 'path' },
         { name = 'fuzzy_path' },
 
-        -- { name = 'buffer', keyword_length = 4 },
-        { name = 'fuzzy_buffer', keyword_length = 4 },
+        { name = 'fuzzy_buffer', keyword_length = 3 },
         {
           name = 'rg',
-          -- Try it when you feel cmp performance is poor
-          -- keyword_length = 3
+          keyword_length = 4,
+          max_item_count = 10,
         },
         { name = 'cmp_yanky' },
         -- { name = 'buffer-lines', keyword_length = 5 },
@@ -102,13 +93,11 @@ return {
             fuzzy_buffer = '[buf]',
             nvim_lsp = '[LSP]',
             nvim_lua = '[api]',
-            -- path = '[path]',
             fuzzy_path = '[path]',
             luasnip = '[snip]',
             rg = '[Rg]',
             cmp_yanky = '[yanky]',
             -- buffer_lines = '[bufL]',
-            -- yank = '[Yank]',
           },
         }),
       },
@@ -121,9 +110,7 @@ return {
     cmp.setup.cmdline(':', {
       mapping = cmp.mapping.preset.cmdline(),
       sources = cmp.config.sources({
-        -- { { name = 'path' } },
         { name = 'fuzzy_path' },
-        -- { { name = 'cmdline', keyword_length = 2 } }
         { name = 'cmdline' },
       }),
     })
@@ -131,8 +118,6 @@ return {
     cmp.setup.cmdline({ '/', '?' }, {
       mapping = cmp.mapping.preset.cmdline(),
       sources = {
-        -- { name = 'buffer', keyword_length = 2 },
-        -- { name = 'buffer' },
         { name = 'fuzzy_buffer' },
       },
     })
