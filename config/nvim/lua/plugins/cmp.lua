@@ -43,6 +43,7 @@ return {
 
   opts = function()
     local cmp = require('cmp')
+    local compare = require('cmp.config.compare')
 
     return {
       auto_brackets = {}, -- configure any filetype to auto add brackets
@@ -68,8 +69,12 @@ return {
       sources = cmp.config.sources({
         { name = 'nvim_lua' },
         { name = 'nvim_lsp' },
-        { name = 'fuzzy_path' },
-
+        {
+          name = 'fuzzy_path',
+          options = {
+            fd_cmd = { 'fd', '-t', 'd', '-t', 'f', '-d', '20', '-p', '-i' },
+          },
+        },
         { name = 'fuzzy_buffer', keyword_length = 3 },
         {
           name = 'rg',
@@ -101,6 +106,22 @@ return {
           },
         }),
       },
+      sorting = {
+        -- necessary for cmp_fuzzy_path else folders and files
+        -- are not merged and shown separately
+        priority_weight = 2,
+        comparators = {
+          require('cmp_fuzzy_path.compare'),
+          compare.offset,
+          compare.exact,
+          compare.score,
+          compare.recently_used,
+          compare.kind,
+          compare.sort_text,
+          compare.length,
+          compare.order,
+        },
+      },
     }
   end,
 
@@ -110,7 +131,12 @@ return {
     cmp.setup.cmdline(':', {
       mapping = cmp.mapping.preset.cmdline(),
       sources = cmp.config.sources({
-        { name = 'fuzzy_path' },
+        {
+          name = 'fuzzy_path',
+          options = {
+            fd_cmd = { 'fd', '-t', 'd', '-t', 'f', '-d', '20', '-p', '-i' },
+          },
+        },
         { name = 'cmdline' },
       }),
     })
