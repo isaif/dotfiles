@@ -38,7 +38,7 @@ return {
     -- lspkind to show symbols in completion menu
     'onsails/lspkind-nvim',
     -- yank history (clipboard history) from yanky.nvim.
-    'chrisgrieser/cmp_yanky',
+    -- 'chrisgrieser/cmp_yanky',
   },
 
   opts = function()
@@ -81,7 +81,7 @@ return {
           keyword_length = 4,
           max_item_count = 10,
         },
-        { name = 'cmp_yanky' },
+        -- { name = 'cmp_yanky' },
         -- { name = 'buffer-lines', keyword_length = 5 },
       }),
 
@@ -101,7 +101,7 @@ return {
             fuzzy_path = '[path]',
             luasnip = '[snip]',
             rg = '[Rg]',
-            cmp_yanky = '[yanky]',
+            -- cmp_yanky = '[yanky]',
             -- buffer_lines = '[bufL]',
           },
         }),
