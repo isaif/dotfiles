@@ -19,6 +19,7 @@
     tree
     htop
     tmux
+    smug # tmux session manager
     neovim
     tree-sitter # optional dependency of neovim
     sqlite
