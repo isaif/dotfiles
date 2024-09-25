@@ -9,9 +9,7 @@ get_session_name_and_path() {
     item_count=$(echo $val | wc -w)
     echo "item_count is $item_count" >> /tmp/zaplog
 
-    if [ $item_count -eq 0 ]; then
-        echo "The string is empty"
-    elif [ $item_count -eq 1 ]; then
+    if [ $item_count -eq 1 ]; then
         # start a new session with given path
         session_path=$(echo "$val" | awk '{print $1}')
         session_name=$(basename "$session_path")
@@ -19,15 +17,15 @@ get_session_name_and_path() {
 
         tmux new-session -ds "$session_name" -c "$session_path"
         tmux switch-client -t "$session_name"
-        # echo "Session creation command executed. Exit code: $?" >> /tmp/zaplog
-
         echo "starting session $session_name with path $session_path" >> /tmp/zaplog
+
     elif [ $item_count -eq 2 ]; then
         # switch session
         session_name=$(echo "$val" | awk '{print $1}')
         session_path=$(echo "$val" | awk '{print $2}')
         tmux switch-client -t "$session_name"
         echo "switching to existing session $session_name" >> /tmp/zaplog
+
     elif [ $item_count -eq 3 ]; then
         # start smug project
         file_path=$(echo "$val" | awk '{print $1}' | sed 's/.yml//' )
@@ -54,13 +52,10 @@ main() {
     local dirs=$(fd . ~/projects ~/experiments ~/nix-config --type d --hidden --follow --exclude .git --exclude .cache)
 
     local selected
-    # local rg_output=$(smug_list.sh)
-    # local rg_command = rg '^root:|^session:' --no-line-number -m 2 ~/.config/smug | sed -n 'N;s/\(.*\):session: \(.*\)\n\1:root: \(.*\)/\1\t\2\t\3/p'
 
     local rg_output=$(rg '^root:|^session:' --no-line-number -m 2 ~/.config/smug | sed -n 'N;s/\(.*\):session: \(.*\)\n\1:root: \(.*\)/\1\t\2\t\3/p')
-    # local rg_output=$(rg_command)
 
-    tmux_running_sessions=$(tmux list-sessions -F "#{session_name}: #{session_path}"  | sed 's/:/\t/')
+    local tmux_running_sessions=$(tmux list-sessions -F "#{session_name}: #{session_path}"  | sed 's/:/\t/')
 
     # Combine directories, sessions, and smug output
     combined_output=$(echo -n -e "$tmux_running_sessions\n$rg_output\n$dirs" | sed "s|$HOME|~|" | awk '!a[$NF]++')
@@ -79,7 +74,6 @@ main() {
     echo "selected is $selected" >> /tmp/zaplog
 
     get_session_name_and_path "$selected"
-    # echo -ne "output is \n$combined_output" >> /tmp/zaplog
 }
 
 main
