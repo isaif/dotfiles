@@ -4,7 +4,7 @@ file_path=""
 session_name=""
 session_path=""
 
-is_tmux_active=$TMUX
+tmux_active=$TMUX
 
 get_session_name_and_path() {
     local val="$1"
@@ -18,14 +18,26 @@ get_session_name_and_path() {
         session_path=$(eval echo "$session_path")
 
         tmux new-session -ds "$session_name" -c "$session_path"
-        tmux switch-client -t "$session_name"
+
+        if [[ -n "$tmux_active" ]]; then
+            tmux switch-client -t "$session_name"
+        else
+            tmux attach-session -d -t "$session_name"
+        fi
+
         echo "starting session $session_name with path $session_path" >> /tmp/zaplog
 
     elif [ $item_count -eq 2 ]; then
         # switch session
         session_name=$(echo "$val" | awk '{print $1}')
         session_path=$(echo "$val" | awk '{print $2}')
-        tmux switch-client -t "$session_name"
+
+        if [[ -n "$tmux_active" ]]; then
+            tmux switch-client -t "$session_name"
+        else
+            tmux attach-session -d -t "$session_name"
+        fi
+
         echo "switching to existing session $session_name" >> /tmp/zaplog
 
     elif [ $item_count -eq 3 ]; then
@@ -62,7 +74,7 @@ main() {
     # Combine directories, sessions, and smug output
     combined_output=$(echo -ne "$tmux_running_sessions\n$rg_output\n$dirs" | sed "s|$HOME|~|" | awk '!a[$NF]++')
 
-    if [[ -n "$is_tmux_active" ]]; then
+    if [[ -n "$tmux_active" ]]; then
         # selected=$(tmux display-popup -E "echo -ne \"$combined_output\" | fzf")
 
         temp_file=$(mktemp)
