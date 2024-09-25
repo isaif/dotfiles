@@ -4,6 +4,8 @@ file_path=""
 session_name=""
 session_path=""
 
+is_tmux_active=$TMUX
+
 get_session_name_and_path() {
     local val="$1"
     item_count=$(echo $val | wc -w)
@@ -58,20 +60,25 @@ main() {
     local tmux_running_sessions=$(tmux list-sessions -F "#{session_name}: #{session_path}"  | sed 's/:/\t/')
 
     # Combine directories, sessions, and smug output
-    combined_output=$(echo -n -e "$tmux_running_sessions\n$rg_output\n$dirs" | sed "s|$HOME|~|" | awk '!a[$NF]++')
+    combined_output=$(echo -ne "$tmux_running_sessions\n$rg_output\n$dirs" | sed "s|$HOME|~|" | awk '!a[$NF]++')
 
+    if [[ -n "$is_tmux_active" ]]; then
+        # selected=$(tmux display-popup -E "echo -ne \"$combined_output\" | fzf")
 
-    if [[ -n "$TMUX" ]]; then
-        selected=$(tmux display-popup -E "echo -ne \"$combined_output\" | fzf")
+        temp_file=$(mktemp)
+        tmux display-popup -E "echo -ne \"$combined_output\" | fzf > $temp_file"
+        selected=$(cat "$temp_file")
+        rm "$temp_file"
+
     else
         selected=$(echo -ne "$combined_output" | fzf)
     fi
 
+    echo "selected is $selected" >> /tmp/zaplog
+
     if [[ -z $selected ]]; then
         exit 0
     fi
-
-    echo "selected is $selected" >> /tmp/zaplog
 
     get_session_name_and_path "$selected"
 }
