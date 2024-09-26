@@ -20,10 +20,12 @@ awful.keyboard.append_global_keybindings({
     awful.client.urgent.jumpto,
     { description = 'jump to urgent client', group = 'client' }
   ),
-  awful.key({ modkey }, 'l', function()
+
+  -- mod1 is Alt
+  awful.key({ modkey, 'Mod1' }, 'l', function()
     awful.tag.incmwfact(0.05)
   end, { description = 'increase master width factor', group = 'layout' }),
-  awful.key({ modkey }, 'h', function()
+  awful.key({ modkey, 'Mod1' }, 'h', function()
     awful.tag.incmwfact(-0.05)
   end, { description = 'decrease master width factor', group = 'layout' }),
 
