@@ -16,7 +16,7 @@ awful.keyboard.append_global_keybindings({
     if client.focus then
       client.focus:raise()
     end
-  end, { description = 'go back', group = 'client' }),
+  end, { description = 'go back to previous client', group = 'client' }),
 
   -- I use only single screen i.e. one monitor
   -- awful.key({ modkey, 'Control' }, 'j', function()

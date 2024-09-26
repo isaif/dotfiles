@@ -29,7 +29,7 @@ awful.keyboard.append_global_keybindings({
     { modkey },
     'u',
     awful.tag.history.restore,
-    { description = 'go back', group = 'tag' }
+    { description = 'go back to previous tag', group = 'tag' }
   ),
 
   awful.key({
