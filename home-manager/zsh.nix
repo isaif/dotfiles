@@ -15,6 +15,14 @@
     initExtra = ''
       bindkey jj vi-cmd-mode 
 
+      tfzf-widget() {
+        BUFFER="tfzf"
+        zle accept-line
+      }
+      zle -N tfzf-widget
+      # Alt+space to run
+      bindkey '^[ ' tfzf-widget
+
       # Powerlevel10k Zsh theme
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
       test -f ~/nix-config/p10k.zsh && source ~/nix-config/p10k.zsh

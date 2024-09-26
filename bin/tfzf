@@ -74,17 +74,7 @@ main() {
     # Combine directories, sessions, and smug output
     combined_output=$(echo -ne "$tmux_running_sessions\n$rg_output\n$dirs" | sed "s|$HOME|~|" | awk '!a[$NF]++')
 
-    if [[ -n "$tmux_active" ]]; then
-        # selected=$(tmux display-popup -E "echo -ne \"$combined_output\" | fzf")
-
-        temp_file=$(mktemp)
-        tmux display-popup -E "echo -ne \"$combined_output\" | fzf > $temp_file"
-        selected=$(cat "$temp_file")
-        rm "$temp_file"
-
-    else
-        selected=$(echo -ne "$combined_output" | fzf)
-    fi
+    selected=$(echo -ne "$combined_output" | fzf)
 
     echo "selected is $selected" >> /tmp/zaplog
 
