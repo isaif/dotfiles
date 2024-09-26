@@ -28,7 +28,7 @@ local confirmQuitmenu = awful.menu({
 awful.keyboard.append_global_keybindings({
   awful.key(
     { modkey },
-    's',
+    '\\',
     hotkeys_popup.show_help,
     { description = 'show help', group = 'awesome' }
   ),
