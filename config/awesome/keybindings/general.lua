@@ -39,7 +39,7 @@ awful.keyboard.append_global_keybindings({
     { description = 'reload awesome', group = 'awesome' }
   ),
 
-  awful.key({ modkey, 'Shift' }, 'c', function()
+  awful.key({ modkey, 'Shift' }, 'x', function()
     confirmQuitmenu:show()
   end, { description = 'confirm Awesomewm exit', group = 'awesome' }),
 
