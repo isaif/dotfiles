@@ -11,6 +11,33 @@ awful.keyboard.append_global_keybindings({
   awful.key({ modkey }, '[', function()
     awful.client.focus.byidx(-1)
   end, { description = 'focus previous by index', group = 'client' }),
+
+  -- By direction client focus
+  awful.key({ modkey }, 'j', function()
+    awful.client.focus.global_bydirection('down')
+    if client.focus then
+      client.focus:raise()
+    end
+  end, { description = 'focus client on bottom', group = 'client' }),
+  awful.key({ modkey }, 'k', function()
+    awful.client.focus.global_bydirection('up')
+    if client.focus then
+      client.focus:raise()
+    end
+  end, { description = 'focus client on top', group = 'client' }),
+  awful.key({ modkey }, 'h', function()
+    awful.client.focus.global_bydirection('left')
+    if client.focus then
+      client.focus:raise()
+    end
+  end, { description = 'focus client on left', group = 'client' }),
+  awful.key({ modkey }, 'l', function()
+    awful.client.focus.global_bydirection('right')
+    if client.focus then
+      client.focus:raise()
+    end
+  end, { description = 'focus client on right', group = 'client' }),
+
   awful.key({ modkey }, 'Tab', function()
     awful.client.focus.history.previous()
     if client.focus then
