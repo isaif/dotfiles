@@ -1,7 +1,7 @@
 local awful = require('awful')
-local helpers = {}
+local M = {}
 
-function helpers.switch(direction)
+function M.switch(direction)
   local s = awful.screen.focused()
   local tags = s.tags
   local next_index = s.selected_tag.index + direction
@@ -15,4 +15,4 @@ function helpers.switch(direction)
   end
 end
 
-return helpers
+return M
