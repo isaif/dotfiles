@@ -46,6 +46,7 @@
     sioyek # pdf reader
 
     workrave
+    libnotify
   ];
 
   home.stateVersion = "24.05";
