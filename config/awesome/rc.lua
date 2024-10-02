@@ -34,6 +34,7 @@ require('keybindings.layout')
 require('keybindings.tags')
 require('keybindings.focus')
 require('keybindings.clients')
+require('keybindings.application')
 --}}}
 
 -- {{{ Rules
