@@ -46,23 +46,23 @@ local function find_client(app_class, tag)
   -- Check if the application is already open on this tag
   for _, c in ipairs(tag:clients()) do
     if c.class == app_class then
-      naughty.notify({
-        title = 'Debug: Found client',
-        text = 'Class: '
-          .. tostring(c.class)
-          .. '\nName: '
-          .. tostring(c.name)
-          .. '\nType: '
-          .. type(c),
-      })
+      -- naughty.notify({
+      --   title = 'Debug: Found client',
+      --   text = 'Class: '
+      --     .. tostring(c.class)
+      --     .. '\nName: '
+      --     .. tostring(c.name)
+      --     .. '\nType: '
+      --     .. type(c),
+      -- })
       return c
     end
   end
   -- Notify only if the app is not found
-  naughty.notify({
-    title = 'Notification',
-    text = app_class .. ' not found' .. 'on tag ' .. tag.index,
-  })
+  -- naughty.notify({
+  --   title = 'Notification',
+  --   text = app_class .. ' not found' .. 'on tag ' .. tag.index,
+  -- })
   return nil
 end
 
@@ -97,13 +97,13 @@ function M.launch_and_toggle(tag_number, app_class, app_command)
   if existing_client then
     existing_client:toggle_tag(current_tag)
 
-    naughty.notify({
-      title = 'only toggle',
-    })
+    -- naughty.notify({
+    --   title = 'only toggle',
+    -- })
   else
-    naughty.notify({
-      title = 'launch and toggle',
-    })
+    -- naughty.notify({
+    --   title = 'launch and toggle',
+    -- })
 
     spawn_on_current_and_add_tag(app_command, tag)
   end

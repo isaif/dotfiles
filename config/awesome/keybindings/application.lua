@@ -10,36 +10,34 @@ local modkey = variables.modkey
 
 -- keybindings for different applications
 awful.keyboard.append_global_keybindings({
-  -- Chrome on tag 8
-  awful.key({ modkey }, 'd', function()
-    -- launch_and_toggle(8, 'Google-chrome', 'google-chrome-stable')
+  -- FIX: this doesn't work if chrome is not already launched in tag 8
+  -- i.e. toggle is working but toggling with launchig is not working
+  awful.key({ modkey, 'Shift' }, 'd', function()
     launch_and_toggle(8, 'Google-chrome', 'google-chrome-stable')
   end, {
     description = 'launch chrome and toggle it on current tag',
-    group = 'custom',
+    group = 'application',
   }),
 
-  awful.key({ modkey, 'Shift' }, 'd', function()
+  awful.key({ modkey }, 'd', function()
     switch_and_launch(8, 'Google-chrome', 'google-chrome-stable')
   end, {
     description = 'switch to tag 8 and launch Chrome if needed',
-    group = 'custom',
+    group = 'application',
+  }),
+
+  awful.key({ modkey, 'Shift' }, 'f', function()
+    launch_and_toggle(9, 'kitty', 'kitty')
+  end, {
+    description = 'launch terminal and toggle it on current tag',
+    group = 'application',
   }),
 
   awful.key({ modkey }, 'f', function()
-    -- launch_and_toggle(8, 'Google-chrome', 'google-chrome-stable')
-    launch_and_toggle(9, 'kitty', 'kitty')
-  end, {
-    description = 'launch kitty and toggle it on current tag',
-    group = 'custom',
-  }),
-
-  -- Terminal on tag 9
-  awful.key({ modkey, 'Shift' }, 'f', function()
     switch_and_launch(9, 'kitty', 'kitty')
   end, {
     description = 'switch to tag 1 and launch Terminal if needed',
-    group = 'custom',
+    group = 'application',
   }),
 
   -- Example: VS Code on tag 2
