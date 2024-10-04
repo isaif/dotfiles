@@ -23,6 +23,7 @@ local options = {
     'vim',
     'yaml',
     'gitignore',
+    'astro',
   },
   -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
   highlight = {

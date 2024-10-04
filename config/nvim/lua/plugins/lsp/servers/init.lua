@@ -8,4 +8,5 @@ return {
   'tailwind',
   'prismals',
   'jsonls',
+  'astro_ls',
 }
