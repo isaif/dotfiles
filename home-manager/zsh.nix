@@ -44,6 +44,7 @@
         "docker-compose"
         "vi-mode"
         "fzf"
+        "direnv"
         # "command-not-found"
         # "history"
       ];

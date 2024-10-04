@@ -25,15 +25,16 @@
     sqlite
     dconf # required by gtk.enable
     xclip # clipboard for copy and paste
+    # devenv # Fast, Declarative, Reproducible, and Composable Developer Environments
+    devbox # devenv alternative
+    direnv # required by devenv and devbox
+    # direnv-nix
 
     # lua language
     lua51Packages.lua
     lua51Packages.luarocks
     lua-language-server # lsp
     stylua # formatter
-
-    nodejs_22
-    python3
 
     # nix language
     nil # lsp
