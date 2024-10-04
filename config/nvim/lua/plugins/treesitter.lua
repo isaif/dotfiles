@@ -22,6 +22,7 @@ local options = {
     'typescript',
     'vim',
     'yaml',
+    'gitignore',
   },
   -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
   highlight = {
