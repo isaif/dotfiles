@@ -8,11 +8,13 @@ local keys = function()
     { '<leader>gt', '<cmd>tab G<CR>' },
     -- { '<leader>gs', '<cmd>Git<CR>' },
     { '<leader>gd', '<cmd>Gdiffsplit<CR>' },
+    { '<leader> gd', '<cmd>tabedit % | Gdiffsplit<CR>' },
     { '<leader>gb', '<cmd>Git blame<CR>' },
 
     -- -v: Verbose, which includes the diff of the changes
     --     in the commit message editor.
     -- -q: Quiet, which suppresses some of the command output.
+
     { '<leader>gc', '<cmd>Git commit -v -q<CR>' },
 
     -- <leader>ga :Git add %:p<CR><CR>
