@@ -7,9 +7,10 @@ return {
   },
   opts = {
     linters_by_ft = {
-      javascript = { 'eslint_d' },
-      javascriptreact = { 'eslint_d' },
-      typescriptreact = { 'eslint_d' },
+      javascript = { 'eslint' },
+      javascriptreact = { 'eslint' },
+      typescriptreact = { 'eslint' },
+      astro = { 'eslint' },
     },
   },
   config = function()
@@ -23,7 +24,7 @@ return {
 
         -- You can call `try_lint` with a linter name or a list of names to always
         -- run specific linters, independent of the `linters_by_ft` configuration
-        require('lint').try_lint('cspell')
+        -- require('lint').try_lint('cspell')
       end,
     })
   end,

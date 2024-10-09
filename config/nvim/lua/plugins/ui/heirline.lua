@@ -280,6 +280,23 @@ return {
           return 'TabLineSel'
         end
       end,
+      on_click = {
+
+        minwid = function()
+          -- return vim.api.nvim_get_current_win()
+          return vim.api.nvim_get_current_tabpage()
+          -- return 2
+        end,
+
+        callback = function(_, minwid)
+          -- local tabpage = minwid
+          -- print(vim.inspect(tabpage))
+          print(minwid)
+          vim.api.nvim_set_current_tabpage(minwid)
+        end,
+        name = 'heirline_tabpage_callback',
+        -- update = true,
+      },
     }
 
     local TabPages = {

@@ -7,6 +7,7 @@ local options = {
     'c',
     'vimdoc',
     'html',
+    'css',
     'javascript',
     'json',
     'jsonc',

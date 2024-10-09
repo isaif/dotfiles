@@ -73,12 +73,17 @@ return {
         end
 
         local modified = vim.bo[props.buf].modified and 'bold,italic' or 'bold'
+        -- local hl_nontext = vim.api.nvim_get_hl_by_name('NonText', true)
+        -- local hl_nontext =
+        --   vim.print(vim.api.nvim_get_hl(0, { name = 'NonText' }))
+        -- local hl_normal = vim.api.nvim_get_hl(0, { name = 'Normal' })
 
         local buffer = {
           { maximize_status() },
           { get_diagnostic_label(props) },
           { get_git_diff(props) },
           { ft_icon, guifg = ft_color },
+          -- { is_git_file, guifg = hl_normal },
           { is_git_file },
           { filename, gui = modified },
         }

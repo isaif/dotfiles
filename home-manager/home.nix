@@ -29,6 +29,12 @@
     devbox # devenv alternative
     direnv # required by devenv and devbox
     # direnv-nix
+    gh # GitHub CLI tool
+
+    vscode-fhs # Wrapped variant of vscode which launches in a FHS compatible environment
+    zed-editor # High-performance, multiplayer code editor from the creators of Atom and Tree-sitter
+
+    qutebrowser # Keyboard-focused browser with a minimal GUI
 
     # lua language
     lua51Packages.lua

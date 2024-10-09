@@ -31,6 +31,15 @@ in
       };
     };
     displayManager.defaultSession = "none+awesome";
+    # dbus.enable = true;
+    # gnome.gnome-keyring.enable = true;
   };
+
+  # security.pam.services = {
+  #   login.enableGnomeKeyring = true;
+  #   passwd.enableGnomeKeyring = true;
+  #   startx.enableGnomeKeyring = true;
+  # };
+
 
 }

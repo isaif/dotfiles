@@ -76,6 +76,9 @@
     kanata
     gnumake
     gcc
+    gnome-keyring
+    seahorse
+    libsecret
   ];
 
 
@@ -103,6 +106,14 @@
   # List services that you want to enable:
   services.udisks2.enable = true;
 
+  # dbus.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  # security.pam.services.login.enableGnomeKeyring = true;
+  security.pam.services = {
+    login.enableGnomeKeyring = true;
+    passwd.enableGnomeKeyring = true;
+    startx.enableGnomeKeyring = true;
+  };
 
   # rtkit is optional but recommended
   security.rtkit.enable = true;

@@ -39,6 +39,10 @@ return {
       -- This one is cool cause if you have dynamic snippets, it updates as you type!
       updateevents = 'TextChanged,TextChangedI',
 
+      -- `cut_selection_keys`: Mapping for populating `TM_SELECTED_TEXT` and related
+      -- variables (not set by default). See |luasnip-selection| for more infos.
+      -- store_selection_keys = '<Tab>',
+
       -- Autosnippets:
       enable_autosnippets = true,
 
