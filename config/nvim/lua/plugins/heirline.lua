@@ -157,6 +157,8 @@ return {
           return '[Fugitive]'
         elseif filetype == 'TelescopePrompt' then
           return '[Telescope]'
+        elseif filetype == 'fzf' then
+          return '[Fzf]'
         elseif is_git_index_file then
           return '[.git] ' .. string.sub(filename, is_git_index_file + 9)
         elseif filename == '' then
