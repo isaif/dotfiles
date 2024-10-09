@@ -10,6 +10,17 @@ local modkey = variables.modkey
 
 -- keybindings for different applications
 awful.keyboard.append_global_keybindings({
+  awful.key({ modkey }, 'g', function()
+    local screen = awful.screen.focused()
+    local tag = screen.tags[1]
+    if tag then
+      tag:view_only()
+    end
+  end, {
+    description = 'Go to home tag i.e. first tag',
+    group = 'application',
+  }),
+
   -- FIX: this doesn't work if chrome is not already launched in tag 8
   -- i.e. toggle is working but toggling with launchig is not working
   awful.key({ modkey, 'Shift' }, 'd', function()
