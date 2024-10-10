@@ -15,7 +15,7 @@ local keys = function()
     --     in the commit message editor.
     -- -q: Quiet, which suppresses some of the command output.
 
-    { '<leader>gc', '<cmd>Git commit -v -q<CR>' },
+    { '<leader>gc', '<cmd>tab Git commit -v -q<CR>' },
 
     -- <leader>ga :Git add %:p<CR><CR>
     -- <leader>gs :Git<CR>
